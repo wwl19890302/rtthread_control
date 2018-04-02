@@ -50,3 +50,4 @@
 .\build\application.o: ..\..\include\rtm.h
 .\build\application.o: ..\..\include\rtthread.h
 .\build\application.o: drivers\led.h
+.\build\application.o: drivers\ds1302.h

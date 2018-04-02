@@ -429,6 +429,13 @@
           </Files>
           <Files>
             <File>
+              <FileName>ds1302.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>drivers\ds1302.c</FilePath>
+            </File>
+          </Files>
+          <Files>
+            <File>
               <FileName>usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>drivers\usart.c</FilePath>

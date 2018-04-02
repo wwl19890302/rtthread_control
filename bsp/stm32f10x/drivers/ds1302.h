@@ -18,6 +18,7 @@
 #define __DS1302_H__
 
 #include<rtthread.h>
+#include<stm32f10x.h>
 
 /* RAG ADDR*/
 #define DS1302_RDSEC        0X81
@@ -58,18 +59,33 @@ typedef struct
     uint8_t year;
 }TIME_TypeDef;
 
+/*  IO CONFIG   */
+#define DS1302_PORT GPIOB
+#define DS1302_SCK  GPIO_Pin_6
+#define DS1302_SDA  GPIO_Pin_7
+#define DS1302_CE   GPIO_Pin_5
 
+#define Clr_sclk()  (GPIO_ResetBits(DS1302_PORT,DS1302_SCK))
+#define Set_sclk()  (GPIO_SetBits(DS1302_PORT,DS1302_SCK))
 
+#define Clr_sda()   (GPIO_ResetBits(DS1302_PORT,DS1302_SDA))
+#define Set_sda()   (GPIO_SetBits(DS1302_PORT,DS1302_SDA))
 
+#define DI_ce()   (GPIO_ResetBits(DS1302_PORT,DS1302_CE))
+#define EN_ce()   (GPIO_SetBits(DS1302_PORT,DS1302_CE))
 
+#define Read_sda()  (GPIO_ReadInputDataBit(DS1302_PORT,DS1302_SDA))
 
+extern  uint8_t rtc_init[8];
+extern  uint8_t u8time[8];
 
-
-
-
-
-
-
+void DS1302_GPIO_Init(void);
+void DS1302_writebyte(uint8_t dat);
+void DS1302_write(uint8_t addr, uint8_t dat);
+uint8_t DS1302_readbyte(uint8_t addr);
+void DS1302_settime(uint8_t time[8]);
+void DS1302_readtime(void);
+int rt_ds1302_init(void);
 
 #endif
 

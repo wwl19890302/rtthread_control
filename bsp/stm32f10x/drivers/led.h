@@ -9,7 +9,7 @@
  *
  * Change Logs:
  * Date           Author       Notes
- * 2009-01-05     Bernard      the first version
+ * 2009-01-05     mgcheng      the first version
  */
 
 #ifndef __LED_H__

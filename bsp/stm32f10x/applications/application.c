@@ -37,6 +37,7 @@
 #endif
 
 #include "led.h"
+#include "ds1302.h"
 
 #ifdef RT_USING_RTGUI
 rt_bool_t cali_setup(void)
@@ -110,6 +111,7 @@ int rt_application_init(void)
 
     /* init led thread */
     rt_led_init();
+    rt_ds1302_init();
 
 #if (RT_THREAD_PRIORITY_MAX == 32)
     init_thread = rt_thread_create("init",
