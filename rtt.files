@@ -3488,3 +3488,5 @@ README_zh.md
 bsp/stm32f10x/drivers/ds1302.h
 bsp/stm32f10x/drivers/ds1302.h
 bsp/stm32f10x/drivers/ds1302.c
+bsp/stm32f10x/drivers/ds18b20.c
+bsp/stm32f10x/drivers/ds18b20.h

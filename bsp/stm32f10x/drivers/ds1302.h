@@ -64,6 +64,7 @@ typedef struct
 #define DS1302_SCK  GPIO_Pin_6
 #define DS1302_SDA  GPIO_Pin_7
 #define DS1302_CE   GPIO_Pin_5
+#define DS1302_RCC  RCC_APB2Periph_GPIOB
 
 #define Clr_sclk()  (GPIO_ResetBits(DS1302_PORT,DS1302_SCK))
 #define Set_sclk()  (GPIO_SetBits(DS1302_PORT,DS1302_SCK))

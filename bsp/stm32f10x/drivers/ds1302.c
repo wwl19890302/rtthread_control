@@ -27,7 +27,7 @@ static struct rt_thread ds1302_thread;
 void DS1302_GPIO_Init(void)
 {
     GPIO_InitTypeDef    GPIO_InitStructure;
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,ENABLE);
+    RCC_APB2PeriphClockCmd(DS1302_RCC,ENABLE);
 
     GPIO_InitStructure.GPIO_Pin = DS1302_SCK | DS1302_CE;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
