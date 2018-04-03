@@ -171,6 +171,7 @@ void SysTick_Handler(void)
  */
 
 #include "gpio.h"
+#include "spi_flash_w25qxx.h"
 void rt_hw_board_init(void)
 {
     /* NVIC Configuration */
@@ -187,6 +188,9 @@ void rt_hw_board_init(void)
 
     rt_hw_usart_init();
     rt_console_set_device(RT_CONSOLE_DEVICE_NAME);
+
+//     rt_spi_bus_device_init(spi1,"SPI1");
+    w25qxx_init("w25q64", "SPI1");
 
 #ifdef RT_USING_COMPONENTS_INIT
     rt_components_board_init();

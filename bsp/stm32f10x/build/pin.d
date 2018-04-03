@@ -28,10 +28,11 @@
 .\build\pin.o: ..\..\components\drivers\include\ipc/pipe.h
 .\build\pin.o: ..\..\components\drivers\include\rtdevice.h
 .\build\pin.o: ..\..\components\drivers\include\ipc/poll.h
+.\build\pin.o: ..\..\components\drivers\include\drivers/spi.h
+.\build\pin.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\pin.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\pin.o: ..\..\components\drivers\include\drivers/pin.h
 .\build\pin.o: ..\..\components\finsh\finsh.h
 .\build\pin.o: D:\Keil\ARM\ARMCC\bin\..\include\stdio.h
 .\build\pin.o: D:\Keil\ARM\ARMCC\bin\..\include\ctype.h
-.\build\pin.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\pin.o: D:\Keil\ARM\ARMCC\bin\..\include\string.h

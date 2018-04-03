@@ -28,5 +28,7 @@
 .\build\completion.o: ..\..\components\drivers\include\ipc/pipe.h
 .\build\completion.o: ..\..\components\drivers\include\rtdevice.h
 .\build\completion.o: ..\..\components\drivers\include\ipc/poll.h
+.\build\completion.o: ..\..\components\drivers\include\drivers/spi.h
+.\build\completion.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\completion.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\completion.o: ..\..\components\drivers\include\drivers/pin.h

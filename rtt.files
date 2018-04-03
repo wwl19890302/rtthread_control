@@ -3490,3 +3490,7 @@ bsp/stm32f10x/drivers/ds1302.h
 bsp/stm32f10x/drivers/ds1302.c
 bsp/stm32f10x/drivers/ds18b20.c
 bsp/stm32f10x/drivers/ds18b20.h
+bsp/stm32f10x/drivers/adc.c
+bsp/stm32f10x/drivers/adc.h
+bsp/stm32f10x/drivers/w25q64.c
+bsp/stm32f10x/drivers/w25q64.h

@@ -28,5 +28,7 @@
 .\build\workqueue.o: ..\..\components\drivers\include\ipc/pipe.h
 .\build\workqueue.o: ..\..\components\drivers\include\rtdevice.h
 .\build\workqueue.o: ..\..\components\drivers\include\ipc/poll.h
+.\build\workqueue.o: ..\..\components\drivers\include\drivers/spi.h
+.\build\workqueue.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\workqueue.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\workqueue.o: ..\..\components\drivers\include\drivers/pin.h

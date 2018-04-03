@@ -28,5 +28,7 @@
 .\build\pipe.o: ..\..\components\drivers\include\ipc/pipe.h
 .\build\pipe.o: ..\..\components\drivers\include\rtdevice.h
 .\build\pipe.o: ..\..\components\drivers\include\ipc/poll.h
+.\build\pipe.o: ..\..\components\drivers\include\drivers/spi.h
+.\build\pipe.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\pipe.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\pipe.o: ..\..\components\drivers\include\drivers/pin.h

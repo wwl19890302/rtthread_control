@@ -28,6 +28,8 @@
 .\build\gpio.o: ..\..\components\drivers\include\ipc/pipe.h
 .\build\gpio.o: ..\..\components\drivers\include\rtdevice.h
 .\build\gpio.o: ..\..\components\drivers\include\ipc/poll.h
+.\build\gpio.o: ..\..\components\drivers\include\drivers/spi.h
+.\build\gpio.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\gpio.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\gpio.o: ..\..\components\drivers\include\drivers/pin.h
 .\build\gpio.o: drivers\board.h

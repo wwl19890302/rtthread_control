@@ -60,5 +60,7 @@
 .\build\usart.o: ..\..\components\drivers\include\ipc/pipe.h
 .\build\usart.o: ..\..\components\drivers\include\rtdevice.h
 .\build\usart.o: ..\..\components\drivers\include\ipc/poll.h
+.\build\usart.o: ..\..\components\drivers\include\drivers/spi.h
+.\build\usart.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\usart.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\usart.o: ..\..\components\drivers\include\drivers/pin.h

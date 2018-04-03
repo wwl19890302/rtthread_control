@@ -82,6 +82,10 @@
 
 #define RT_USING_PIN
 
+#define RT_USING_SPI
+
+#define RT_USING_W25QXX
+
 //#define RT_USING_CAN
 
 #define RT_CAN_USING_BUS_HOOK

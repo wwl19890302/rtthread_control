@@ -58,10 +58,11 @@
 .\build\led.o: ..\..\components\drivers\include\ipc/pipe.h
 .\build\led.o: ..\..\components\drivers\include\rtdevice.h
 .\build\led.o: ..\..\components\drivers\include\ipc/poll.h
+.\build\led.o: ..\..\components\drivers\include\drivers/spi.h
+.\build\led.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\led.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\led.o: ..\..\components\drivers\include\drivers/pin.h
 .\build\led.o: ..\..\components\finsh\finsh.h
 .\build\led.o: D:\Keil\ARM\ARMCC\bin\..\include\stdio.h
 .\build\led.o: D:\Keil\ARM\ARMCC\bin\..\include\ctype.h
-.\build\led.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\led.o: D:\Keil\ARM\ARMCC\bin\..\include\string.h

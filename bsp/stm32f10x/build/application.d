@@ -51,3 +51,5 @@
 .\build\application.o: ..\..\include\rtthread.h
 .\build\application.o: drivers\led.h
 .\build\application.o: drivers\ds1302.h
+.\build\application.o: drivers\ds18b20.h
+.\build\application.o: drivers\adc.h

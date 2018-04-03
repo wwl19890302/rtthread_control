@@ -14,5 +14,6 @@ void    DS18B20_reset(void);
 void    DS18B20_Searchrom(void);
 void    DS18B20_writebyte(uint8_t dat);
 float   DS18B20_gettemp(uint8_t i);
+int     rt_ds18b20_init(void);
 
 #endif

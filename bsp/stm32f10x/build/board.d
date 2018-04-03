@@ -52,3 +52,4 @@
 .\build\board.o: drivers\board.h
 .\build\board.o: drivers\usart.h
 .\build\board.o: drivers\gpio.h
+.\build\board.o: ..\..\components\drivers\spi\spi_flash_w25qxx.h

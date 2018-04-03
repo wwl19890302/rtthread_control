@@ -28,6 +28,8 @@
 .\build\serial.o: ..\..\components\drivers\include\ipc/pipe.h
 .\build\serial.o: ..\..\components\drivers\include\rtdevice.h
 .\build\serial.o: ..\..\components\drivers\include\ipc/poll.h
+.\build\serial.o: ..\..\components\drivers\include\drivers/spi.h
+.\build\serial.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\serial.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\serial.o: ..\..\components\drivers\include\drivers/pin.h
 .\build\serial.o: ..\..\include\rtdbg.h

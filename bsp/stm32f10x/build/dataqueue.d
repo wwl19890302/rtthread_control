@@ -27,6 +27,8 @@
 .\build\dataqueue.o: ..\..\components\drivers\include\ipc/pipe.h
 .\build\dataqueue.o: ..\..\components\drivers\include\rtdevice.h
 .\build\dataqueue.o: ..\..\components\drivers\include\ipc/poll.h
+.\build\dataqueue.o: ..\..\components\drivers\include\drivers/spi.h
+.\build\dataqueue.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\dataqueue.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\dataqueue.o: ..\..\components\drivers\include\drivers/pin.h
 .\build\dataqueue.o: ..\..\include\rthw.h

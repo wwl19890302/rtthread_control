@@ -27,6 +27,8 @@
 .\build\ringbuffer.o: ..\..\components\drivers\include\ipc/pipe.h
 .\build\ringbuffer.o: ..\..\components\drivers\include\rtdevice.h
 .\build\ringbuffer.o: ..\..\components\drivers\include\ipc/poll.h
+.\build\ringbuffer.o: ..\..\components\drivers\include\drivers/spi.h
+.\build\ringbuffer.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\ringbuffer.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\ringbuffer.o: ..\..\components\drivers\include\drivers/pin.h
 .\build\ringbuffer.o: D:\Keil\ARM\ARMCC\bin\..\include\string.h
