@@ -83,7 +83,9 @@
 #define RT_USING_PIN
 
 #define RT_USING_SPI
+#define RT_USING_SPI1
 
+#define RT_USING_SPI_FLASH
 #define RT_USING_W25QXX
 
 //#define RT_USING_CAN

@@ -18,6 +18,12 @@ usart.c
 if GetDepend(['RT_USING_PIN']):
     src += ['gpio.c']
 
+if GetDepend(['RT_USING_SPI']):
+    src += ['rt_stm32f10x_spi.c']
+
+if GetDepend(['RT_USING_W25QXX']):
+    src += ['rt_spi_flash_device.c','w25q64.c']
+
 # add canbus driver.
 if GetDepend('RT_USING_CAN'):
     src += ['bxcan.c']

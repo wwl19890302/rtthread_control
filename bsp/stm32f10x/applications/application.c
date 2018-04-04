@@ -60,6 +60,10 @@ void cali_store(struct calibration_data *data)
 
 void rt_init_thread_entry(void* parameter)
 {
+
+     extern void rt_spi_flash_device_init(void);
+     extern void spi_flash_test(void);
+
 #ifdef RT_USING_COMPONENTS_INIT
     /* initialization RT-Thread Components */
     rt_components_init();
@@ -75,6 +79,9 @@ void rt_init_thread_entry(void* parameter)
     else
         rt_kprintf("File System initialzation failed!\n");
 #endif  /* RT_USING_DFS */
+
+    rt_spi_flash_device_init();
+    spi_flash_test();
 
 #ifdef RT_USING_RTGUI
     {
@@ -111,11 +118,13 @@ int rt_application_init(void)
 {
     rt_thread_t init_thread;
 
+
     /* init led thread */
     rt_led_init();
     rt_ds1302_init();
     rt_ds18b20_init();
     rt_adc_init();
+
 
 #if (RT_THREAD_PRIORITY_MAX == 32)
     init_thread = rt_thread_create("init",
