@@ -81,7 +81,7 @@ void rt_init_thread_entry(void* parameter)
 #endif  /* RT_USING_DFS */
 
     rt_spi_flash_device_init();
-    spi_flash_test();
+    
 
 #ifdef RT_USING_RTGUI
     {

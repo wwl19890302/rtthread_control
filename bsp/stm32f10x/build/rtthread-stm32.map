@@ -6,7 +6,6 @@ Section Cross References
 
     application.o(.text) refers to components.o(.text) for rt_components_init
     application.o(.text) refers to rt_spi_flash_device.o(.text) for rt_spi_flash_device_init
-    application.o(.text) refers to w25q64.o(.text) for spi_flash_test
     application.o(.text) refers to led.o(.text) for rt_led_init
     application.o(.text) refers to ds1302.o(.text) for rt_ds1302_init
     application.o(.text) refers to ds18b20.o(.text) for rt_ds18b20_init
@@ -70,6 +69,7 @@ Section Cross References
     adc.o(.text) refers to d2f.o(x$fpl$d2f) for __aeabi_d2f
     adc.o(.text) refers to noretval__2sprintf.o(.text) for __2sprintf
     adc.o(.text) refers to kservice.o(.text) for rt_kprintf
+    adc.o(.text) refers to w25q64.o(.text) for spi_flash_test
     adc.o(.text) refers to adc.o(.bss) for adc_stack
     usart.o(.text) refers to kservice.o(.text) for rt_assert_handler
     usart.o(.text) refers to stm32f10x_usart.o(.text) for USART_Init
@@ -110,8 +110,10 @@ Section Cross References
     rt_spi_flash_device.o(.text) refers to rt_spi_flash_device.o(.bss) for stm32_spi
     rt_spi_flash_device.o(.text) refers to rt_spi_flash_device.o(.data) for spi_cs
     rt_spi_flash_device.o(.rti_fn.3) refers to rt_spi_flash_device.o(.text) for rt_hw_spi_init
+    w25q64.o(.text) refers to rt_memcpy_w.o(.text) for __aeabi_memcpy4
     w25q64.o(.text) refers to device.o(.text) for rt_device_find
     w25q64.o(.text) refers to kservice.o(.text) for rt_kprintf
+    w25q64.o(.text) refers to w25q64.o(.constdata) for .constdata
     system_stm32f10x.o(.text) refers to system_stm32f10x.o(.data) for SystemCoreClock
     stm32f10x_rcc.o(.text) refers to startup.o(.text) for assert_failed
     stm32f10x_rcc.o(.text) refers to stm32f10x_rcc.o(.data) for APBAHBPrescTable
@@ -752,19 +754,19 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/dczerorl2.s                0x00000000   Number         0  __dczerorl2.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry4.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry2.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry4.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_locale_intlibspace.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_locale.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_ctype_table.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_locale_intlibspace.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_errno_addr_intlibspace.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_errno_addr.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
@@ -775,71 +777,71 @@ Image Symbol Table
     ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
-    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
     ../clib/bigflt.c                         0x00000000   Number         0  bigflt0.o ABSOLUTE
     ../clib/btod.s                           0x00000000   Number         0  btod.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
     ../clib/locale.s                         0x00000000   Number         0  lc_numeric_c.o ABSOLUTE
     ../clib/locale.s                         0x00000000   Number         0  lc_ctype_c.o ABSOLUTE
     ../clib/longlong.s                       0x00000000   Number         0  lludiv10.o ABSOLUTE
-    ../clib/memcpset.s                       0x00000000   Number         0  strncpy.o ABSOLUTE
-    ../clib/memcpset.s                       0x00000000   Number         0  rt_memcpy_v6.o ABSOLUTE
-    ../clib/memcpset.s                       0x00000000   Number         0  rt_memcpy_w.o ABSOLUTE
-    ../clib/memcpset.s                       0x00000000   Number         0  rt_memclr.o ABSOLUTE
     ../clib/memcpset.s                       0x00000000   Number         0  rt_memclr_w.o ABSOLUTE
+    ../clib/memcpset.s                       0x00000000   Number         0  rt_memclr.o ABSOLUTE
+    ../clib/memcpset.s                       0x00000000   Number         0  rt_memcpy_w.o ABSOLUTE
+    ../clib/memcpset.s                       0x00000000   Number         0  rt_memcpy_v6.o ABSOLUTE
+    ../clib/memcpset.s                       0x00000000   Number         0  strncpy.o ABSOLUTE
     ../clib/memcpset.s                       0x00000000   Number         0  strcmpv7m.o ABSOLUTE
     ../clib/misc.s                           0x00000000   Number         0  printf_stubs.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  noretval__2sprintf.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  __printf.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  __printf_flags.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  __printf_nopercent.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  _printf_fp_infnan.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  __printf_ss.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  __printf_flags_ss.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  __printf_wp.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  __printf_flags_wp.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  __2sprintf.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  __printf_ss_wp.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  __printf_nopercent.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  __printf_flags_ss_wp.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  _printf_fp_dec.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  _printf_char_common.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  _sputc.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  __printf_flags.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  __printf.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  noretval__2sprintf.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  _printf_fp_infnan.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  __2sprintf.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  __printf_flags_ss.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  _printf_fp_dec.o ABSOLUTE
     ../clib/printf_percent.s                 0x00000000   Number         0  _printf_percent.o ABSOLUTE
-    ../clib/printf_percent.s                 0x00000000   Number         0  _printf_f.o ABSOLUTE
     ../clib/printf_percent.s                 0x00000000   Number         0  _printf_percent_end.o ABSOLUTE
-    ../clib/scanf.c                          0x00000000   Number         0  _chval.o ABSOLUTE
-    ../clib/scanf.c                          0x00000000   Number         0  atoi.o ABSOLUTE
-    ../clib/scanf.c                          0x00000000   Number         0  strtol.o ABSOLUTE
+    ../clib/printf_percent.s                 0x00000000   Number         0  _printf_f.o ABSOLUTE
     ../clib/scanf.c                          0x00000000   Number         0  _strtoul.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  _chval.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  strtol.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  atoi.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
-    ../clib/string.c                         0x00000000   Number         0  memcmp.o ABSOLUTE
     ../clib/string.c                         0x00000000   Number         0  strncmp.o ABSOLUTE
     ../clib/string.c                         0x00000000   Number         0  strlen.o ABSOLUTE
+    ../clib/string.c                         0x00000000   Number         0  memcmp.o ABSOLUTE
     ../fplib/d2f.s                           0x00000000   Number         0  d2f.o ABSOLUTE
     ../fplib/dmul.s                          0x00000000   Number         0  dmul.o ABSOLUTE
     ../fplib/dnaninf.s                       0x00000000   Number         0  dnaninf.o ABSOLUTE
@@ -1024,18 +1026,18 @@ Image Symbol Table
     .ARM.Collect$$rtexit$$00000004           0x0800022a   Section        6  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
     .emb_text                                0x08000230   Section       16  cpuport.o(.emb_text)
     .text                                    0x08000240   Section        0  application.o(.text)
-    .text                                    0x08000290   Section        0  startup.o(.text)
-    .text                                    0x08000340   Section        0  board.o(.text)
-    .text                                    0x080003d4   Section        0  stm32f10x_it.o(.text)
-    .text                                    0x080003ec   Section        0  led.o(.text)
-    led_thread_entry                         0x0800044f   Thumb Code    42  led.o(.text)
-    .text                                    0x0800053c   Section        0  ds1302.o(.text)
-    delaynop                                 0x0800053d   Thumb Code     2  ds1302.o(.text)
-    ds1302_thread_entry                      0x08000793   Thumb Code    18  ds1302.o(.text)
-    .text                                    0x08000844   Section        0  ds18b20.o(.text)
-    ds18b20_thread_entry                     0x08000c5b   Thumb Code   172  ds18b20.o(.text)
-    .text                                    0x08000dcc   Section        0  adc.o(.text)
-    adc_thread_entry                         0x08000ead   Thumb Code    88  adc.o(.text)
+    .text                                    0x0800028c   Section        0  startup.o(.text)
+    .text                                    0x0800033c   Section        0  board.o(.text)
+    .text                                    0x080003d0   Section        0  stm32f10x_it.o(.text)
+    .text                                    0x080003e8   Section        0  led.o(.text)
+    led_thread_entry                         0x0800044b   Thumb Code    42  led.o(.text)
+    .text                                    0x08000538   Section        0  ds1302.o(.text)
+    delaynop                                 0x08000539   Thumb Code     2  ds1302.o(.text)
+    ds1302_thread_entry                      0x0800078f   Thumb Code    18  ds1302.o(.text)
+    .text                                    0x08000840   Section        0  ds18b20.o(.text)
+    ds18b20_thread_entry                     0x08000c57   Thumb Code   172  ds18b20.o(.text)
+    .text                                    0x08000dc8   Section        0  adc.o(.text)
+    adc_thread_entry                         0x08000ea9   Thumb Code    92  adc.o(.text)
     .text                                    0x08000f8c   Section        0  usart.o(.text)
     stm32_configure                          0x08000f8d   Thumb Code   190  usart.o(.text)
     DMA_Configuration                        0x0800104b   Thumb Code   174  usart.o(.text)
@@ -1300,193 +1302,194 @@ Image Symbol Table
     pins                                     0x080139dc   Data        1040  gpio.o(.constdata)
     pin_irq_map                              0x08013dec   Data         192  gpio.o(.constdata)
     _stm32_pin_ops                           0x08013eac   Data          24  gpio.o(.constdata)
-    .constdata                               0x08013ec4   Section      168  device.o(.constdata)
-    __FUNCTION__                             0x08013ec4   Data          21  device.o(.constdata)
-    __FUNCTION__                             0x08013ed9   Data          15  device.o(.constdata)
-    __FUNCTION__                             0x08013ee8   Data          15  device.o(.constdata)
-    __FUNCTION__                             0x08013ef7   Data          16  device.o(.constdata)
-    __FUNCTION__                             0x08013f07   Data          15  device.o(.constdata)
-    __FUNCTION__                             0x08013f16   Data          16  device.o(.constdata)
-    __FUNCTION__                             0x08013f26   Data          18  device.o(.constdata)
-    __FUNCTION__                             0x08013f38   Data          26  device.o(.constdata)
-    __FUNCTION__                             0x08013f52   Data          26  device.o(.constdata)
-    .constdata                               0x08013f6c   Section       22  idle.o(.constdata)
-    __FUNCTION__                             0x08013f6c   Data          22  idle.o(.constdata)
-    .constdata                               0x08013f82   Section      471  ipc.o(.constdata)
-    __FUNCTION__                             0x08013f82   Data          12  ipc.o(.constdata)
-    __FUNCTION__                             0x08013f8e   Data          14  ipc.o(.constdata)
-    __FUNCTION__                             0x08013f9c   Data          14  ipc.o(.constdata)
-    __FUNCTION__                             0x08013faa   Data          14  ipc.o(.constdata)
-    __FUNCTION__                             0x08013fb8   Data          12  ipc.o(.constdata)
-    __FUNCTION__                             0x08013fc4   Data          15  ipc.o(.constdata)
-    __FUNCTION__                             0x08013fd3   Data          14  ipc.o(.constdata)
-    __FUNCTION__                             0x08013fe1   Data          16  ipc.o(.constdata)
-    __FUNCTION__                             0x08013ff1   Data          16  ipc.o(.constdata)
-    __FUNCTION__                             0x08014001   Data          16  ipc.o(.constdata)
-    __FUNCTION__                             0x08014011   Data          14  ipc.o(.constdata)
-    __FUNCTION__                             0x0801401f   Data          17  ipc.o(.constdata)
-    __FUNCTION__                             0x08014030   Data          14  ipc.o(.constdata)
-    __FUNCTION__                             0x0801403e   Data          16  ipc.o(.constdata)
-    __FUNCTION__                             0x0801404e   Data          16  ipc.o(.constdata)
-    __FUNCTION__                             0x0801405e   Data          16  ipc.o(.constdata)
-    __FUNCTION__                             0x0801406e   Data          14  ipc.o(.constdata)
-    __FUNCTION__                             0x0801407c   Data          14  ipc.o(.constdata)
-    __FUNCTION__                             0x0801408a   Data          17  ipc.o(.constdata)
-    __FUNCTION__                             0x0801409b   Data          11  ipc.o(.constdata)
-    __FUNCTION__                             0x080140a6   Data          13  ipc.o(.constdata)
-    __FUNCTION__                             0x080140b3   Data          13  ipc.o(.constdata)
-    __FUNCTION__                             0x080140c0   Data          13  ipc.o(.constdata)
-    __FUNCTION__                             0x080140cd   Data          16  ipc.o(.constdata)
-    __FUNCTION__                             0x080140dd   Data          11  ipc.o(.constdata)
-    __FUNCTION__                             0x080140e8   Data          14  ipc.o(.constdata)
-    __FUNCTION__                             0x080140f6   Data          11  ipc.o(.constdata)
-    __FUNCTION__                             0x08014101   Data          13  ipc.o(.constdata)
-    __FUNCTION__                             0x0801410e   Data          13  ipc.o(.constdata)
-    __FUNCTION__                             0x0801411b   Data          13  ipc.o(.constdata)
-    __FUNCTION__                             0x08014128   Data          11  ipc.o(.constdata)
-    __FUNCTION__                             0x08014133   Data          13  ipc.o(.constdata)
-    __FUNCTION__                             0x08014140   Data          11  ipc.o(.constdata)
-    __FUNCTION__                             0x0801414b   Data          14  ipc.o(.constdata)
-    .constdata                               0x08014159   Section       34  kservice.o(.constdata)
-    small_digits                             0x08014159   Data          17  kservice.o(.constdata)
-    large_digits                             0x0801416a   Data          17  kservice.o(.constdata)
-    .constdata                               0x0801417c   Section      312  mem.o(.constdata)
-    __FUNCTION__                             0x0801417c   Data          11  mem.o(.constdata)
-    __FUNCTION__                             0x08014187   Data          20  mem.o(.constdata)
-    __FUNCTION__                             0x0801419b   Data          10  mem.o(.constdata)
-    __FUNCTION__                             0x080141a5   Data          11  mem.o(.constdata)
-    __FUNCTION__                             0x080141b0   Data          10  mem.o(.constdata)
-    __FUNCTION__                             0x080141ba   Data           8  mem.o(.constdata)
-    .constdata                               0x080142b4   Section       94  object.o(.constdata)
-    __FUNCTION__                             0x080142b4   Data          17  object.o(.constdata)
-    __FUNCTION__                             0x080142c5   Data          19  object.o(.constdata)
-    __FUNCTION__                             0x080142d8   Data          17  object.o(.constdata)
-    __FUNCTION__                             0x080142e9   Data          26  object.o(.constdata)
-    __FUNCTION__                             0x08014303   Data          15  object.o(.constdata)
-    .constdata                               0x08014312   Section       78  scheduler.o(.constdata)
-    __FUNCTION__                             0x08014312   Data          26  scheduler.o(.constdata)
-    __FUNCTION__                             0x0801432c   Data          26  scheduler.o(.constdata)
-    __FUNCTION__                             0x08014346   Data          26  scheduler.o(.constdata)
-    .constdata                               0x08014360   Section      170  thread.o(.constdata)
-    __FUNCTION__                             0x08014360   Data          16  thread.o(.constdata)
-    __FUNCTION__                             0x08014370   Data          15  thread.o(.constdata)
-    __FUNCTION__                             0x0801437f   Data          18  thread.o(.constdata)
-    __FUNCTION__                             0x08014391   Data          17  thread.o(.constdata)
-    __FUNCTION__                             0x080143a2   Data          17  thread.o(.constdata)
-    __FUNCTION__                             0x080143b3   Data          16  thread.o(.constdata)
-    __FUNCTION__                             0x080143c3   Data          18  thread.o(.constdata)
-    __FUNCTION__                             0x080143d5   Data          18  thread.o(.constdata)
-    __FUNCTION__                             0x080143e7   Data          17  thread.o(.constdata)
-    __FUNCTION__                             0x080143f8   Data          18  thread.o(.constdata)
-    .constdata                               0x0801440a   Section       92  timer.o(.constdata)
-    __FUNCTION__                             0x0801440a   Data          14  timer.o(.constdata)
-    __FUNCTION__                             0x08014418   Data          16  timer.o(.constdata)
-    __FUNCTION__                             0x08014428   Data          16  timer.o(.constdata)
-    __FUNCTION__                             0x08014438   Data          15  timer.o(.constdata)
-    __FUNCTION__                             0x08014447   Data          14  timer.o(.constdata)
-    __FUNCTION__                             0x08014455   Data          17  timer.o(.constdata)
-    .constdata                               0x08014466   Section       19  cpuport.o(.constdata)
-    __FUNCTION__                             0x08014466   Data          19  cpuport.o(.constdata)
-    .constdata                               0x08014479   Section      126  pin.o(.constdata)
-    __FUNCTION__                             0x08014479   Data          10  pin.o(.constdata)
-    __FUNCTION__                             0x08014483   Data          11  pin.o(.constdata)
-    __FUNCTION__                             0x0801448e   Data          13  pin.o(.constdata)
-    __FUNCTION__                             0x0801449b   Data          18  pin.o(.constdata)
-    __FUNCTION__                             0x080144ad   Data          19  pin.o(.constdata)
-    __FUNCTION__                             0x080144c0   Data          18  pin.o(.constdata)
-    __FUNCTION__                             0x080144d2   Data          12  pin.o(.constdata)
-    __FUNCTION__                             0x080144de   Data          13  pin.o(.constdata)
-    __FUNCTION__                             0x080144eb   Data          12  pin.o(.constdata)
-    .constdata                               0x080144f7   Section      298  serial.o(.constdata)
-    __FUNCTION__                             0x080144f7   Data          16  serial.o(.constdata)
-    __FUNCTION__                             0x08014507   Data          16  serial.o(.constdata)
-    __FUNCTION__                             0x08014517   Data          15  serial.o(.constdata)
-    __FUNCTION__                             0x08014526   Data          15  serial.o(.constdata)
-    __FUNCTION__                             0x08014535   Data          29  serial.o(.constdata)
-    __FUNCTION__                             0x08014552   Data          29  serial.o(.constdata)
-    __FUNCTION__                             0x0801456f   Data          29  serial.o(.constdata)
-    __FUNCTION__                             0x0801458c   Data          15  serial.o(.constdata)
-    __FUNCTION__                             0x0801459b   Data          15  serial.o(.constdata)
-    __FUNCTION__                             0x080145aa   Data          15  serial.o(.constdata)
-    __FUNCTION__                             0x080145b9   Data          16  serial.o(.constdata)
-    __FUNCTION__                             0x080145c9   Data          15  serial.o(.constdata)
-    __FUNCTION__                             0x080145d8   Data          16  serial.o(.constdata)
-    __FUNCTION__                             0x080145e8   Data          18  serial.o(.constdata)
-    __FUNCTION__                             0x080145fa   Data          22  serial.o(.constdata)
-    __FUNCTION__                             0x08014610   Data          17  serial.o(.constdata)
-    .constdata                               0x08014621   Section      163  spi_core.o(.constdata)
-    __FUNCTION__                             0x08014621   Data          17  spi_core.o(.constdata)
-    __FUNCTION__                             0x08014632   Data          22  spi_core.o(.constdata)
-    __FUNCTION__                             0x08014648   Data          22  spi_core.o(.constdata)
-    __FUNCTION__                             0x0801465e   Data          16  spi_core.o(.constdata)
-    __FUNCTION__                             0x0801466e   Data          24  spi_core.o(.constdata)
-    __FUNCTION__                             0x08014686   Data          16  spi_core.o(.constdata)
-    __FUNCTION__                             0x08014696   Data          19  spi_core.o(.constdata)
-    __FUNCTION__                             0x080146a9   Data          12  spi_core.o(.constdata)
-    __FUNCTION__                             0x080146b5   Data          15  spi_core.o(.constdata)
-    .constdata                               0x080146c4   Section      129  spi_dev.o(.constdata)
-    __FUNCTION__                             0x080146c4   Data          21  spi_dev.o(.constdata)
-    __FUNCTION__                             0x080146d9   Data          22  spi_dev.o(.constdata)
-    __FUNCTION__                             0x080146ef   Data          23  spi_dev.o(.constdata)
-    __FUNCTION__                             0x08014706   Data          20  spi_dev.o(.constdata)
-    __FUNCTION__                             0x0801471a   Data          21  spi_dev.o(.constdata)
-    __FUNCTION__                             0x0801472f   Data          22  spi_dev.o(.constdata)
-    .constdata                               0x08014745   Section       39  spi_flash_w25qxx.o(.constdata)
-    __FUNCTION__                             0x08014745   Data          18  spi_flash_w25qxx.o(.constdata)
-    __FUNCTION__                             0x08014757   Data          21  spi_flash_w25qxx.o(.constdata)
-    .constdata                               0x0801476c   Section       57  completion.o(.constdata)
-    __FUNCTION__                             0x0801476c   Data          19  completion.o(.constdata)
-    __FUNCTION__                             0x0801477f   Data          19  completion.o(.constdata)
-    __FUNCTION__                             0x08014792   Data          19  completion.o(.constdata)
-    .constdata                               0x080147a5   Section       75  dataqueue.o(.constdata)
-    __FUNCTION__                             0x080147a5   Data          19  dataqueue.o(.constdata)
-    __FUNCTION__                             0x080147b8   Data          19  dataqueue.o(.constdata)
-    __FUNCTION__                             0x080147cb   Data          18  dataqueue.o(.constdata)
-    __FUNCTION__                             0x080147dd   Data          19  dataqueue.o(.constdata)
-    .constdata                               0x080147f0   Section       91  shell.o(.constdata)
-    __FUNCTION__                             0x080147f0   Data          14  shell.o(.constdata)
-    __FUNCTION__                             0x080147fe   Data          13  shell.o(.constdata)
-    __FUNCTION__                             0x0801480b   Data          17  shell.o(.constdata)
-    __FUNCTION__                             0x0801481c   Data          17  shell.o(.constdata)
-    __FUNCTION__                             0x0801482d   Data          15  shell.o(.constdata)
-    __FUNCTION__                             0x0801483c   Data          15  shell.o(.constdata)
-    .constdata                               0x0801484c   Section      148  cmd.o(.constdata)
-    .constdata                               0x080148e0   Section      196  finsh_ops.o(.constdata)
-    .constdata                               0x080149a4   Section       64  finsh_token.o(.constdata)
-    finsh_name_table                         0x080149a4   Data          64  finsh_token.o(.constdata)
-    .constdata                               0x080149e4   Section      148  bigflt0.o(.constdata)
-    tenpwrs_x                                0x080149e4   Data          60  bigflt0.o(.constdata)
-    tenpwrs_i                                0x08014a20   Data          64  bigflt0.o(.constdata)
-    .conststring                             0x08014a78   Section      246  cmd.o(.conststring)
-    .conststring                             0x08014b6e   Section      216  finsh_error.o(.conststring)
-    .conststring                             0x08014c46   Section       44  finsh_token.o(.conststring)
-    .rodata.name                             0x08014c72   Section       36  led.o(.rodata.name)
-    .rodata.name                             0x08014c96   Section       39  mem.o(.rodata.name)
-    .rodata.name                             0x08014cbd   Section      105  pin.o(.rodata.name)
-    .rodata.name                             0x08014d26   Section      435  cmd.o(.rodata.name)
-    .rti_fn.0                                0x08014edc   Section        4  components.o(.rti_fn.0)
-    .rti_fn.0.end                            0x08014ee0   Section        4  components.o(.rti_fn.0.end)
-    .rti_fn.1                                0x08014ee4   Section        4  gpio.o(.rti_fn.1)
-    .rti_fn.1.end                            0x08014ee8   Section        4  components.o(.rti_fn.1.end)
-    .rti_fn.3                                0x08014eec   Section        4  rt_spi_flash_device.o(.rti_fn.3)
-    .rti_fn.6                                0x08014ef0   Section        4  shell.o(.rti_fn.6)
-    .rti_fn.6.end                            0x08014ef4   Section        4  components.o(.rti_fn.6.end)
-    FSymTab                                  0x08014ef8   Section       12  led.o(FSymTab)
-    FSymTab                                  0x08014f04   Section       12  mem.o(FSymTab)
-    FSymTab                                  0x08014f10   Section       36  pin.o(FSymTab)
-    FSymTab                                  0x08014f34   Section      144  cmd.o(FSymTab)
-    VSymTab                                  0x08014fe4   Section       16  cmd.o(VSymTab)
-    locale$$data                             0x08014ff4   Section       28  lc_numeric_c.o(locale$$data)
-    __lcnum_c_name                           0x08014ff8   Data           2  lc_numeric_c.o(locale$$data)
-    __lcnum_c_start                          0x08015000   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_point                          0x0801500c   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_thousands                      0x0801500e   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_grouping                       0x0801500f   Data           0  lc_numeric_c.o(locale$$data)
-    locale$$data                             0x08015010   Section      272  lc_ctype_c.o(locale$$data)
-    __lcnum_c_end                            0x08015010   Data           0  lc_numeric_c.o(locale$$data)
-    __lcctype_c_name                         0x08015014   Data           2  lc_ctype_c.o(locale$$data)
-    __lcctype_c_start                        0x0801501c   Data           0  lc_ctype_c.o(locale$$data)
-    __lcctype_c_end                          0x08015120   Data           0  lc_ctype_c.o(locale$$data)
+    .constdata                               0x08013ec4   Section     4096  w25q64.o(.constdata)
+    .constdata                               0x08014ec4   Section      168  device.o(.constdata)
+    __FUNCTION__                             0x08014ec4   Data          21  device.o(.constdata)
+    __FUNCTION__                             0x08014ed9   Data          15  device.o(.constdata)
+    __FUNCTION__                             0x08014ee8   Data          15  device.o(.constdata)
+    __FUNCTION__                             0x08014ef7   Data          16  device.o(.constdata)
+    __FUNCTION__                             0x08014f07   Data          15  device.o(.constdata)
+    __FUNCTION__                             0x08014f16   Data          16  device.o(.constdata)
+    __FUNCTION__                             0x08014f26   Data          18  device.o(.constdata)
+    __FUNCTION__                             0x08014f38   Data          26  device.o(.constdata)
+    __FUNCTION__                             0x08014f52   Data          26  device.o(.constdata)
+    .constdata                               0x08014f6c   Section       22  idle.o(.constdata)
+    __FUNCTION__                             0x08014f6c   Data          22  idle.o(.constdata)
+    .constdata                               0x08014f82   Section      471  ipc.o(.constdata)
+    __FUNCTION__                             0x08014f82   Data          12  ipc.o(.constdata)
+    __FUNCTION__                             0x08014f8e   Data          14  ipc.o(.constdata)
+    __FUNCTION__                             0x08014f9c   Data          14  ipc.o(.constdata)
+    __FUNCTION__                             0x08014faa   Data          14  ipc.o(.constdata)
+    __FUNCTION__                             0x08014fb8   Data          12  ipc.o(.constdata)
+    __FUNCTION__                             0x08014fc4   Data          15  ipc.o(.constdata)
+    __FUNCTION__                             0x08014fd3   Data          14  ipc.o(.constdata)
+    __FUNCTION__                             0x08014fe1   Data          16  ipc.o(.constdata)
+    __FUNCTION__                             0x08014ff1   Data          16  ipc.o(.constdata)
+    __FUNCTION__                             0x08015001   Data          16  ipc.o(.constdata)
+    __FUNCTION__                             0x08015011   Data          14  ipc.o(.constdata)
+    __FUNCTION__                             0x0801501f   Data          17  ipc.o(.constdata)
+    __FUNCTION__                             0x08015030   Data          14  ipc.o(.constdata)
+    __FUNCTION__                             0x0801503e   Data          16  ipc.o(.constdata)
+    __FUNCTION__                             0x0801504e   Data          16  ipc.o(.constdata)
+    __FUNCTION__                             0x0801505e   Data          16  ipc.o(.constdata)
+    __FUNCTION__                             0x0801506e   Data          14  ipc.o(.constdata)
+    __FUNCTION__                             0x0801507c   Data          14  ipc.o(.constdata)
+    __FUNCTION__                             0x0801508a   Data          17  ipc.o(.constdata)
+    __FUNCTION__                             0x0801509b   Data          11  ipc.o(.constdata)
+    __FUNCTION__                             0x080150a6   Data          13  ipc.o(.constdata)
+    __FUNCTION__                             0x080150b3   Data          13  ipc.o(.constdata)
+    __FUNCTION__                             0x080150c0   Data          13  ipc.o(.constdata)
+    __FUNCTION__                             0x080150cd   Data          16  ipc.o(.constdata)
+    __FUNCTION__                             0x080150dd   Data          11  ipc.o(.constdata)
+    __FUNCTION__                             0x080150e8   Data          14  ipc.o(.constdata)
+    __FUNCTION__                             0x080150f6   Data          11  ipc.o(.constdata)
+    __FUNCTION__                             0x08015101   Data          13  ipc.o(.constdata)
+    __FUNCTION__                             0x0801510e   Data          13  ipc.o(.constdata)
+    __FUNCTION__                             0x0801511b   Data          13  ipc.o(.constdata)
+    __FUNCTION__                             0x08015128   Data          11  ipc.o(.constdata)
+    __FUNCTION__                             0x08015133   Data          13  ipc.o(.constdata)
+    __FUNCTION__                             0x08015140   Data          11  ipc.o(.constdata)
+    __FUNCTION__                             0x0801514b   Data          14  ipc.o(.constdata)
+    .constdata                               0x08015159   Section       34  kservice.o(.constdata)
+    small_digits                             0x08015159   Data          17  kservice.o(.constdata)
+    large_digits                             0x0801516a   Data          17  kservice.o(.constdata)
+    .constdata                               0x0801517c   Section      312  mem.o(.constdata)
+    __FUNCTION__                             0x0801517c   Data          11  mem.o(.constdata)
+    __FUNCTION__                             0x08015187   Data          20  mem.o(.constdata)
+    __FUNCTION__                             0x0801519b   Data          10  mem.o(.constdata)
+    __FUNCTION__                             0x080151a5   Data          11  mem.o(.constdata)
+    __FUNCTION__                             0x080151b0   Data          10  mem.o(.constdata)
+    __FUNCTION__                             0x080151ba   Data           8  mem.o(.constdata)
+    .constdata                               0x080152b4   Section       94  object.o(.constdata)
+    __FUNCTION__                             0x080152b4   Data          17  object.o(.constdata)
+    __FUNCTION__                             0x080152c5   Data          19  object.o(.constdata)
+    __FUNCTION__                             0x080152d8   Data          17  object.o(.constdata)
+    __FUNCTION__                             0x080152e9   Data          26  object.o(.constdata)
+    __FUNCTION__                             0x08015303   Data          15  object.o(.constdata)
+    .constdata                               0x08015312   Section       78  scheduler.o(.constdata)
+    __FUNCTION__                             0x08015312   Data          26  scheduler.o(.constdata)
+    __FUNCTION__                             0x0801532c   Data          26  scheduler.o(.constdata)
+    __FUNCTION__                             0x08015346   Data          26  scheduler.o(.constdata)
+    .constdata                               0x08015360   Section      170  thread.o(.constdata)
+    __FUNCTION__                             0x08015360   Data          16  thread.o(.constdata)
+    __FUNCTION__                             0x08015370   Data          15  thread.o(.constdata)
+    __FUNCTION__                             0x0801537f   Data          18  thread.o(.constdata)
+    __FUNCTION__                             0x08015391   Data          17  thread.o(.constdata)
+    __FUNCTION__                             0x080153a2   Data          17  thread.o(.constdata)
+    __FUNCTION__                             0x080153b3   Data          16  thread.o(.constdata)
+    __FUNCTION__                             0x080153c3   Data          18  thread.o(.constdata)
+    __FUNCTION__                             0x080153d5   Data          18  thread.o(.constdata)
+    __FUNCTION__                             0x080153e7   Data          17  thread.o(.constdata)
+    __FUNCTION__                             0x080153f8   Data          18  thread.o(.constdata)
+    .constdata                               0x0801540a   Section       92  timer.o(.constdata)
+    __FUNCTION__                             0x0801540a   Data          14  timer.o(.constdata)
+    __FUNCTION__                             0x08015418   Data          16  timer.o(.constdata)
+    __FUNCTION__                             0x08015428   Data          16  timer.o(.constdata)
+    __FUNCTION__                             0x08015438   Data          15  timer.o(.constdata)
+    __FUNCTION__                             0x08015447   Data          14  timer.o(.constdata)
+    __FUNCTION__                             0x08015455   Data          17  timer.o(.constdata)
+    .constdata                               0x08015466   Section       19  cpuport.o(.constdata)
+    __FUNCTION__                             0x08015466   Data          19  cpuport.o(.constdata)
+    .constdata                               0x08015479   Section      126  pin.o(.constdata)
+    __FUNCTION__                             0x08015479   Data          10  pin.o(.constdata)
+    __FUNCTION__                             0x08015483   Data          11  pin.o(.constdata)
+    __FUNCTION__                             0x0801548e   Data          13  pin.o(.constdata)
+    __FUNCTION__                             0x0801549b   Data          18  pin.o(.constdata)
+    __FUNCTION__                             0x080154ad   Data          19  pin.o(.constdata)
+    __FUNCTION__                             0x080154c0   Data          18  pin.o(.constdata)
+    __FUNCTION__                             0x080154d2   Data          12  pin.o(.constdata)
+    __FUNCTION__                             0x080154de   Data          13  pin.o(.constdata)
+    __FUNCTION__                             0x080154eb   Data          12  pin.o(.constdata)
+    .constdata                               0x080154f7   Section      298  serial.o(.constdata)
+    __FUNCTION__                             0x080154f7   Data          16  serial.o(.constdata)
+    __FUNCTION__                             0x08015507   Data          16  serial.o(.constdata)
+    __FUNCTION__                             0x08015517   Data          15  serial.o(.constdata)
+    __FUNCTION__                             0x08015526   Data          15  serial.o(.constdata)
+    __FUNCTION__                             0x08015535   Data          29  serial.o(.constdata)
+    __FUNCTION__                             0x08015552   Data          29  serial.o(.constdata)
+    __FUNCTION__                             0x0801556f   Data          29  serial.o(.constdata)
+    __FUNCTION__                             0x0801558c   Data          15  serial.o(.constdata)
+    __FUNCTION__                             0x0801559b   Data          15  serial.o(.constdata)
+    __FUNCTION__                             0x080155aa   Data          15  serial.o(.constdata)
+    __FUNCTION__                             0x080155b9   Data          16  serial.o(.constdata)
+    __FUNCTION__                             0x080155c9   Data          15  serial.o(.constdata)
+    __FUNCTION__                             0x080155d8   Data          16  serial.o(.constdata)
+    __FUNCTION__                             0x080155e8   Data          18  serial.o(.constdata)
+    __FUNCTION__                             0x080155fa   Data          22  serial.o(.constdata)
+    __FUNCTION__                             0x08015610   Data          17  serial.o(.constdata)
+    .constdata                               0x08015621   Section      163  spi_core.o(.constdata)
+    __FUNCTION__                             0x08015621   Data          17  spi_core.o(.constdata)
+    __FUNCTION__                             0x08015632   Data          22  spi_core.o(.constdata)
+    __FUNCTION__                             0x08015648   Data          22  spi_core.o(.constdata)
+    __FUNCTION__                             0x0801565e   Data          16  spi_core.o(.constdata)
+    __FUNCTION__                             0x0801566e   Data          24  spi_core.o(.constdata)
+    __FUNCTION__                             0x08015686   Data          16  spi_core.o(.constdata)
+    __FUNCTION__                             0x08015696   Data          19  spi_core.o(.constdata)
+    __FUNCTION__                             0x080156a9   Data          12  spi_core.o(.constdata)
+    __FUNCTION__                             0x080156b5   Data          15  spi_core.o(.constdata)
+    .constdata                               0x080156c4   Section      129  spi_dev.o(.constdata)
+    __FUNCTION__                             0x080156c4   Data          21  spi_dev.o(.constdata)
+    __FUNCTION__                             0x080156d9   Data          22  spi_dev.o(.constdata)
+    __FUNCTION__                             0x080156ef   Data          23  spi_dev.o(.constdata)
+    __FUNCTION__                             0x08015706   Data          20  spi_dev.o(.constdata)
+    __FUNCTION__                             0x0801571a   Data          21  spi_dev.o(.constdata)
+    __FUNCTION__                             0x0801572f   Data          22  spi_dev.o(.constdata)
+    .constdata                               0x08015745   Section       39  spi_flash_w25qxx.o(.constdata)
+    __FUNCTION__                             0x08015745   Data          18  spi_flash_w25qxx.o(.constdata)
+    __FUNCTION__                             0x08015757   Data          21  spi_flash_w25qxx.o(.constdata)
+    .constdata                               0x0801576c   Section       57  completion.o(.constdata)
+    __FUNCTION__                             0x0801576c   Data          19  completion.o(.constdata)
+    __FUNCTION__                             0x0801577f   Data          19  completion.o(.constdata)
+    __FUNCTION__                             0x08015792   Data          19  completion.o(.constdata)
+    .constdata                               0x080157a5   Section       75  dataqueue.o(.constdata)
+    __FUNCTION__                             0x080157a5   Data          19  dataqueue.o(.constdata)
+    __FUNCTION__                             0x080157b8   Data          19  dataqueue.o(.constdata)
+    __FUNCTION__                             0x080157cb   Data          18  dataqueue.o(.constdata)
+    __FUNCTION__                             0x080157dd   Data          19  dataqueue.o(.constdata)
+    .constdata                               0x080157f0   Section       91  shell.o(.constdata)
+    __FUNCTION__                             0x080157f0   Data          14  shell.o(.constdata)
+    __FUNCTION__                             0x080157fe   Data          13  shell.o(.constdata)
+    __FUNCTION__                             0x0801580b   Data          17  shell.o(.constdata)
+    __FUNCTION__                             0x0801581c   Data          17  shell.o(.constdata)
+    __FUNCTION__                             0x0801582d   Data          15  shell.o(.constdata)
+    __FUNCTION__                             0x0801583c   Data          15  shell.o(.constdata)
+    .constdata                               0x0801584c   Section      148  cmd.o(.constdata)
+    .constdata                               0x080158e0   Section      196  finsh_ops.o(.constdata)
+    .constdata                               0x080159a4   Section       64  finsh_token.o(.constdata)
+    finsh_name_table                         0x080159a4   Data          64  finsh_token.o(.constdata)
+    .constdata                               0x080159e4   Section      148  bigflt0.o(.constdata)
+    tenpwrs_x                                0x080159e4   Data          60  bigflt0.o(.constdata)
+    tenpwrs_i                                0x08015a20   Data          64  bigflt0.o(.constdata)
+    .conststring                             0x08015a78   Section      246  cmd.o(.conststring)
+    .conststring                             0x08015b6e   Section      216  finsh_error.o(.conststring)
+    .conststring                             0x08015c46   Section       44  finsh_token.o(.conststring)
+    .rodata.name                             0x08015c72   Section       36  led.o(.rodata.name)
+    .rodata.name                             0x08015c96   Section       39  mem.o(.rodata.name)
+    .rodata.name                             0x08015cbd   Section      105  pin.o(.rodata.name)
+    .rodata.name                             0x08015d26   Section      435  cmd.o(.rodata.name)
+    .rti_fn.0                                0x08015edc   Section        4  components.o(.rti_fn.0)
+    .rti_fn.0.end                            0x08015ee0   Section        4  components.o(.rti_fn.0.end)
+    .rti_fn.1                                0x08015ee4   Section        4  gpio.o(.rti_fn.1)
+    .rti_fn.1.end                            0x08015ee8   Section        4  components.o(.rti_fn.1.end)
+    .rti_fn.3                                0x08015eec   Section        4  rt_spi_flash_device.o(.rti_fn.3)
+    .rti_fn.6                                0x08015ef0   Section        4  shell.o(.rti_fn.6)
+    .rti_fn.6.end                            0x08015ef4   Section        4  components.o(.rti_fn.6.end)
+    FSymTab                                  0x08015ef8   Section       12  led.o(FSymTab)
+    FSymTab                                  0x08015f04   Section       12  mem.o(FSymTab)
+    FSymTab                                  0x08015f10   Section       36  pin.o(FSymTab)
+    FSymTab                                  0x08015f34   Section      144  cmd.o(FSymTab)
+    VSymTab                                  0x08015fe4   Section       16  cmd.o(VSymTab)
+    locale$$data                             0x08015ff4   Section       28  lc_numeric_c.o(locale$$data)
+    __lcnum_c_name                           0x08015ff8   Data           2  lc_numeric_c.o(locale$$data)
+    __lcnum_c_start                          0x08016000   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_point                          0x0801600c   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_thousands                      0x0801600e   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_grouping                       0x0801600f   Data           0  lc_numeric_c.o(locale$$data)
+    locale$$data                             0x08016010   Section      272  lc_ctype_c.o(locale$$data)
+    __lcnum_c_end                            0x08016010   Data           0  lc_numeric_c.o(locale$$data)
+    __lcctype_c_name                         0x08016014   Data           2  lc_ctype_c.o(locale$$data)
+    __lcctype_c_start                        0x0801601c   Data           0  lc_ctype_c.o(locale$$data)
+    __lcctype_c_end                          0x08016120   Data           0  lc_ctype_c.o(locale$$data)
     .data                                    0x20000000   Section        1  led.o(.data)
     led_inited                               0x20000000   Data           1  led.o(.data)
     .data                                    0x20000001   Section       16  ds1302.o(.data)
@@ -1557,38 +1560,38 @@ Image Symbol Table
     .bss                                     0x20000804   Section      704  ds18b20.o(.bss)
     ds18b20_stack                            0x20000844   Data         512  ds18b20.o(.bss)
     ds18b20_thread                           0x20000a44   Data         128  ds18b20.o(.bss)
-    .bss                                     0x20000ac4   Section      640  adc.o(.bss)
-    adc_stack                                0x20000ac4   Data         512  adc.o(.bss)
-    adc_thread                               0x20000cc4   Data         128  adc.o(.bss)
-    .bss                                     0x20000d44   Section      252  usart.o(.bss)
-    .bss                                     0x20000e40   Section      188  rt_spi_flash_device.o(.bss)
-    stm32_spi                                0x20000e40   Data         112  rt_spi_flash_device.o(.bss)
-    spi_device                               0x20000eb0   Data          76  rt_spi_flash_device.o(.bss)
-    .bss                                     0x20000efc   Section      384  idle.o(.bss)
-    idle                                     0x20000efc   Data         128  idle.o(.bss)
-    rt_thread_stack                          0x20000f7c   Data         256  idle.o(.bss)
-    .bss                                     0x2000107c   Section      128  kservice.o(.bss)
-    rt_log_buf                               0x2000107c   Data         128  kservice.o(.bss)
-    .bss                                     0x200010fc   Section       32  mem.o(.bss)
-    heap_sem                                 0x200010fc   Data          32  mem.o(.bss)
-    .bss                                     0x2000111c   Section      256  scheduler.o(.bss)
-    .bss                                     0x2000121c   Section       68  pin.o(.bss)
-    _hw_pin                                  0x2000121c   Data          68  pin.o(.bss)
-    .bss                                     0x20001260   Section      120  spi_flash_w25qxx.o(.bss)
-    spi_flash_device                         0x20001260   Data         120  spi_flash_w25qxx.o(.bss)
-    .bss                                     0x200012d8   Section     2176  shell.o(.bss)
-    finsh_thread                             0x200012d8   Data         128  shell.o(.bss)
-    finsh_thread_stack                       0x20001358   Data        2048  shell.o(.bss)
-    .bss                                     0x20001b58   Section      128  finsh_heap.o(.bss)
-    .bss                                     0x20001bd8   Section      320  finsh_node.o(.bss)
-    .bss                                     0x20001d18   Section      192  finsh_var.o(.bss)
-    .bss                                     0x20001dd8   Section      384  finsh_vm.o(.bss)
-    .bss                                     0x20001f58   Section       96  libspace.o(.bss)
-    HEAP                                     0x20001fb8   Section      512  startup_stm32f10x_hd.o(HEAP)
-    Heap_Mem                                 0x20001fb8   Data         512  startup_stm32f10x_hd.o(HEAP)
-    STACK                                    0x200021b8   Section     1024  startup_stm32f10x_hd.o(STACK)
-    Stack_Mem                                0x200021b8   Data        1024  startup_stm32f10x_hd.o(STACK)
-    __initial_sp                             0x200025b8   Data           0  startup_stm32f10x_hd.o(STACK)
+    .bss                                     0x20000ac4   Section     5248  adc.o(.bss)
+    adc_stack                                0x20000ac4   Data        5120  adc.o(.bss)
+    adc_thread                               0x20001ec4   Data         128  adc.o(.bss)
+    .bss                                     0x20001f44   Section      252  usart.o(.bss)
+    .bss                                     0x20002040   Section      188  rt_spi_flash_device.o(.bss)
+    stm32_spi                                0x20002040   Data         112  rt_spi_flash_device.o(.bss)
+    spi_device                               0x200020b0   Data          76  rt_spi_flash_device.o(.bss)
+    .bss                                     0x200020fc   Section      384  idle.o(.bss)
+    idle                                     0x200020fc   Data         128  idle.o(.bss)
+    rt_thread_stack                          0x2000217c   Data         256  idle.o(.bss)
+    .bss                                     0x2000227c   Section      128  kservice.o(.bss)
+    rt_log_buf                               0x2000227c   Data         128  kservice.o(.bss)
+    .bss                                     0x200022fc   Section       32  mem.o(.bss)
+    heap_sem                                 0x200022fc   Data          32  mem.o(.bss)
+    .bss                                     0x2000231c   Section      256  scheduler.o(.bss)
+    .bss                                     0x2000241c   Section       68  pin.o(.bss)
+    _hw_pin                                  0x2000241c   Data          68  pin.o(.bss)
+    .bss                                     0x20002460   Section      120  spi_flash_w25qxx.o(.bss)
+    spi_flash_device                         0x20002460   Data         120  spi_flash_w25qxx.o(.bss)
+    .bss                                     0x200024d8   Section     2176  shell.o(.bss)
+    finsh_thread                             0x200024d8   Data         128  shell.o(.bss)
+    finsh_thread_stack                       0x20002558   Data        2048  shell.o(.bss)
+    .bss                                     0x20002d58   Section      128  finsh_heap.o(.bss)
+    .bss                                     0x20002dd8   Section      320  finsh_node.o(.bss)
+    .bss                                     0x20002f18   Section      192  finsh_var.o(.bss)
+    .bss                                     0x20002fd8   Section      384  finsh_vm.o(.bss)
+    .bss                                     0x20003158   Section       96  libspace.o(.bss)
+    HEAP                                     0x200031b8   Section      512  startup_stm32f10x_hd.o(HEAP)
+    Heap_Mem                                 0x200031b8   Data         512  startup_stm32f10x_hd.o(HEAP)
+    STACK                                    0x200033b8   Section     1024  startup_stm32f10x_hd.o(STACK)
+    Stack_Mem                                0x200033b8   Data        1024  startup_stm32f10x_hd.o(STACK)
+    __initial_sp                             0x200037b8   Data           0  startup_stm32f10x_hd.o(STACK)
 
     Global Symbols
 
@@ -1683,53 +1686,53 @@ Image Symbol Table
     __rt_exit_prels_1                        0x08000227   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
     __rt_exit_exit                           0x0800022b   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
     __rt_ffs                                 0x08000231   Thumb Code    16  cpuport.o(.emb_text)
-    rt_init_thread_entry                     0x08000241   Thumb Code    18  application.o(.text)
-    rt_application_init                      0x08000253   Thumb Code    54  application.o(.text)
-    assert_failed                            0x08000291   Thumb Code    30  startup.o(.text)
-    rtthread_startup                         0x080002af   Thumb Code    44  startup.o(.text)
-    main                                     0x080002db   Thumb Code    14  startup.o(.text)
-    NVIC_Configuration                       0x08000341   Thumb Code    14  board.o(.text)
-    SysTick_Handler                          0x0800034f   Thumb Code    16  board.o(.text)
-    rt_hw_board_init                         0x0800035f   Thumb Code    98  board.o(.text)
-    NMI_Handler                              0x080003d5   Thumb Code     2  stm32f10x_it.o(.text)
-    MemManage_Handler                        0x080003d7   Thumb Code     4  stm32f10x_it.o(.text)
-    BusFault_Handler                         0x080003db   Thumb Code     4  stm32f10x_it.o(.text)
-    UsageFault_Handler                       0x080003df   Thumb Code     4  stm32f10x_it.o(.text)
-    SVC_Handler                              0x080003e3   Thumb Code     2  stm32f10x_it.o(.text)
-    DebugMon_Handler                         0x080003e5   Thumb Code     2  stm32f10x_it.o(.text)
-    USB_LP_CAN1_RX0_IRQHandler               0x080003e7   Thumb Code     2  stm32f10x_it.o(.text)
-    USB_HP_CAN1_TX_IRQHandler                0x080003e9   Thumb Code     2  stm32f10x_it.o(.text)
-    rt_hw_led_init                           0x080003ed   Thumb Code    50  led.o(.text)
-    rt_hw_led_on                             0x0800041f   Thumb Code    24  led.o(.text)
-    rt_hw_led_off                            0x08000437   Thumb Code    24  led.o(.text)
-    rt_led_init                              0x08000479   Thumb Code    58  led.o(.text)
-    led                                      0x080004b3   Thumb Code    86  led.o(.text)
-    DS1302_writebyte                         0x0800053f   Thumb Code    80  ds1302.o(.text)
-    DS1302_write                             0x0800058f   Thumb Code    78  ds1302.o(.text)
-    DS1302_GPIO_Init                         0x080005dd   Thumb Code    66  ds1302.o(.text)
-    DS1302_readbyte                          0x0800061f   Thumb Code   110  ds1302.o(.text)
-    DS1302_settime                           0x0800068d   Thumb Code    98  ds1302.o(.text)
-    DS1302_readtime                          0x080006ef   Thumb Code   164  ds1302.o(.text)
-    rt_ds1302_init                           0x080007a5   Thumb Code    60  ds1302.o(.text)
-    rt_hw_us_delay                           0x08000845   Thumb Code    38  ds18b20.o(.text)
-    DS18B20_GPIO_Init                        0x0800086b   Thumb Code    46  ds18b20.o(.text)
-    DS18B20_Mode_IPU                         0x08000899   Thumb Code    24  ds18b20.o(.text)
-    DS18B20_Mode_Out                         0x080008b1   Thumb Code    30  ds18b20.o(.text)
-    DS18B20_reset                            0x080008cf   Thumb Code    38  ds18b20.o(.text)
-    DS18B20_answercheck                      0x080008f5   Thumb Code    82  ds18b20.o(.text)
-    DS18B20_readbit                          0x08000947   Thumb Code    64  ds18b20.o(.text)
-    DS18B20_read2bit                         0x08000987   Thumb Code    80  ds18b20.o(.text)
-    DS18B20_readbyte                         0x080009d7   Thumb Code    34  ds18b20.o(.text)
-    DS18B20_writebit                         0x080009f9   Thumb Code    70  ds18b20.o(.text)
-    DS18B20_writebyte                        0x08000a3f   Thumb Code    88  ds18b20.o(.text)
-    DS18B20_Init                             0x08000a97   Thumb Code    16  ds18b20.o(.text)
-    DS18B20_gettemp                          0x08000aa7   Thumb Code   142  ds18b20.o(.text)
-    DS18B20_Searchrom                        0x08000b35   Thumb Code   294  ds18b20.o(.text)
-    rt_ds18b20_init                          0x08000d07   Thumb Code    60  ds18b20.o(.text)
-    ADC_VBAT_Init                            0x08000dcd   Thumb Code   132  adc.o(.text)
-    Get_Adc                                  0x08000e51   Thumb Code    46  adc.o(.text)
-    Get_Adc_Average                          0x08000e7f   Thumb Code    46  adc.o(.text)
-    rt_adc_init                              0x08000f05   Thumb Code    58  adc.o(.text)
+    rt_init_thread_entry                     0x08000241   Thumb Code    14  application.o(.text)
+    rt_application_init                      0x0800024f   Thumb Code    54  application.o(.text)
+    assert_failed                            0x0800028d   Thumb Code    30  startup.o(.text)
+    rtthread_startup                         0x080002ab   Thumb Code    44  startup.o(.text)
+    main                                     0x080002d7   Thumb Code    14  startup.o(.text)
+    NVIC_Configuration                       0x0800033d   Thumb Code    14  board.o(.text)
+    SysTick_Handler                          0x0800034b   Thumb Code    16  board.o(.text)
+    rt_hw_board_init                         0x0800035b   Thumb Code    98  board.o(.text)
+    NMI_Handler                              0x080003d1   Thumb Code     2  stm32f10x_it.o(.text)
+    MemManage_Handler                        0x080003d3   Thumb Code     4  stm32f10x_it.o(.text)
+    BusFault_Handler                         0x080003d7   Thumb Code     4  stm32f10x_it.o(.text)
+    UsageFault_Handler                       0x080003db   Thumb Code     4  stm32f10x_it.o(.text)
+    SVC_Handler                              0x080003df   Thumb Code     2  stm32f10x_it.o(.text)
+    DebugMon_Handler                         0x080003e1   Thumb Code     2  stm32f10x_it.o(.text)
+    USB_LP_CAN1_RX0_IRQHandler               0x080003e3   Thumb Code     2  stm32f10x_it.o(.text)
+    USB_HP_CAN1_TX_IRQHandler                0x080003e5   Thumb Code     2  stm32f10x_it.o(.text)
+    rt_hw_led_init                           0x080003e9   Thumb Code    50  led.o(.text)
+    rt_hw_led_on                             0x0800041b   Thumb Code    24  led.o(.text)
+    rt_hw_led_off                            0x08000433   Thumb Code    24  led.o(.text)
+    rt_led_init                              0x08000475   Thumb Code    58  led.o(.text)
+    led                                      0x080004af   Thumb Code    86  led.o(.text)
+    DS1302_writebyte                         0x0800053b   Thumb Code    80  ds1302.o(.text)
+    DS1302_write                             0x0800058b   Thumb Code    78  ds1302.o(.text)
+    DS1302_GPIO_Init                         0x080005d9   Thumb Code    66  ds1302.o(.text)
+    DS1302_readbyte                          0x0800061b   Thumb Code   110  ds1302.o(.text)
+    DS1302_settime                           0x08000689   Thumb Code    98  ds1302.o(.text)
+    DS1302_readtime                          0x080006eb   Thumb Code   164  ds1302.o(.text)
+    rt_ds1302_init                           0x080007a1   Thumb Code    60  ds1302.o(.text)
+    rt_hw_us_delay                           0x08000841   Thumb Code    38  ds18b20.o(.text)
+    DS18B20_GPIO_Init                        0x08000867   Thumb Code    46  ds18b20.o(.text)
+    DS18B20_Mode_IPU                         0x08000895   Thumb Code    24  ds18b20.o(.text)
+    DS18B20_Mode_Out                         0x080008ad   Thumb Code    30  ds18b20.o(.text)
+    DS18B20_reset                            0x080008cb   Thumb Code    38  ds18b20.o(.text)
+    DS18B20_answercheck                      0x080008f1   Thumb Code    82  ds18b20.o(.text)
+    DS18B20_readbit                          0x08000943   Thumb Code    64  ds18b20.o(.text)
+    DS18B20_read2bit                         0x08000983   Thumb Code    80  ds18b20.o(.text)
+    DS18B20_readbyte                         0x080009d3   Thumb Code    34  ds18b20.o(.text)
+    DS18B20_writebit                         0x080009f5   Thumb Code    70  ds18b20.o(.text)
+    DS18B20_writebyte                        0x08000a3b   Thumb Code    88  ds18b20.o(.text)
+    DS18B20_Init                             0x08000a93   Thumb Code    16  ds18b20.o(.text)
+    DS18B20_gettemp                          0x08000aa3   Thumb Code   142  ds18b20.o(.text)
+    DS18B20_Searchrom                        0x08000b31   Thumb Code   294  ds18b20.o(.text)
+    rt_ds18b20_init                          0x08000d03   Thumb Code    60  ds18b20.o(.text)
+    ADC_VBAT_Init                            0x08000dc9   Thumb Code   132  adc.o(.text)
+    Get_Adc                                  0x08000e4d   Thumb Code    46  adc.o(.text)
+    Get_Adc_Average                          0x08000e7b   Thumb Code    46  adc.o(.text)
+    rt_adc_init                              0x08000f05   Thumb Code    60  adc.o(.text)
     USART1_IRQHandler                        0x08001315   Thumb Code    18  usart.o(.text)
     DMA1_Channel5_IRQHandler                 0x08001327   Thumb Code    18  usart.o(.text)
     USART2_IRQHandler                        0x08001339   Thumb Code    18  usart.o(.text)
@@ -1755,7 +1758,7 @@ Image Symbol Table
     stm32_spi_register                       0x08001c81   Thumb Code   106  rt_stm32f10x_spi.o(.text)
     rt_spi_flash_device_init                 0x08001df1   Thumb Code    12  rt_spi_flash_device.o(.text)
     rt_platform_init                         0x08001dfd   Thumb Code     8  rt_spi_flash_device.o(.text)
-    spi_flash_test                           0x08001e31   Thumb Code    98  w25q64.o(.text)
+    spi_flash_test                           0x08001e31   Thumb Code   108  w25q64.o(.text)
     SystemInit                               0x08001fdd   Thumb Code    78  system_stm32f10x.o(.text)
     SystemCoreClockUpdate                    0x0800202b   Thumb Code   142  system_stm32f10x.o(.text)
     RCC_DeInit                               0x080020dd   Thumb Code    64  stm32f10x_rcc.o(.text)
@@ -2349,75 +2352,75 @@ Image Symbol Table
     __fpl_fretinf                            0x08013973   Thumb Code    10  fretinf.o(x$fpl$fretinf)
     _printf_fp_dec                           0x0801397d   Thumb Code     4  printf1.o(x$fpl$printf1)
     __I$use$fp                               0x08013980   Number         0  usenofp.o(x$fpl$usenofp)
-    op_table                                 0x080148e0   Data         196  finsh_ops.o(.constdata)
-    __fsym_led_name                          0x08014c72   Data           4  led.o(.rodata.name)
-    __fsym_led_desc                          0x08014c76   Data          32  led.o(.rodata.name)
-    __fsym_list_mem_name                     0x08014c96   Data           9  mem.o(.rodata.name)
-    __fsym_list_mem_desc                     0x08014c9f   Data          30  mem.o(.rodata.name)
-    __fsym_pinMode_name                      0x08014cbd   Data           8  pin.o(.rodata.name)
-    __fsym_pinMode_desc                      0x08014cc5   Data          22  pin.o(.rodata.name)
-    __fsym_pinWrite_name                     0x08014cdb   Data           9  pin.o(.rodata.name)
-    __fsym_pinWrite_desc                     0x08014ce4   Data          28  pin.o(.rodata.name)
-    __fsym_pinRead_name                      0x08014d00   Data           8  pin.o(.rodata.name)
-    __fsym_pinRead_desc                      0x08014d08   Data          30  pin.o(.rodata.name)
-    __fsym_hello_name                        0x08014d26   Data           6  cmd.o(.rodata.name)
-    __fsym_hello_desc                        0x08014d2c   Data          16  cmd.o(.rodata.name)
-    __fsym_version_name                      0x08014d3c   Data           8  cmd.o(.rodata.name)
-    __fsym_version_desc                      0x08014d44   Data          35  cmd.o(.rodata.name)
-    __fsym_list_thread_name                  0x08014d67   Data          12  cmd.o(.rodata.name)
-    __fsym_list_thread_desc                  0x08014d73   Data          12  cmd.o(.rodata.name)
-    __fsym_list_sem_name                     0x08014d7f   Data           9  cmd.o(.rodata.name)
-    __fsym_list_sem_desc                     0x08014d88   Data          25  cmd.o(.rodata.name)
-    __fsym_list_event_name                   0x08014da1   Data          11  cmd.o(.rodata.name)
-    __fsym_list_event_desc                   0x08014dac   Data          21  cmd.o(.rodata.name)
-    __fsym_list_mutex_name                   0x08014dc1   Data          11  cmd.o(.rodata.name)
-    __fsym_list_mutex_desc                   0x08014dcc   Data          21  cmd.o(.rodata.name)
-    __fsym_list_mailbox_name                 0x08014de1   Data          13  cmd.o(.rodata.name)
-    __fsym_list_mailbox_desc                 0x08014dee   Data          24  cmd.o(.rodata.name)
-    __fsym_list_msgqueue_name                0x08014e06   Data          14  cmd.o(.rodata.name)
-    __fsym_list_msgqueue_desc                0x08014e14   Data          29  cmd.o(.rodata.name)
-    __fsym_list_mempool_name                 0x08014e31   Data          13  cmd.o(.rodata.name)
-    __fsym_list_mempool_desc                 0x08014e3e   Data          27  cmd.o(.rodata.name)
-    __fsym_list_timer_name                   0x08014e59   Data          11  cmd.o(.rodata.name)
-    __fsym_list_timer_desc                   0x08014e64   Data          21  cmd.o(.rodata.name)
-    __fsym_list_device_name                  0x08014e79   Data          12  cmd.o(.rodata.name)
-    __fsym_list_device_desc                  0x08014e85   Data          22  cmd.o(.rodata.name)
-    __fsym_list_name                         0x08014e9b   Data           5  cmd.o(.rodata.name)
-    __fsym_list_desc                         0x08014ea0   Data          26  cmd.o(.rodata.name)
-    __vsym_dummy_name                        0x08014eba   Data           6  cmd.o(.rodata.name)
-    __vsym_dummy_desc                        0x08014ec0   Data          25  cmd.o(.rodata.name)
-    __rt_init_rti_start                      0x08014edc   Data           4  components.o(.rti_fn.0)
-    __rt_init_rti_board_start                0x08014ee0   Data           4  components.o(.rti_fn.0.end)
-    __rt_init_stm32_hw_pin_init              0x08014ee4   Data           4  gpio.o(.rti_fn.1)
-    __rt_init_rti_board_end                  0x08014ee8   Data           4  components.o(.rti_fn.1.end)
-    __rt_init_rt_hw_spi_init                 0x08014eec   Data           4  rt_spi_flash_device.o(.rti_fn.3)
-    __rt_init_finsh_system_init              0x08014ef0   Data           4  shell.o(.rti_fn.6)
-    __rt_init_rti_end                        0x08014ef4   Data           4  components.o(.rti_fn.6.end)
-    FSymTab$$Base                            0x08014ef8   Number         0  led.o(FSymTab)
-    __fsym_led                               0x08014ef8   Data          12  led.o(FSymTab)
-    __fsym_list_mem                          0x08014f04   Data          12  mem.o(FSymTab)
-    __fsym_pinMode                           0x08014f10   Data          12  pin.o(FSymTab)
-    __fsym_pinWrite                          0x08014f1c   Data          12  pin.o(FSymTab)
-    __fsym_pinRead                           0x08014f28   Data          12  pin.o(FSymTab)
-    __fsym_hello                             0x08014f34   Data          12  cmd.o(FSymTab)
-    __fsym_version                           0x08014f40   Data          12  cmd.o(FSymTab)
-    __fsym_list_thread                       0x08014f4c   Data          12  cmd.o(FSymTab)
-    __fsym_list_sem                          0x08014f58   Data          12  cmd.o(FSymTab)
-    __fsym_list_event                        0x08014f64   Data          12  cmd.o(FSymTab)
-    __fsym_list_mutex                        0x08014f70   Data          12  cmd.o(FSymTab)
-    __fsym_list_mailbox                      0x08014f7c   Data          12  cmd.o(FSymTab)
-    __fsym_list_msgqueue                     0x08014f88   Data          12  cmd.o(FSymTab)
-    __fsym_list_mempool                      0x08014f94   Data          12  cmd.o(FSymTab)
-    __fsym_list_timer                        0x08014fa0   Data          12  cmd.o(FSymTab)
-    __fsym_list_device                       0x08014fac   Data          12  cmd.o(FSymTab)
-    __fsym_list                              0x08014fb8   Data          12  cmd.o(FSymTab)
-    FSymTab$$Limit                           0x08014fc4   Number         0  cmd.o(FSymTab)
-    Region$$Table$$Base                      0x08014fc4   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08014fe4   Number         0  anon$$obj.o(Region$$Table)
-    VSymTab$$Base                            0x08014fe4   Number         0  cmd.o(VSymTab)
-    __vsym_dummy                             0x08014fe4   Data          16  cmd.o(VSymTab)
-    VSymTab$$Limit                           0x08014ff4   Number         0  cmd.o(VSymTab)
-    __ctype                                  0x0801501d   Data           0  lc_ctype_c.o(locale$$data)
+    op_table                                 0x080158e0   Data         196  finsh_ops.o(.constdata)
+    __fsym_led_name                          0x08015c72   Data           4  led.o(.rodata.name)
+    __fsym_led_desc                          0x08015c76   Data          32  led.o(.rodata.name)
+    __fsym_list_mem_name                     0x08015c96   Data           9  mem.o(.rodata.name)
+    __fsym_list_mem_desc                     0x08015c9f   Data          30  mem.o(.rodata.name)
+    __fsym_pinMode_name                      0x08015cbd   Data           8  pin.o(.rodata.name)
+    __fsym_pinMode_desc                      0x08015cc5   Data          22  pin.o(.rodata.name)
+    __fsym_pinWrite_name                     0x08015cdb   Data           9  pin.o(.rodata.name)
+    __fsym_pinWrite_desc                     0x08015ce4   Data          28  pin.o(.rodata.name)
+    __fsym_pinRead_name                      0x08015d00   Data           8  pin.o(.rodata.name)
+    __fsym_pinRead_desc                      0x08015d08   Data          30  pin.o(.rodata.name)
+    __fsym_hello_name                        0x08015d26   Data           6  cmd.o(.rodata.name)
+    __fsym_hello_desc                        0x08015d2c   Data          16  cmd.o(.rodata.name)
+    __fsym_version_name                      0x08015d3c   Data           8  cmd.o(.rodata.name)
+    __fsym_version_desc                      0x08015d44   Data          35  cmd.o(.rodata.name)
+    __fsym_list_thread_name                  0x08015d67   Data          12  cmd.o(.rodata.name)
+    __fsym_list_thread_desc                  0x08015d73   Data          12  cmd.o(.rodata.name)
+    __fsym_list_sem_name                     0x08015d7f   Data           9  cmd.o(.rodata.name)
+    __fsym_list_sem_desc                     0x08015d88   Data          25  cmd.o(.rodata.name)
+    __fsym_list_event_name                   0x08015da1   Data          11  cmd.o(.rodata.name)
+    __fsym_list_event_desc                   0x08015dac   Data          21  cmd.o(.rodata.name)
+    __fsym_list_mutex_name                   0x08015dc1   Data          11  cmd.o(.rodata.name)
+    __fsym_list_mutex_desc                   0x08015dcc   Data          21  cmd.o(.rodata.name)
+    __fsym_list_mailbox_name                 0x08015de1   Data          13  cmd.o(.rodata.name)
+    __fsym_list_mailbox_desc                 0x08015dee   Data          24  cmd.o(.rodata.name)
+    __fsym_list_msgqueue_name                0x08015e06   Data          14  cmd.o(.rodata.name)
+    __fsym_list_msgqueue_desc                0x08015e14   Data          29  cmd.o(.rodata.name)
+    __fsym_list_mempool_name                 0x08015e31   Data          13  cmd.o(.rodata.name)
+    __fsym_list_mempool_desc                 0x08015e3e   Data          27  cmd.o(.rodata.name)
+    __fsym_list_timer_name                   0x08015e59   Data          11  cmd.o(.rodata.name)
+    __fsym_list_timer_desc                   0x08015e64   Data          21  cmd.o(.rodata.name)
+    __fsym_list_device_name                  0x08015e79   Data          12  cmd.o(.rodata.name)
+    __fsym_list_device_desc                  0x08015e85   Data          22  cmd.o(.rodata.name)
+    __fsym_list_name                         0x08015e9b   Data           5  cmd.o(.rodata.name)
+    __fsym_list_desc                         0x08015ea0   Data          26  cmd.o(.rodata.name)
+    __vsym_dummy_name                        0x08015eba   Data           6  cmd.o(.rodata.name)
+    __vsym_dummy_desc                        0x08015ec0   Data          25  cmd.o(.rodata.name)
+    __rt_init_rti_start                      0x08015edc   Data           4  components.o(.rti_fn.0)
+    __rt_init_rti_board_start                0x08015ee0   Data           4  components.o(.rti_fn.0.end)
+    __rt_init_stm32_hw_pin_init              0x08015ee4   Data           4  gpio.o(.rti_fn.1)
+    __rt_init_rti_board_end                  0x08015ee8   Data           4  components.o(.rti_fn.1.end)
+    __rt_init_rt_hw_spi_init                 0x08015eec   Data           4  rt_spi_flash_device.o(.rti_fn.3)
+    __rt_init_finsh_system_init              0x08015ef0   Data           4  shell.o(.rti_fn.6)
+    __rt_init_rti_end                        0x08015ef4   Data           4  components.o(.rti_fn.6.end)
+    FSymTab$$Base                            0x08015ef8   Number         0  led.o(FSymTab)
+    __fsym_led                               0x08015ef8   Data          12  led.o(FSymTab)
+    __fsym_list_mem                          0x08015f04   Data          12  mem.o(FSymTab)
+    __fsym_pinMode                           0x08015f10   Data          12  pin.o(FSymTab)
+    __fsym_pinWrite                          0x08015f1c   Data          12  pin.o(FSymTab)
+    __fsym_pinRead                           0x08015f28   Data          12  pin.o(FSymTab)
+    __fsym_hello                             0x08015f34   Data          12  cmd.o(FSymTab)
+    __fsym_version                           0x08015f40   Data          12  cmd.o(FSymTab)
+    __fsym_list_thread                       0x08015f4c   Data          12  cmd.o(FSymTab)
+    __fsym_list_sem                          0x08015f58   Data          12  cmd.o(FSymTab)
+    __fsym_list_event                        0x08015f64   Data          12  cmd.o(FSymTab)
+    __fsym_list_mutex                        0x08015f70   Data          12  cmd.o(FSymTab)
+    __fsym_list_mailbox                      0x08015f7c   Data          12  cmd.o(FSymTab)
+    __fsym_list_msgqueue                     0x08015f88   Data          12  cmd.o(FSymTab)
+    __fsym_list_mempool                      0x08015f94   Data          12  cmd.o(FSymTab)
+    __fsym_list_timer                        0x08015fa0   Data          12  cmd.o(FSymTab)
+    __fsym_list_device                       0x08015fac   Data          12  cmd.o(FSymTab)
+    __fsym_list                              0x08015fb8   Data          12  cmd.o(FSymTab)
+    FSymTab$$Limit                           0x08015fc4   Number         0  cmd.o(FSymTab)
+    Region$$Table$$Base                      0x08015fc4   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08015fe4   Number         0  anon$$obj.o(Region$$Table)
+    VSymTab$$Base                            0x08015fe4   Number         0  cmd.o(VSymTab)
+    __vsym_dummy                             0x08015fe4   Data          16  cmd.o(VSymTab)
+    VSymTab$$Limit                           0x08015ff4   Number         0  cmd.o(VSymTab)
+    __ctype                                  0x0801601d   Data           0  lc_ctype_c.o(locale$$data)
     rtc_init                                 0x20000001   Data           8  ds1302.o(.data)
     u8time                                   0x20000009   Data           8  ds1302.o(.data)
     DS18B20_sensornum                        0x20000011   Data           1  ds18b20.o(.data)
@@ -2453,18 +2456,18 @@ Image Symbol Table
     finsh_sp                                 0x200002fc   Data           4  finsh_vm.o(.data)
     finsh_pc                                 0x20000300   Data           4  finsh_vm.o(.data)
     DS18B20_ID                               0x20000804   Data          64  ds18b20.o(.bss)
-    serial1                                  0x20000d44   Data          84  usart.o(.bss)
-    serial2                                  0x20000d98   Data          84  usart.o(.bss)
-    serial3                                  0x20000dec   Data          84  usart.o(.bss)
-    rt_thread_priority_table                 0x2000111c   Data         256  scheduler.o(.bss)
-    finsh_heap                               0x20001b58   Data         128  finsh_heap.o(.bss)
-    global_node_table                        0x20001bd8   Data         320  finsh_node.o(.bss)
-    global_variable                          0x20001d18   Data         192  finsh_var.o(.bss)
-    finsh_vm_stack                           0x20001dd8   Data         256  finsh_vm.o(.bss)
-    text_segment                             0x20001ed8   Data         128  finsh_vm.o(.bss)
-    __libspace_start                         0x20001f58   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x20001fb8   Data           0  libspace.o(.bss)
-    Image$$RW_IRAM1$$ZI$$Limit               0x200025b8   Number         0  startup_stm32f10x_hd.o(STACK)
+    serial1                                  0x20001f44   Data          84  usart.o(.bss)
+    serial2                                  0x20001f98   Data          84  usart.o(.bss)
+    serial3                                  0x20001fec   Data          84  usart.o(.bss)
+    rt_thread_priority_table                 0x2000231c   Data         256  scheduler.o(.bss)
+    finsh_heap                               0x20002d58   Data         128  finsh_heap.o(.bss)
+    global_node_table                        0x20002dd8   Data         320  finsh_node.o(.bss)
+    global_variable                          0x20002f18   Data         192  finsh_var.o(.bss)
+    finsh_vm_stack                           0x20002fd8   Data         256  finsh_vm.o(.bss)
+    text_segment                             0x200030d8   Data         128  finsh_vm.o(.bss)
+    __libspace_start                         0x20003158   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x200031b8   Data           0  libspace.o(.bss)
+    Image$$RW_IRAM1$$ZI$$Limit               0x200037b8   Number         0  startup_stm32f10x_hd.o(STACK)
 
 
 
@@ -2474,236 +2477,237 @@ Memory Map of the image
 
   Image Entry point : 0x08000131
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00015424, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x000151fc])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00016424, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x000161fc])
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00015120, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00016120, Max: 0x00080000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x08000000   0x00000130   Data   RO         1027    RESET               startup_stm32f10x_hd.o
-    0x08000130   0x00000008   Code   RO         1819  * !!!main             c_w.l(__main.o)
-    0x08000138   0x00000034   Code   RO         2064    !!!scatter          c_w.l(__scatter.o)
-    0x0800016c   0x0000005a   Code   RO         2062    !!dczerorl2         c_w.l(__dczerorl2.o)
+    0x08000000   0x00000130   Data   RO         1029    RESET               startup_stm32f10x_hd.o
+    0x08000130   0x00000008   Code   RO         1822  * !!!main             c_w.l(__main.o)
+    0x08000138   0x00000034   Code   RO         2067    !!!scatter          c_w.l(__scatter.o)
+    0x0800016c   0x0000005a   Code   RO         2065    !!dczerorl2         c_w.l(__dczerorl2.o)
     0x080001c6   0x00000002   PAD
-    0x080001c8   0x0000001c   Code   RO         2066    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x080001e4   0x00000000   Code   RO         1796    .ARM.Collect$$_printf_percent$$00000000  c_w.l(_printf_percent.o)
-    0x080001e4   0x00000006   Code   RO         1795    .ARM.Collect$$_printf_percent$$00000003  c_w.l(_printf_f.o)
-    0x080001ea   0x00000004   Code   RO         1847    .ARM.Collect$$_printf_percent$$00000017  c_w.l(_printf_percent_end.o)
-    0x080001ee   0x00000002   Code   RO         1938    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x080001f0   0x00000000   Code   RO         1940    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
-    0x080001f0   0x00000000   Code   RO         1943    .ARM.Collect$$libinit$$00000008  c_w.l(libinit2.o)
-    0x080001f0   0x00000000   Code   RO         1945    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
-    0x080001f0   0x00000000   Code   RO         1947    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x080001f0   0x00000006   Code   RO         1948    .ARM.Collect$$libinit$$0000000D  c_w.l(libinit2.o)
-    0x080001f6   0x00000000   Code   RO         1950    .ARM.Collect$$libinit$$0000000F  c_w.l(libinit2.o)
-    0x080001f6   0x0000000c   Code   RO         1951    .ARM.Collect$$libinit$$00000010  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1952    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1954    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x08000202   0x0000000a   Code   RO         1955    .ARM.Collect$$libinit$$00000014  c_w.l(libinit2.o)
-    0x0800020c   0x00000000   Code   RO         1956    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x0800020c   0x00000000   Code   RO         1958    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x0800020c   0x00000000   Code   RO         1960    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x0800020c   0x00000000   Code   RO         1962    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x0800020c   0x00000000   Code   RO         1964    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x0800020c   0x00000000   Code   RO         1966    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x0800020c   0x00000000   Code   RO         1968    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x0800020c   0x00000000   Code   RO         1970    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x0800020c   0x00000000   Code   RO         1974    .ARM.Collect$$libinit$$0000002A  c_w.l(libinit2.o)
-    0x0800020c   0x00000000   Code   RO         1976    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
-    0x0800020c   0x00000000   Code   RO         1978    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x0800020c   0x00000000   Code   RO         1980    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x0800020c   0x00000002   Code   RO         1981    .ARM.Collect$$libinit$$00000031  c_w.l(libinit2.o)
-    0x0800020e   0x00000002   Code   RO         2011    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x08000210   0x00000000   Code   RO         2023    .ARM.Collect$$libshutdown$$00000003  c_w.l(libshutdown2.o)
-    0x08000210   0x00000000   Code   RO         2026    .ARM.Collect$$libshutdown$$00000006  c_w.l(libshutdown2.o)
-    0x08000210   0x00000000   Code   RO         2029    .ARM.Collect$$libshutdown$$00000009  c_w.l(libshutdown2.o)
-    0x08000210   0x00000000   Code   RO         2031    .ARM.Collect$$libshutdown$$0000000B  c_w.l(libshutdown2.o)
-    0x08000210   0x00000000   Code   RO         2034    .ARM.Collect$$libshutdown$$0000000E  c_w.l(libshutdown2.o)
-    0x08000210   0x00000002   Code   RO         2035    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x08000212   0x00000000   Code   RO         1835    .ARM.Collect$$rtentry$$00000000  c_w.l(rtentry.o)
-    0x08000212   0x00000000   Code   RO         1863    .ARM.Collect$$rtentry$$00000002  c_w.l(rtentry2.o)
-    0x08000212   0x00000006   Code   RO         1875    .ARM.Collect$$rtentry$$00000004  c_w.l(rtentry4.o)
-    0x08000218   0x00000000   Code   RO         1865    .ARM.Collect$$rtentry$$00000009  c_w.l(rtentry2.o)
-    0x08000218   0x00000004   Code   RO         1866    .ARM.Collect$$rtentry$$0000000A  c_w.l(rtentry2.o)
-    0x0800021c   0x00000000   Code   RO         1868    .ARM.Collect$$rtentry$$0000000C  c_w.l(rtentry2.o)
-    0x0800021c   0x00000008   Code   RO         1869    .ARM.Collect$$rtentry$$0000000D  c_w.l(rtentry2.o)
-    0x08000224   0x00000002   Code   RO         1982    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x08000226   0x00000000   Code   RO         1989    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x08000226   0x00000004   Code   RO         1990    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x0800022a   0x00000006   Code   RO         1991    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
-    0x08000230   0x00000010   Code   RO         1280    .emb_text           cpuport.o
-    0x08000240   0x00000050   Code   RO            3    .text               application.o
-    0x08000290   0x000000b0   Code   RO          186    .text               startup.o
-    0x08000340   0x00000094   Code   RO          210    .text               board.o
-    0x080003d4   0x00000016   Code   RO          244    .text               stm32f10x_it.o
-    0x080003ea   0x00000002   PAD
-    0x080003ec   0x00000150   Code   RO          270    .text               led.o
-    0x0800053c   0x00000308   Code   RO          347    .text               ds1302.o
-    0x08000844   0x00000588   Code   RO          374    .text               ds18b20.o
-    0x08000dcc   0x000001c0   Code   RO          398    .text               adc.o
+    0x080001c8   0x0000001c   Code   RO         2069    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x080001e4   0x00000000   Code   RO         1799    .ARM.Collect$$_printf_percent$$00000000  c_w.l(_printf_percent.o)
+    0x080001e4   0x00000006   Code   RO         1798    .ARM.Collect$$_printf_percent$$00000003  c_w.l(_printf_f.o)
+    0x080001ea   0x00000004   Code   RO         1850    .ARM.Collect$$_printf_percent$$00000017  c_w.l(_printf_percent_end.o)
+    0x080001ee   0x00000002   Code   RO         1941    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x080001f0   0x00000000   Code   RO         1943    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
+    0x080001f0   0x00000000   Code   RO         1946    .ARM.Collect$$libinit$$00000008  c_w.l(libinit2.o)
+    0x080001f0   0x00000000   Code   RO         1948    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x080001f0   0x00000000   Code   RO         1950    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x080001f0   0x00000006   Code   RO         1951    .ARM.Collect$$libinit$$0000000D  c_w.l(libinit2.o)
+    0x080001f6   0x00000000   Code   RO         1953    .ARM.Collect$$libinit$$0000000F  c_w.l(libinit2.o)
+    0x080001f6   0x0000000c   Code   RO         1954    .ARM.Collect$$libinit$$00000010  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1955    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1957    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x08000202   0x0000000a   Code   RO         1958    .ARM.Collect$$libinit$$00000014  c_w.l(libinit2.o)
+    0x0800020c   0x00000000   Code   RO         1959    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x0800020c   0x00000000   Code   RO         1961    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x0800020c   0x00000000   Code   RO         1963    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x0800020c   0x00000000   Code   RO         1965    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x0800020c   0x00000000   Code   RO         1967    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x0800020c   0x00000000   Code   RO         1969    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x0800020c   0x00000000   Code   RO         1971    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x0800020c   0x00000000   Code   RO         1973    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x0800020c   0x00000000   Code   RO         1977    .ARM.Collect$$libinit$$0000002A  c_w.l(libinit2.o)
+    0x0800020c   0x00000000   Code   RO         1979    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x0800020c   0x00000000   Code   RO         1981    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x0800020c   0x00000000   Code   RO         1983    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x0800020c   0x00000002   Code   RO         1984    .ARM.Collect$$libinit$$00000031  c_w.l(libinit2.o)
+    0x0800020e   0x00000002   Code   RO         2014    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x08000210   0x00000000   Code   RO         2026    .ARM.Collect$$libshutdown$$00000003  c_w.l(libshutdown2.o)
+    0x08000210   0x00000000   Code   RO         2029    .ARM.Collect$$libshutdown$$00000006  c_w.l(libshutdown2.o)
+    0x08000210   0x00000000   Code   RO         2032    .ARM.Collect$$libshutdown$$00000009  c_w.l(libshutdown2.o)
+    0x08000210   0x00000000   Code   RO         2034    .ARM.Collect$$libshutdown$$0000000B  c_w.l(libshutdown2.o)
+    0x08000210   0x00000000   Code   RO         2037    .ARM.Collect$$libshutdown$$0000000E  c_w.l(libshutdown2.o)
+    0x08000210   0x00000002   Code   RO         2038    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x08000212   0x00000000   Code   RO         1838    .ARM.Collect$$rtentry$$00000000  c_w.l(rtentry.o)
+    0x08000212   0x00000000   Code   RO         1866    .ARM.Collect$$rtentry$$00000002  c_w.l(rtentry2.o)
+    0x08000212   0x00000006   Code   RO         1878    .ARM.Collect$$rtentry$$00000004  c_w.l(rtentry4.o)
+    0x08000218   0x00000000   Code   RO         1868    .ARM.Collect$$rtentry$$00000009  c_w.l(rtentry2.o)
+    0x08000218   0x00000004   Code   RO         1869    .ARM.Collect$$rtentry$$0000000A  c_w.l(rtentry2.o)
+    0x0800021c   0x00000000   Code   RO         1871    .ARM.Collect$$rtentry$$0000000C  c_w.l(rtentry2.o)
+    0x0800021c   0x00000008   Code   RO         1872    .ARM.Collect$$rtentry$$0000000D  c_w.l(rtentry2.o)
+    0x08000224   0x00000002   Code   RO         1985    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x08000226   0x00000000   Code   RO         1992    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x08000226   0x00000004   Code   RO         1993    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x0800022a   0x00000006   Code   RO         1994    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x08000230   0x00000010   Code   RO         1282    .emb_text           cpuport.o
+    0x08000240   0x0000004c   Code   RO            3    .text               application.o
+    0x0800028c   0x000000b0   Code   RO          186    .text               startup.o
+    0x0800033c   0x00000094   Code   RO          210    .text               board.o
+    0x080003d0   0x00000016   Code   RO          244    .text               stm32f10x_it.o
+    0x080003e6   0x00000002   PAD
+    0x080003e8   0x00000150   Code   RO          270    .text               led.o
+    0x08000538   0x00000308   Code   RO          347    .text               ds1302.o
+    0x08000840   0x00000588   Code   RO          374    .text               ds18b20.o
+    0x08000dc8   0x000001c4   Code   RO          398    .text               adc.o
     0x08000f8c   0x00000604   Code   RO          420    .text               usart.o
     0x08001590   0x00000534   Code   RO          449    .text               gpio.o
     0x08001ac4   0x000002b4   Code   RO          474    .text               rt_stm32f10x_spi.o
     0x08001d78   0x000000b8   Code   RO          499    .text               rt_spi_flash_device.o
     0x08001e30   0x000000d0   Code   RO          522    .text               w25q64.o
-    0x08001f00   0x000001dc   Code   RO          539    .text               system_stm32f10x.o
-    0x080020dc   0x00000848   Code   RO          585    .text               stm32f10x_rcc.o
-    0x08002924   0x000002e4   Code   RO          647    .text               stm32f10x_exti.o
-    0x08002c08   0x00000ed4   Code   RO          707    .text               stm32f10x_adc.o
-    0x08003adc   0x0000098c   Code   RO          827    .text               stm32f10x_spi.o
-    0x08004468   0x00000a6c   Code   RO          887    .text               stm32f10x_gpio.o
-    0x08004ed4   0x00000dbc   Code   RO          907    .text               stm32f10x_usart.o
-    0x08005c90   0x0000090c   Code   RO          947    .text               stm32f10x_dma.o
-    0x0800659c   0x000001e8   Code   RO         1007    .text               misc.o
-    0x08006784   0x00000040   Code   RO         1028    .text               startup_stm32f10x_hd.o
-    0x080067c4   0x0000006c   Code   RO         1032    .text               clock.o
-    0x08006830   0x00000044   Code   RO         1046    .text               components.o
-    0x08006874   0x00000334   Code   RO         1064    .text               device.o
-    0x08006ba8   0x00000138   Code   RO         1078    .text               idle.o
-    0x08006ce0   0x00001658   Code   RO         1098    .text               ipc.o
-    0x08008338   0x0000007c   Code   RO         1115    .text               irq.o
-    0x080083b4   0x00000a44   Code   RO         1130    .text               kservice.o
-    0x08008df8   0x00000880   Code   RO         1150    .text               mem.o
-    0x08009678   0x000002dc   Code   RO         1187    .text               object.o
-    0x08009954   0x000002fc   Code   RO         1206    .text               scheduler.o
-    0x08009c50   0x00000664   Code   RO         1242    .text               thread.o
-    0x0800a2b4   0x0000045c   Code   RO         1261    .text               timer.o
-    0x0800a710   0x000005d4   Code   RO         1281    .text               cpuport.o
-    0x0800ace4   0x000000ec   Code   RO         1300    .text               context_rvds.o
-    0x0800add0   0x00000250   Code   RO         1338    .text               pin.o
-    0x0800b020   0x00000c34   Code   RO         1356    .text               serial.o
-    0x0800bc54   0x00000608   Code   RO         1372    .text               spi_core.o
-    0x0800c25c   0x0000020c   Code   RO         1394    .text               spi_dev.o
-    0x0800c468   0x00000614   Code   RO         1407    .text               spi_flash_w25qxx.o
-    0x0800ca7c   0x000001c8   Code   RO         1428    .text               completion.o
-    0x0800cc44   0x00000424   Code   RO         1444    .text               dataqueue.o
-    0x0800d068   0x00000980   Code   RO         1512    .text               shell.o
-    0x0800d9e8   0x00000d88   Code   RO         1547    .text               cmd.o
-    0x0800e770   0x00001818   Code   RO         1571    .text               finsh_compiler.o
-    0x0800ff88   0x0000002c   Code   RO         1608    .text               finsh_error.o
-    0x0800ffb4   0x00000210   Code   RO         1624    .text               finsh_heap.o
-    0x080101c4   0x00000058   Code   RO         1640    .text               finsh_init.o
-    0x0801021c   0x00000184   Code   RO         1658    .text               finsh_node.o
-    0x080103a0   0x00000ad8   Code   RO         1673    .text               finsh_ops.o
-    0x08010e78   0x0000097c   Code   RO         1691    .text               finsh_parser.o
-    0x080117f4   0x00000198   Code   RO         1706    .text               finsh_var.o
-    0x0801198c   0x000000e4   Code   RO         1729    .text               finsh_vm.o
-    0x08011a70   0x00000680   Code   RO         1752    .text               finsh_token.o
-    0x080120f0   0x00000028   Code   RO         1771    .text               c_w.l(noretval__2sprintf.o)
-    0x08012118   0x0000010e   Code   RO         1783    .text               c_w.l(__printf_wp.o)
-    0x08012226   0x0000001a   Code   RO         1797    .text               c_w.l(atoi.o)
-    0x08012240   0x00000058   Code   RO         1799    .text               c_w.l(memcmp.o)
-    0x08012298   0x0000003e   Code   RO         1801    .text               c_w.l(strlen.o)
-    0x080122d6   0x00000096   Code   RO         1803    .text               c_w.l(strncmp.o)
-    0x0801236c   0x0000008a   Code   RO         1805    .text               c_w.l(rt_memcpy_v6.o)
-    0x080123f6   0x00000064   Code   RO         1807    .text               c_w.l(rt_memcpy_w.o)
-    0x0801245a   0x00000044   Code   RO         1809    .text               c_w.l(rt_memclr.o)
-    0x0801249e   0x0000004e   Code   RO         1811    .text               c_w.l(rt_memclr_w.o)
-    0x080124ec   0x00000056   Code   RO         1813    .text               c_w.l(strncpy.o)
+    0x08001f00   0x000001dc   Code   RO          541    .text               system_stm32f10x.o
+    0x080020dc   0x00000848   Code   RO          587    .text               stm32f10x_rcc.o
+    0x08002924   0x000002e4   Code   RO          649    .text               stm32f10x_exti.o
+    0x08002c08   0x00000ed4   Code   RO          709    .text               stm32f10x_adc.o
+    0x08003adc   0x0000098c   Code   RO          829    .text               stm32f10x_spi.o
+    0x08004468   0x00000a6c   Code   RO          889    .text               stm32f10x_gpio.o
+    0x08004ed4   0x00000dbc   Code   RO          909    .text               stm32f10x_usart.o
+    0x08005c90   0x0000090c   Code   RO          949    .text               stm32f10x_dma.o
+    0x0800659c   0x000001e8   Code   RO         1009    .text               misc.o
+    0x08006784   0x00000040   Code   RO         1030    .text               startup_stm32f10x_hd.o
+    0x080067c4   0x0000006c   Code   RO         1034    .text               clock.o
+    0x08006830   0x00000044   Code   RO         1048    .text               components.o
+    0x08006874   0x00000334   Code   RO         1066    .text               device.o
+    0x08006ba8   0x00000138   Code   RO         1080    .text               idle.o
+    0x08006ce0   0x00001658   Code   RO         1100    .text               ipc.o
+    0x08008338   0x0000007c   Code   RO         1117    .text               irq.o
+    0x080083b4   0x00000a44   Code   RO         1132    .text               kservice.o
+    0x08008df8   0x00000880   Code   RO         1152    .text               mem.o
+    0x08009678   0x000002dc   Code   RO         1189    .text               object.o
+    0x08009954   0x000002fc   Code   RO         1208    .text               scheduler.o
+    0x08009c50   0x00000664   Code   RO         1244    .text               thread.o
+    0x0800a2b4   0x0000045c   Code   RO         1263    .text               timer.o
+    0x0800a710   0x000005d4   Code   RO         1283    .text               cpuport.o
+    0x0800ace4   0x000000ec   Code   RO         1302    .text               context_rvds.o
+    0x0800add0   0x00000250   Code   RO         1340    .text               pin.o
+    0x0800b020   0x00000c34   Code   RO         1358    .text               serial.o
+    0x0800bc54   0x00000608   Code   RO         1374    .text               spi_core.o
+    0x0800c25c   0x0000020c   Code   RO         1396    .text               spi_dev.o
+    0x0800c468   0x00000614   Code   RO         1409    .text               spi_flash_w25qxx.o
+    0x0800ca7c   0x000001c8   Code   RO         1431    .text               completion.o
+    0x0800cc44   0x00000424   Code   RO         1447    .text               dataqueue.o
+    0x0800d068   0x00000980   Code   RO         1515    .text               shell.o
+    0x0800d9e8   0x00000d88   Code   RO         1550    .text               cmd.o
+    0x0800e770   0x00001818   Code   RO         1574    .text               finsh_compiler.o
+    0x0800ff88   0x0000002c   Code   RO         1611    .text               finsh_error.o
+    0x0800ffb4   0x00000210   Code   RO         1627    .text               finsh_heap.o
+    0x080101c4   0x00000058   Code   RO         1643    .text               finsh_init.o
+    0x0801021c   0x00000184   Code   RO         1661    .text               finsh_node.o
+    0x080103a0   0x00000ad8   Code   RO         1676    .text               finsh_ops.o
+    0x08010e78   0x0000097c   Code   RO         1694    .text               finsh_parser.o
+    0x080117f4   0x00000198   Code   RO         1709    .text               finsh_var.o
+    0x0801198c   0x000000e4   Code   RO         1732    .text               finsh_vm.o
+    0x08011a70   0x00000680   Code   RO         1755    .text               finsh_token.o
+    0x080120f0   0x00000028   Code   RO         1774    .text               c_w.l(noretval__2sprintf.o)
+    0x08012118   0x0000010e   Code   RO         1786    .text               c_w.l(__printf_wp.o)
+    0x08012226   0x0000001a   Code   RO         1800    .text               c_w.l(atoi.o)
+    0x08012240   0x00000058   Code   RO         1802    .text               c_w.l(memcmp.o)
+    0x08012298   0x0000003e   Code   RO         1804    .text               c_w.l(strlen.o)
+    0x080122d6   0x00000096   Code   RO         1806    .text               c_w.l(strncmp.o)
+    0x0801236c   0x0000008a   Code   RO         1808    .text               c_w.l(rt_memcpy_v6.o)
+    0x080123f6   0x00000064   Code   RO         1810    .text               c_w.l(rt_memcpy_w.o)
+    0x0801245a   0x00000044   Code   RO         1812    .text               c_w.l(rt_memclr.o)
+    0x0801249e   0x0000004e   Code   RO         1814    .text               c_w.l(rt_memclr_w.o)
+    0x080124ec   0x00000056   Code   RO         1816    .text               c_w.l(strncpy.o)
     0x08012542   0x00000002   PAD
-    0x08012544   0x00000080   Code   RO         1815    .text               c_w.l(strcmpv7m.o)
-    0x080125c4   0x00000006   Code   RO         1817    .text               c_w.l(heapauxi.o)
+    0x08012544   0x00000080   Code   RO         1818    .text               c_w.l(strcmpv7m.o)
+    0x080125c4   0x00000006   Code   RO         1820    .text               c_w.l(heapauxi.o)
     0x080125ca   0x00000002   PAD
-    0x080125cc   0x00000008   Code   RO         1839    .text               c_w.l(rt_errno_addr_intlibspace.o)
-    0x080125d4   0x00000420   Code   RO         1841    .text               c_w.l(_printf_fp_dec.o)
-    0x080129f4   0x00000030   Code   RO         1843    .text               c_w.l(_printf_char_common.o)
-    0x08012a24   0x0000000a   Code   RO         1845    .text               c_w.l(_sputc.o)
-    0x08012a2e   0x00000070   Code   RO         1848    .text               c_w.l(strtol.o)
+    0x080125cc   0x00000008   Code   RO         1842    .text               c_w.l(rt_errno_addr_intlibspace.o)
+    0x080125d4   0x00000420   Code   RO         1844    .text               c_w.l(_printf_fp_dec.o)
+    0x080129f4   0x00000030   Code   RO         1846    .text               c_w.l(_printf_char_common.o)
+    0x08012a24   0x0000000a   Code   RO         1848    .text               c_w.l(_sputc.o)
+    0x08012a2e   0x00000070   Code   RO         1851    .text               c_w.l(strtol.o)
     0x08012a9e   0x00000002   PAD
-    0x08012aa0   0x00000008   Code   RO         1859    .text               c_w.l(libspace.o)
-    0x08012aa8   0x00000010   Code   RO         1877    .text               c_w.l(rt_ctype_table.o)
-    0x08012ab8   0x00000008   Code   RO         1882    .text               c_w.l(rt_locale_intlibspace.o)
-    0x08012ac0   0x0000008a   Code   RO         1884    .text               c_w.l(lludiv10.o)
+    0x08012aa0   0x00000008   Code   RO         1862    .text               c_w.l(libspace.o)
+    0x08012aa8   0x00000010   Code   RO         1880    .text               c_w.l(rt_ctype_table.o)
+    0x08012ab8   0x00000008   Code   RO         1885    .text               c_w.l(rt_locale_intlibspace.o)
+    0x08012ac0   0x0000008a   Code   RO         1887    .text               c_w.l(lludiv10.o)
     0x08012b4a   0x00000002   PAD
-    0x08012b4c   0x00000080   Code   RO         1886    .text               c_w.l(_printf_fp_infnan.o)
-    0x08012bcc   0x0000009e   Code   RO         1890    .text               c_w.l(_strtoul.o)
+    0x08012b4c   0x00000080   Code   RO         1889    .text               c_w.l(_printf_fp_infnan.o)
+    0x08012bcc   0x0000009e   Code   RO         1893    .text               c_w.l(_strtoul.o)
     0x08012c6a   0x00000002   PAD
-    0x08012c6c   0x000000e4   Code   RO         1892    .text               c_w.l(bigflt0.o)
-    0x08012d50   0x0000004a   Code   RO         1924    .text               c_w.l(sys_stackheap_outer.o)
-    0x08012d9a   0x0000001c   Code   RO         1926    .text               c_w.l(_chval.o)
-    0x08012db6   0x0000000c   Code   RO         1931    .text               c_w.l(exit.o)
+    0x08012c6c   0x000000e4   Code   RO         1895    .text               c_w.l(bigflt0.o)
+    0x08012d50   0x0000004a   Code   RO         1927    .text               c_w.l(sys_stackheap_outer.o)
+    0x08012d9a   0x0000001c   Code   RO         1929    .text               c_w.l(_chval.o)
+    0x08012db6   0x0000000c   Code   RO         1934    .text               c_w.l(exit.o)
     0x08012dc2   0x00000002   PAD
-    0x08012dc4   0x0000000c   Code   RO         2001    .text               c_w.l(sys_exit.o)
-    0x08012dd0   0x00000002   Code   RO         2012    .text               c_w.l(use_no_semi.o)
-    0x08012dd2   0x00000000   Code   RO         2014    .text               c_w.l(indicate_semi.o)
-    0x08012dd2   0x0000003e   Code   RO         1895    CL$$btod_d2e        c_w.l(btod.o)
-    0x08012e10   0x00000046   Code   RO         1897    CL$$btod_d2e_denorm_low  c_w.l(btod.o)
-    0x08012e56   0x00000060   Code   RO         1896    CL$$btod_d2e_norm_op1  c_w.l(btod.o)
-    0x08012eb6   0x00000338   Code   RO         1905    CL$$btod_div_common  c_w.l(btod.o)
-    0x080131ee   0x000000c6   Code   RO         1902    CL$$btod_e2e        c_w.l(btod.o)
-    0x080132b4   0x00000028   Code   RO         1899    CL$$btod_ediv       c_w.l(btod.o)
-    0x080132dc   0x00000028   Code   RO         1898    CL$$btod_emul       c_w.l(btod.o)
-    0x08013304   0x00000244   Code   RO         1904    CL$$btod_mult_common  c_w.l(btod.o)
-    0x08013548   0x00000028   Code   RO         1922    i.__ARM_fpclassify  m_ws.l(fpclassify.o)
-    0x08013570   0x0000000e   Code   RO         1785    i._is_digit         c_w.l(__printf_wp.o)
+    0x08012dc4   0x0000000c   Code   RO         2004    .text               c_w.l(sys_exit.o)
+    0x08012dd0   0x00000002   Code   RO         2015    .text               c_w.l(use_no_semi.o)
+    0x08012dd2   0x00000000   Code   RO         2017    .text               c_w.l(indicate_semi.o)
+    0x08012dd2   0x0000003e   Code   RO         1898    CL$$btod_d2e        c_w.l(btod.o)
+    0x08012e10   0x00000046   Code   RO         1900    CL$$btod_d2e_denorm_low  c_w.l(btod.o)
+    0x08012e56   0x00000060   Code   RO         1899    CL$$btod_d2e_norm_op1  c_w.l(btod.o)
+    0x08012eb6   0x00000338   Code   RO         1908    CL$$btod_div_common  c_w.l(btod.o)
+    0x080131ee   0x000000c6   Code   RO         1905    CL$$btod_e2e        c_w.l(btod.o)
+    0x080132b4   0x00000028   Code   RO         1902    CL$$btod_ediv       c_w.l(btod.o)
+    0x080132dc   0x00000028   Code   RO         1901    CL$$btod_emul       c_w.l(btod.o)
+    0x08013304   0x00000244   Code   RO         1907    CL$$btod_mult_common  c_w.l(btod.o)
+    0x08013548   0x00000028   Code   RO         1925    i.__ARM_fpclassify  m_ws.l(fpclassify.o)
+    0x08013570   0x0000000e   Code   RO         1788    i._is_digit         c_w.l(__printf_wp.o)
     0x0801357e   0x00000002   PAD
-    0x08013580   0x0000002c   Code   RO         1918    locale$$code        c_w.l(lc_numeric_c.o)
-    0x080135ac   0x0000002c   Code   RO         1929    locale$$code        c_w.l(lc_ctype_c.o)
-    0x080135d8   0x00000062   Code   RO         1821    x$fpl$d2f           fz_ws.l(d2f.o)
+    0x08013580   0x0000002c   Code   RO         1921    locale$$code        c_w.l(lc_numeric_c.o)
+    0x080135ac   0x0000002c   Code   RO         1932    locale$$code        c_w.l(lc_ctype_c.o)
+    0x080135d8   0x00000062   Code   RO         1824    x$fpl$d2f           fz_ws.l(d2f.o)
     0x0801363a   0x00000002   PAD
-    0x0801363c   0x00000154   Code   RO         1823    x$fpl$dmul          fz_ws.l(dmul.o)
-    0x08013790   0x0000009c   Code   RO         1850    x$fpl$dnaninf       fz_ws.l(dnaninf.o)
-    0x0801382c   0x0000000c   Code   RO         1852    x$fpl$dretinf       fz_ws.l(dretinf.o)
-    0x08013838   0x00000056   Code   RO         1825    x$fpl$f2d           fz_ws.l(f2d.o)
+    0x0801363c   0x00000154   Code   RO         1826    x$fpl$dmul          fz_ws.l(dmul.o)
+    0x08013790   0x0000009c   Code   RO         1853    x$fpl$dnaninf       fz_ws.l(dnaninf.o)
+    0x0801382c   0x0000000c   Code   RO         1855    x$fpl$dretinf       fz_ws.l(dretinf.o)
+    0x08013838   0x00000056   Code   RO         1828    x$fpl$f2d           fz_ws.l(f2d.o)
     0x0801388e   0x00000002   PAD
-    0x08013890   0x00000030   Code   RO         1828    x$fpl$fflt          fz_ws.l(fflt_clz.o)
-    0x080138c0   0x00000026   Code   RO         1827    x$fpl$ffltu         fz_ws.l(fflt_clz.o)
-    0x080138e6   0x0000008c   Code   RO         1854    x$fpl$fnaninf       fz_ws.l(fnaninf.o)
-    0x08013972   0x0000000a   Code   RO         1856    x$fpl$fretinf       fz_ws.l(fretinf.o)
-    0x0801397c   0x00000004   Code   RO         1833    x$fpl$printf1       fz_ws.l(printf1.o)
-    0x08013980   0x00000000   Code   RO         1858    x$fpl$usenofp       fz_ws.l(usenofp.o)
+    0x08013890   0x00000030   Code   RO         1831    x$fpl$fflt          fz_ws.l(fflt_clz.o)
+    0x080138c0   0x00000026   Code   RO         1830    x$fpl$ffltu         fz_ws.l(fflt_clz.o)
+    0x080138e6   0x0000008c   Code   RO         1857    x$fpl$fnaninf       fz_ws.l(fnaninf.o)
+    0x08013972   0x0000000a   Code   RO         1859    x$fpl$fretinf       fz_ws.l(fretinf.o)
+    0x0801397c   0x00000004   Code   RO         1836    x$fpl$printf1       fz_ws.l(printf1.o)
+    0x08013980   0x00000000   Code   RO         1861    x$fpl$usenofp       fz_ws.l(usenofp.o)
     0x08013980   0x0000005c   Data   RO          422    .constdata          usart.o
     0x080139dc   0x000004e8   Data   RO          450    .constdata          gpio.o
-    0x08013ec4   0x000000a8   Data   RO         1065    .constdata          device.o
-    0x08013f6c   0x00000016   Data   RO         1080    .constdata          idle.o
-    0x08013f82   0x000001d7   Data   RO         1099    .constdata          ipc.o
-    0x08014159   0x00000022   Data   RO         1132    .constdata          kservice.o
-    0x0801417b   0x00000001   PAD
-    0x0801417c   0x00000138   Data   RO         1152    .constdata          mem.o
-    0x080142b4   0x0000005e   Data   RO         1188    .constdata          object.o
-    0x08014312   0x0000004e   Data   RO         1208    .constdata          scheduler.o
-    0x08014360   0x000000aa   Data   RO         1243    .constdata          thread.o
-    0x0801440a   0x0000005c   Data   RO         1262    .constdata          timer.o
-    0x08014466   0x00000013   Data   RO         1282    .constdata          cpuport.o
-    0x08014479   0x0000007e   Data   RO         1340    .constdata          pin.o
-    0x080144f7   0x0000012a   Data   RO         1357    .constdata          serial.o
-    0x08014621   0x000000a3   Data   RO         1373    .constdata          spi_core.o
-    0x080146c4   0x00000081   Data   RO         1395    .constdata          spi_dev.o
-    0x08014745   0x00000027   Data   RO         1409    .constdata          spi_flash_w25qxx.o
-    0x0801476c   0x00000039   Data   RO         1429    .constdata          completion.o
-    0x080147a5   0x0000004b   Data   RO         1445    .constdata          dataqueue.o
-    0x080147f0   0x0000005b   Data   RO         1514    .constdata          shell.o
-    0x0801484b   0x00000001   PAD
-    0x0801484c   0x00000094   Data   RO         1548    .constdata          cmd.o
-    0x080148e0   0x000000c4   Data   RO         1674    .constdata          finsh_ops.o
-    0x080149a4   0x00000040   Data   RO         1753    .constdata          finsh_token.o
-    0x080149e4   0x00000094   Data   RO         1893    .constdata          c_w.l(bigflt0.o)
-    0x08014a78   0x000000f6   Data   RO         1549    .conststring        cmd.o
-    0x08014b6e   0x000000d8   Data   RO         1609    .conststring        finsh_error.o
-    0x08014c46   0x0000002c   Data   RO         1754    .conststring        finsh_token.o
-    0x08014c72   0x00000024   Data   RO          273    .rodata.name        led.o
-    0x08014c96   0x00000027   Data   RO         1154    .rodata.name        mem.o
-    0x08014cbd   0x00000069   Data   RO         1341    .rodata.name        pin.o
-    0x08014d26   0x000001b3   Data   RO         1551    .rodata.name        cmd.o
-    0x08014ed9   0x00000003   PAD
-    0x08014edc   0x00000004   Data   RO         1047    .rti_fn.0           components.o
-    0x08014ee0   0x00000004   Data   RO         1048    .rti_fn.0.end       components.o
-    0x08014ee4   0x00000004   Data   RO          452    .rti_fn.1           gpio.o
-    0x08014ee8   0x00000004   Data   RO         1049    .rti_fn.1.end       components.o
-    0x08014eec   0x00000004   Data   RO          502    .rti_fn.3           rt_spi_flash_device.o
-    0x08014ef0   0x00000004   Data   RO         1516    .rti_fn.6           shell.o
-    0x08014ef4   0x00000004   Data   RO         1050    .rti_fn.6.end       components.o
-    0x08014ef8   0x0000000c   Data   RO          274    FSymTab             led.o
-    0x08014f04   0x0000000c   Data   RO         1155    FSymTab             mem.o
-    0x08014f10   0x00000024   Data   RO         1342    FSymTab             pin.o
-    0x08014f34   0x00000090   Data   RO         1552    FSymTab             cmd.o
-    0x08014fc4   0x00000020   Data   RO         2060    Region$$Table       anon$$obj.o
-    0x08014fe4   0x00000010   Data   RO         1553    VSymTab             cmd.o
-    0x08014ff4   0x0000001c   Data   RO         1917    locale$$data        c_w.l(lc_numeric_c.o)
-    0x08015010   0x00000110   Data   RO         1928    locale$$data        c_w.l(lc_ctype_c.o)
+    0x08013ec4   0x00001000   Data   RO          523    .constdata          w25q64.o
+    0x08014ec4   0x000000a8   Data   RO         1067    .constdata          device.o
+    0x08014f6c   0x00000016   Data   RO         1082    .constdata          idle.o
+    0x08014f82   0x000001d7   Data   RO         1101    .constdata          ipc.o
+    0x08015159   0x00000022   Data   RO         1134    .constdata          kservice.o
+    0x0801517b   0x00000001   PAD
+    0x0801517c   0x00000138   Data   RO         1154    .constdata          mem.o
+    0x080152b4   0x0000005e   Data   RO         1190    .constdata          object.o
+    0x08015312   0x0000004e   Data   RO         1210    .constdata          scheduler.o
+    0x08015360   0x000000aa   Data   RO         1245    .constdata          thread.o
+    0x0801540a   0x0000005c   Data   RO         1264    .constdata          timer.o
+    0x08015466   0x00000013   Data   RO         1284    .constdata          cpuport.o
+    0x08015479   0x0000007e   Data   RO         1342    .constdata          pin.o
+    0x080154f7   0x0000012a   Data   RO         1359    .constdata          serial.o
+    0x08015621   0x000000a3   Data   RO         1375    .constdata          spi_core.o
+    0x080156c4   0x00000081   Data   RO         1397    .constdata          spi_dev.o
+    0x08015745   0x00000027   Data   RO         1411    .constdata          spi_flash_w25qxx.o
+    0x0801576c   0x00000039   Data   RO         1432    .constdata          completion.o
+    0x080157a5   0x0000004b   Data   RO         1448    .constdata          dataqueue.o
+    0x080157f0   0x0000005b   Data   RO         1517    .constdata          shell.o
+    0x0801584b   0x00000001   PAD
+    0x0801584c   0x00000094   Data   RO         1551    .constdata          cmd.o
+    0x080158e0   0x000000c4   Data   RO         1677    .constdata          finsh_ops.o
+    0x080159a4   0x00000040   Data   RO         1756    .constdata          finsh_token.o
+    0x080159e4   0x00000094   Data   RO         1896    .constdata          c_w.l(bigflt0.o)
+    0x08015a78   0x000000f6   Data   RO         1552    .conststring        cmd.o
+    0x08015b6e   0x000000d8   Data   RO         1612    .conststring        finsh_error.o
+    0x08015c46   0x0000002c   Data   RO         1757    .conststring        finsh_token.o
+    0x08015c72   0x00000024   Data   RO          273    .rodata.name        led.o
+    0x08015c96   0x00000027   Data   RO         1156    .rodata.name        mem.o
+    0x08015cbd   0x00000069   Data   RO         1343    .rodata.name        pin.o
+    0x08015d26   0x000001b3   Data   RO         1554    .rodata.name        cmd.o
+    0x08015ed9   0x00000003   PAD
+    0x08015edc   0x00000004   Data   RO         1049    .rti_fn.0           components.o
+    0x08015ee0   0x00000004   Data   RO         1050    .rti_fn.0.end       components.o
+    0x08015ee4   0x00000004   Data   RO          452    .rti_fn.1           gpio.o
+    0x08015ee8   0x00000004   Data   RO         1051    .rti_fn.1.end       components.o
+    0x08015eec   0x00000004   Data   RO          502    .rti_fn.3           rt_spi_flash_device.o
+    0x08015ef0   0x00000004   Data   RO         1519    .rti_fn.6           shell.o
+    0x08015ef4   0x00000004   Data   RO         1052    .rti_fn.6.end       components.o
+    0x08015ef8   0x0000000c   Data   RO          274    FSymTab             led.o
+    0x08015f04   0x0000000c   Data   RO         1157    FSymTab             mem.o
+    0x08015f10   0x00000024   Data   RO         1344    FSymTab             pin.o
+    0x08015f34   0x00000090   Data   RO         1555    FSymTab             cmd.o
+    0x08015fc4   0x00000020   Data   RO         2063    Region$$Table       anon$$obj.o
+    0x08015fe4   0x00000010   Data   RO         1556    VSymTab             cmd.o
+    0x08015ff4   0x0000001c   Data   RO         1920    locale$$data        c_w.l(lc_numeric_c.o)
+    0x08016010   0x00000110   Data   RO         1931    locale$$data        c_w.l(lc_ctype_c.o)
 
 
-    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x000025b8, Max: 0x00010000, ABSOLUTE, COMPRESSED[0x000000dc])
+    Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x000037b8, Max: 0x00010000, ABSOLUTE, COMPRESSED[0x000000dc])
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2715,48 +2719,48 @@ Memory Map of the image
     0x20000068   0x000000c0   Data   RW          451    .data               gpio.o
     0x20000128   0x00000008   Data   RW          475    .data               rt_stm32f10x_spi.o
     0x20000130   0x00000008   Data   RW          501    .data               rt_spi_flash_device.o
-    0x20000138   0x00000014   Data   RW          540    .data               system_stm32f10x.o
-    0x2000014c   0x00000014   Data   RW          586    .data               stm32f10x_rcc.o
-    0x20000160   0x00000004   Data   RW         1033    .data               clock.o
-    0x20000164   0x00000004   Data   RW         1081    .data               idle.o
-    0x20000168   0x00000009   Data   RW         1116    .data               irq.o
+    0x20000138   0x00000014   Data   RW          542    .data               system_stm32f10x.o
+    0x2000014c   0x00000014   Data   RW          588    .data               stm32f10x_rcc.o
+    0x20000160   0x00000004   Data   RW         1035    .data               clock.o
+    0x20000164   0x00000004   Data   RW         1083    .data               idle.o
+    0x20000168   0x00000009   Data   RW         1118    .data               irq.o
     0x20000171   0x00000003   PAD
-    0x20000174   0x0000000c   Data   RW         1133    .data               kservice.o
-    0x20000180   0x00000020   Data   RW         1153    .data               mem.o
-    0x200001a0   0x000000a4   Data   RW         1189    .data               object.o
-    0x20000244   0x0000001c   Data   RW         1209    .data               scheduler.o
-    0x20000260   0x0000000c   Data   RW         1244    .data               thread.o
-    0x2000026c   0x00000010   Data   RW         1263    .data               timer.o
-    0x2000027c   0x00000010   Data   RW         1283    .data               cpuport.o
-    0x2000028c   0x00000004   Data   RW         1515    .data               shell.o
-    0x20000290   0x00000010   Data   RW         1534    .data               symbol.o
-    0x200002a0   0x00000004   Data   RW         1550    .data               cmd.o
-    0x200002a4   0x00000008   Data   RW         1572    .data               finsh_compiler.o
-    0x200002ac   0x0000003d   Data   RW         1610    .data               finsh_error.o
+    0x20000174   0x0000000c   Data   RW         1135    .data               kservice.o
+    0x20000180   0x00000020   Data   RW         1155    .data               mem.o
+    0x200001a0   0x000000a4   Data   RW         1191    .data               object.o
+    0x20000244   0x0000001c   Data   RW         1211    .data               scheduler.o
+    0x20000260   0x0000000c   Data   RW         1246    .data               thread.o
+    0x2000026c   0x00000010   Data   RW         1265    .data               timer.o
+    0x2000027c   0x00000010   Data   RW         1285    .data               cpuport.o
+    0x2000028c   0x00000004   Data   RW         1518    .data               shell.o
+    0x20000290   0x00000010   Data   RW         1537    .data               symbol.o
+    0x200002a0   0x00000004   Data   RW         1553    .data               cmd.o
+    0x200002a4   0x00000008   Data   RW         1575    .data               finsh_compiler.o
+    0x200002ac   0x0000003d   Data   RW         1613    .data               finsh_error.o
     0x200002e9   0x00000003   PAD
-    0x200002ec   0x00000008   Data   RW         1626    .data               finsh_heap.o
-    0x200002f4   0x00000004   Data   RW         1708    .data               finsh_var.o
-    0x200002f8   0x0000000c   Data   RW         1731    .data               finsh_vm.o
+    0x200002ec   0x00000008   Data   RW         1629    .data               finsh_heap.o
+    0x200002f4   0x00000004   Data   RW         1711    .data               finsh_var.o
+    0x200002f8   0x0000000c   Data   RW         1734    .data               finsh_vm.o
     0x20000304   0x00000280   Zero   RW          271    .bss                led.o
     0x20000584   0x00000280   Zero   RW          348    .bss                ds1302.o
     0x20000804   0x000002c0   Zero   RW          375    .bss                ds18b20.o
-    0x20000ac4   0x00000280   Zero   RW          399    .bss                adc.o
-    0x20000d44   0x000000fc   Zero   RW          421    .bss                usart.o
-    0x20000e40   0x000000bc   Zero   RW          500    .bss                rt_spi_flash_device.o
-    0x20000efc   0x00000180   Zero   RW         1079    .bss                idle.o
-    0x2000107c   0x00000080   Zero   RW         1131    .bss                kservice.o
-    0x200010fc   0x00000020   Zero   RW         1151    .bss                mem.o
-    0x2000111c   0x00000100   Zero   RW         1207    .bss                scheduler.o
-    0x2000121c   0x00000044   Zero   RW         1339    .bss                pin.o
-    0x20001260   0x00000078   Zero   RW         1408    .bss                spi_flash_w25qxx.o
-    0x200012d8   0x00000880   Zero   RW         1513    .bss                shell.o
-    0x20001b58   0x00000080   Zero   RW         1625    .bss                finsh_heap.o
-    0x20001bd8   0x00000140   Zero   RW         1659    .bss                finsh_node.o
-    0x20001d18   0x000000c0   Zero   RW         1707    .bss                finsh_var.o
-    0x20001dd8   0x00000180   Zero   RW         1730    .bss                finsh_vm.o
-    0x20001f58   0x00000060   Zero   RW         1860    .bss                c_w.l(libspace.o)
-    0x20001fb8   0x00000200   Zero   RW         1026    HEAP                startup_stm32f10x_hd.o
-    0x200021b8   0x00000400   Zero   RW         1025    STACK               startup_stm32f10x_hd.o
+    0x20000ac4   0x00001480   Zero   RW          399    .bss                adc.o
+    0x20001f44   0x000000fc   Zero   RW          421    .bss                usart.o
+    0x20002040   0x000000bc   Zero   RW          500    .bss                rt_spi_flash_device.o
+    0x200020fc   0x00000180   Zero   RW         1081    .bss                idle.o
+    0x2000227c   0x00000080   Zero   RW         1133    .bss                kservice.o
+    0x200022fc   0x00000020   Zero   RW         1153    .bss                mem.o
+    0x2000231c   0x00000100   Zero   RW         1209    .bss                scheduler.o
+    0x2000241c   0x00000044   Zero   RW         1341    .bss                pin.o
+    0x20002460   0x00000078   Zero   RW         1410    .bss                spi_flash_w25qxx.o
+    0x200024d8   0x00000880   Zero   RW         1516    .bss                shell.o
+    0x20002d58   0x00000080   Zero   RW         1628    .bss                finsh_heap.o
+    0x20002dd8   0x00000140   Zero   RW         1662    .bss                finsh_node.o
+    0x20002f18   0x000000c0   Zero   RW         1710    .bss                finsh_var.o
+    0x20002fd8   0x00000180   Zero   RW         1733    .bss                finsh_vm.o
+    0x20003158   0x00000060   Zero   RW         1863    .bss                c_w.l(libspace.o)
+    0x200031b8   0x00000200   Zero   RW         1028    HEAP                startup_stm32f10x_hd.o
+    0x200033b8   0x00000400   Zero   RW         1027    STACK               startup_stm32f10x_hd.o
 
 
 ==============================================================================
@@ -2766,8 +2770,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       448         78          0          0        640       2332   adc.o
-        80          8          0          0          0     272103   application.o
+       452         76          0          0       5248       2340   adc.o
+        76          8          0          0          0     272099   application.o
        148         20          0          0          0      23033   board.o
        108          6          0          4          0       1432   clock.o
       3464       1300        989          4          0      12599   cmd.o
@@ -2806,7 +2810,7 @@ Image component sizes
       2432        262         95          4       2176       6119   shell.o
       1544        114        163          0          0       5474   spi_core.o
        524        148        129          0          0       3267   spi_dev.o
-      1556        466         39          0        120       7988   spi_flash_w25qxx.o
+      1556        466         39          0        120       8122   spi_flash_w25qxx.o
        176         88          0          0          0       1267   startup.o
         64         26        304          0       1536        848   startup_stm32f10x_hd.o
       3796        130          0          0          0      13029   stm32f10x_adc.o
@@ -2822,10 +2826,10 @@ Image component sizes
       1636        276        170         12          0       9477   thread.o
       1116        100         92         16          0       7847   timer.o
       1540        156         92         84        252      28083   usart.o
-       208        110          0          0          0       1137   w25q64.o
+       208        100       4096          0          0       1291   w25q64.o
 
     ----------------------------------------------------------------------
-     73408       8160       5904        772       8788     632609   Object Totals
+     73408       8148      10000        772      13396     632901   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          2          0          5          8          0          0   (incl. Padding)
 
@@ -2917,15 +2921,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     79952       8398       6352        772       8884     629629   Grand Totals
-     79952       8398       6352        220       8884     629629   ELF Image Totals (compressed)
-     79952       8398       6352        220          0          0   ROM Totals
+     79952       8386      10448        772      13492     629921   Grand Totals
+     79952       8386      10448        220      13492     629921   ELF Image Totals (compressed)
+     79952       8386      10448        220          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                86304 (  84.28kB)
-    Total RW  Size (RW Data + ZI Data)              9656 (   9.43kB)
-    Total ROM Size (Code + RO Data + RW Data)      86524 (  84.50kB)
+    Total RO  Size (Code + RO Data)                90400 (  88.28kB)
+    Total RW  Size (RW Data + ZI Data)             14264 (  13.93kB)
+    Total ROM Size (Code + RO Data + RW Data)      90620 (  88.50kB)
 
 ==============================================================================
 

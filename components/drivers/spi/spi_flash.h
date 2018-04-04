@@ -25,6 +25,10 @@
 #ifndef SPI_FLASH_H__
 #define SPI_FLASH_H__
 
+#include "rtthread.h"
+   extern uint8_t s[4096],b;
+   extern uint8_t a[4096],n;
+
 struct spi_flash_device
 {
     struct rt_device                flash_device;

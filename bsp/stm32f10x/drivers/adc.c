@@ -15,7 +15,7 @@ ADC1_CH12 -->  PC2
 #define ADC_CH          12
 
 ALIGN(RT_ALIGN_SIZE)
-static rt_uint8_t   adc_stack[ 512 ];
+static rt_uint8_t   adc_stack[ 5120 ];
 static struct rt_thread adc_thread;
 
 void ADC_VBAT_Init(void)
@@ -77,6 +77,7 @@ static void adc_thread_entry(void* parameter)
     float vbat = 0;
     rt_uint8_t s[5];
 
+extern void spi_flash_test(void);
     ADC_VBAT_Init();
     while(1)
     {
@@ -84,6 +85,7 @@ static void adc_thread_entry(void* parameter)
         sprintf(s,"%.2f",vbat);
         rt_kprintf("Vbat:%s\r\n",s);
         rt_thread_delay(RT_TICK_PER_SECOND*5);
+		spi_flash_test();
     }
 }
 
