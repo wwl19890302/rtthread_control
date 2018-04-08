@@ -88,6 +88,8 @@
 #define RT_USING_SPI_FLASH
 #define RT_USING_W25QXX
 
+#define RT_USING_SERVO_MOTOR
+
 //#define RT_USING_CAN
 
 #define RT_CAN_USING_BUS_HOOK

@@ -2,4 +2,4 @@
 -I D:\Keil\ARM\RV31\INC 
 -I D:\Keil\ARM\CMSIS\Include 
 -I D:\Keil\ARM\Inc\ST\STM32F10x 
--DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\build\object.o" --omf_browse ".\build\object.crf" --depend ".\build\object.d" "..\..\src\object.c"
+-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\build\object.o" --depend ".\build\object.d" "..\..\src\object.c"

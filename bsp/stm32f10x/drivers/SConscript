@@ -24,6 +24,10 @@ if GetDepend(['RT_USING_SPI']):
 if GetDepend(['RT_USING_W25QXX']):
     src += ['rt_spi_flash_device.c','w25q64.c']
 
+# add servo motor driver
+if GetDepend(['RT_USING_SERVO_MOTOR']):
+    src += ['servo_motor.c']
+
 # add canbus driver.
 if GetDepend('RT_USING_CAN'):
     src += ['bxcan.c']

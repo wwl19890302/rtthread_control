@@ -53,3 +53,4 @@
 .\build\application.o: drivers\ds1302.h
 .\build\application.o: drivers\ds18b20.h
 .\build\application.o: drivers\adc.h
+.\build\application.o: drivers\servo_motor.h

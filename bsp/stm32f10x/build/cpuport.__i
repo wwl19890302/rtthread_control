@@ -2,4 +2,4 @@
 -I D:\Keil\ARM\RV31\INC 
 -I D:\Keil\ARM\CMSIS\Include 
 -I D:\Keil\ARM\Inc\ST\STM32F10x 
--DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\build\cpuport.o" --omf_browse ".\build\cpuport.crf" --depend ".\build\cpuport.d" "..\..\libcpu\arm\cortex-m3\cpuport.c"
+-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\build\cpuport.o" --depend ".\build\cpuport.d" "..\..\libcpu\arm\cortex-m3\cpuport.c"

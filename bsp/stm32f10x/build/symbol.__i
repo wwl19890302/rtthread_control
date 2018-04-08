@@ -2,4 +2,4 @@
 -I D:\Keil\ARM\RV31\INC 
 -I D:\Keil\ARM\CMSIS\Include 
 -I D:\Keil\ARM\Inc\ST\STM32F10x 
--DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\build\symbol.o" --omf_browse ".\build\symbol.crf" --depend ".\build\symbol.d" "..\..\components\finsh\symbol.c"
+-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\build\symbol.o" --depend ".\build\symbol.d" "..\..\components\finsh\symbol.c"

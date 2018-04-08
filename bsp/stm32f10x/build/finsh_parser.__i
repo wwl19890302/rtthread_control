@@ -2,4 +2,4 @@
 -I D:\Keil\ARM\RV31\INC 
 -I D:\Keil\ARM\CMSIS\Include 
 -I D:\Keil\ARM\Inc\ST\STM32F10x 
--DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\build\finsh_parser.o" --omf_browse ".\build\finsh_parser.crf" --depend ".\build\finsh_parser.d" "..\..\components\finsh\finsh_parser.c"
+-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\build\finsh_parser.o" --depend ".\build\finsh_parser.d" "..\..\components\finsh\finsh_parser.c"

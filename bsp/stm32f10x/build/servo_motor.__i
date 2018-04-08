@@ -2,4 +2,4 @@
 -I D:\Keil\ARM\RV31\INC 
 -I D:\Keil\ARM\CMSIS\Include 
 -I D:\Keil\ARM\Inc\ST\STM32F10x 
--DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\build\w25q64.o" --omf_browse ".\build\w25q64.crf" --depend ".\build\w25q64.d" "drivers\w25q64.c"
+-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\build\servo_motor.o" --depend ".\build\servo_motor.d" "drivers\servo_motor.c"

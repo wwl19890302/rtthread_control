@@ -2,4 +2,4 @@
 -I D:\Keil\ARM\RV31\INC 
 -I D:\Keil\ARM\CMSIS\Include 
 -I D:\Keil\ARM\Inc\ST\STM32F10x 
--DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\build\idle.o" --omf_browse ".\build\idle.crf" --depend ".\build\idle.d" "..\..\src\idle.c"
+-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\build\idle.o" --depend ".\build\idle.d" "..\..\src\idle.c"

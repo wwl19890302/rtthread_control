@@ -2,4 +2,4 @@
 -I D:\Keil\ARM\RV31\INC 
 -I D:\Keil\ARM\CMSIS\Include 
 -I D:\Keil\ARM\Inc\ST\STM32F10x 
--DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\build\scheduler.o" --omf_browse ".\build\scheduler.crf" --depend ".\build\scheduler.d" "..\..\src\scheduler.c"
+-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\build\scheduler.o" --depend ".\build\scheduler.d" "..\..\src\scheduler.c"

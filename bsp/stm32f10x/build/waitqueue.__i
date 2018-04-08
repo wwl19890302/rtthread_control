@@ -2,4 +2,4 @@
 -I D:\Keil\ARM\RV31\INC 
 -I D:\Keil\ARM\CMSIS\Include 
 -I D:\Keil\ARM\Inc\ST\STM32F10x 
--DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\build\waitqueue.o" --omf_browse ".\build\waitqueue.crf" --depend ".\build\waitqueue.d" "..\..\components\drivers\src\waitqueue.c"
+-DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\build\waitqueue.o" --depend ".\build\waitqueue.d" "..\..\components\drivers\src\waitqueue.c"
