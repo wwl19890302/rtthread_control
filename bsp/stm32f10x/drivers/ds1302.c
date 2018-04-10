@@ -147,7 +147,7 @@ void DS1302_readtime(void)
 		u8time[i] = temp * 10 + u8time[i]%16;
 	}
 
-    rt_kprintf("%d-%d-%d %d:%d:%dweek%d\r\n",u8time[6],u8time[4],u8time[3],u8time[2],u8time[1],u8time[0],u8time[5]);
+//    rt_kprintf("%d-%d-%d %d:%d:%dweek%d\r\n",u8time[6],u8time[4],u8time[3],u8time[2],u8time[1],u8time[0],u8time[5]);
 }
 
 static void ds1302_thread_entry(void* parameter)

@@ -21,6 +21,6 @@ void spi_flash_test(void)
 //	rt_kprintf("222222\r\n");
     rt_spi_flash->flash_device.read(&(rt_spi_flash->flash_device), 0, a, 1);
 //	rt_kprintf("333333\r\n");
-    rt_kprintf("%s\r\n",a);
+//    rt_kprintf("%s\r\n",a);
 //	rt_kprintf("4444444\r\n");
 }

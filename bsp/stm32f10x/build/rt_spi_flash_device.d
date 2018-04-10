@@ -64,3 +64,4 @@
 .\build\rt_spi_flash_device.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\rt_spi_flash_device.o: ..\..\components\drivers\include\drivers/pin.h
 .\build\rt_spi_flash_device.o: ..\..\components\drivers\spi\spi_flash_w25qxx.h
+.\build\rt_spi_flash_device.o: drivers\msd.h

@@ -298,6 +298,15 @@ void DS18B20_Searchrom(void)
     DS18B20_sensornum = num;
 }
 
+#define SD_DETECT_Pin   GPIO_Pin_1
+#define SD_DETECT_PORT  GPIOA
+#define SD_DETECT_RCC   RCC_APB2Periph_GPIOA
+
+#define SD_DETECT_IN    (GPIO_ReadInputDataBit(SD_DETECT_PORT, SD_DETECT_Pin))
+
+extern void SPI_SD_to_PC(void);
+extern void SPI_PC_to_SD(void);
+
 static void ds18b20_thread_entry(void* parameter)
 {
     uint8_t i = 0;
@@ -317,14 +326,13 @@ static void ds18b20_thread_entry(void* parameter)
     {
         temperature = DS18B20_gettemp(0);
         sprintf(s1,"%.2f",temperature);
-// 		temperature = DS18B20_gettemp(1);
-//         sprintf(s2,"%.2f",temperature);
-        rt_kprintf("ID:%02x%02x%02x%02x%02x%02x%02x%02x temp:%s\r\n",DS18B20_ID[0][0],
-                DS18B20_ID[0][1],DS18B20_ID[0][2],DS18B20_ID[0][3],DS18B20_ID[0][4],
-                DS18B20_ID[0][5],DS18B20_ID[0][6],DS18B20_ID[0][7],s1);
-// 		rt_kprintf("ID:%02x%02x%02x%02x%02x%02x%02x%02x temp:%s\r\n",DS18B20_ID[1][0],
-//                 DS18B20_ID[1][1],DS18B20_ID[1][2],DS18B20_ID[1][3],DS18B20_ID[1][4],
-//                 DS18B20_ID[1][5],DS18B20_ID[1][6],DS18B20_ID[1][7],s2);
+        if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1))
+            {rt_kprintf("sd detect on \r\n");SPI_SD_to_PC();}
+        else    {rt_kprintf("sd detect off\r\n");SPI_PC_to_SD();}
+//         rt_kprintf("ID:%02x%02x%02x%02x%02x%02x%02x%02x temp:%s\r\n",DS18B20_ID[0][0],
+//                 DS18B20_ID[0][1],DS18B20_ID[0][2],DS18B20_ID[0][3],DS18B20_ID[0][4],
+//                 DS18B20_ID[0][5],DS18B20_ID[0][6],DS18B20_ID[0][7],s1);
+
         rt_thread_delay(RT_TICK_PER_SECOND*3);
     }
 }

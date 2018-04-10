@@ -87,6 +87,7 @@
 
 #define RT_USING_SPI_FLASH
 #define RT_USING_W25QXX
+#define RT_USING_SD_CARD
 
 #define RT_USING_SERVO_MOTOR
 
@@ -96,7 +97,7 @@
 
 #define RT_CAN_USING_HDR
 /* SECTION: device filesystem */
-/* #define RT_USING_DFS */
+#define RT_USING_DFS
 
 #define RT_USING_DFS_ELMFAT
 /* Reentrancy (thread safe) of the FatFs module.  */

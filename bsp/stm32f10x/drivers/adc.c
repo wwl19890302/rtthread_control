@@ -83,7 +83,7 @@ extern void spi_flash_test(void);
     {
         vbat = (float)Get_Adc_Average(ADC_CH, 5)*(1.03*25*3.3/4096);  //(float)adc_temp*(10*3.3/4096);  1.03->adjust
         sprintf(s,"%.2f",vbat);
-        rt_kprintf("Vbat:%s\r\n",s);
+//        rt_kprintf("Vbat:%s\r\n",s);
         rt_thread_delay(RT_TICK_PER_SECOND*5);
 //		spi_flash_test();
     }

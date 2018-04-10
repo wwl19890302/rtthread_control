@@ -21,8 +21,13 @@ if GetDepend(['RT_USING_PIN']):
 if GetDepend(['RT_USING_SPI']):
     src += ['rt_stm32f10x_spi.c']
 
+# add w25q64 driver
 if GetDepend(['RT_USING_W25QXX']):
     src += ['rt_spi_flash_device.c','w25q64.c']
+
+# add SD_CARD driver
+if GetDepend(['RT_USING_SD_CARD']):
+    src += ['msd.c']
 
 # add servo motor driver
 if GetDepend(['RT_USING_SERVO_MOTOR']):
@@ -37,8 +42,8 @@ if GetDepend('RT_USING_LWIP'):
     src += ['dm9000a.c']
 
 # add Ethernet drivers.
-if GetDepend('RT_USING_DFS'):
-    src += ['sdcard.c']
+#if GetDepend('RT_USING_DFS'):
+#    src += ['sdcard.c']
 
 # add Ethernet drivers.
 if GetDepend('RT_USING_RTC'):
