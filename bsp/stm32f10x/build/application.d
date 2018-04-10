@@ -2,7 +2,7 @@
 .\build\application.o: drivers\board.h
 .\build\application.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\build\application.o: ..\..\components\CMSIS\Include\core_cm3.h
-.\build\application.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\build\application.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdint.h
 .\build\application.o: ..\..\components\CMSIS\Include\core_cmInstr.h
 .\build\application.o: ..\..\components\CMSIS\Include\core_cmFunc.h
 .\build\application.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
@@ -35,16 +35,16 @@
 .\build\application.o: .\rtconfig.h
 .\build\application.o: ..\..\include\rtdebug.h
 .\build\application.o: ..\..\include\rtdef.h
-.\build\application.o: D:\Keil\ARM\ARMCC\bin\..\include\stdarg.h
+.\build\application.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdarg.h
 .\build\application.o: ..\..\include\rtlibc.h
 .\build\application.o: ..\..\include\libc/libc_stat.h
-.\build\application.o: D:\Keil\ARM\ARMCC\bin\..\include\time.h
+.\build\application.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\time.h
 .\build\application.o: ..\..\include\libc/libc_errno.h
 .\build\application.o: ..\..\include\libc/libc_fcntl.h
 .\build\application.o: ..\..\include\libc/libc_ioctl.h
 .\build\application.o: ..\..\include\libc/libc_dirent.h
 .\build\application.o: ..\..\include\libc/libc_signal.h
-.\build\application.o: D:\Keil\ARM\ARMCC\bin\..\include\signal.h
+.\build\application.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\signal.h
 .\build\application.o: ..\..\include\libc/libc_fdset.h
 .\build\application.o: ..\..\include\rtservice.h
 .\build\application.o: ..\..\include\rtm.h
@@ -52,9 +52,9 @@
 .\build\application.o: ..\..\components\dfs\filesystems\elmfat\dfs_elm.h
 .\build\application.o: ..\..\components\dfs\include\dfs_fs.h
 .\build\application.o: ..\..\components\dfs\include\dfs.h
-.\build\application.o: D:\Keil\ARM\ARMCC\bin\..\include\stdio.h
-.\build\application.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
-.\build\application.o: D:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\build\application.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\build\application.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\build\application.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\string.h
 .\build\application.o: ..\..\components\drivers\include\rtdevice.h
 .\build\application.o: ..\..\components\drivers\include\ipc/ringbuffer.h
 .\build\application.o: ..\..\components\drivers\include\ipc/completion.h

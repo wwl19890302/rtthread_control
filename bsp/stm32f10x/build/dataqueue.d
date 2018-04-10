@@ -3,17 +3,17 @@
 .\build\dataqueue.o: .\rtconfig.h
 .\build\dataqueue.o: ..\..\include\rtdebug.h
 .\build\dataqueue.o: ..\..\include\rtdef.h
-.\build\dataqueue.o: D:\Keil\ARM\ARMCC\bin\..\include\stdarg.h
+.\build\dataqueue.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdarg.h
 .\build\dataqueue.o: ..\..\include\rtlibc.h
 .\build\dataqueue.o: ..\..\include\libc/libc_stat.h
-.\build\dataqueue.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\build\dataqueue.o: D:\Keil\ARM\ARMCC\bin\..\include\time.h
+.\build\dataqueue.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\build\dataqueue.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\time.h
 .\build\dataqueue.o: ..\..\include\libc/libc_errno.h
 .\build\dataqueue.o: ..\..\include\libc/libc_fcntl.h
 .\build\dataqueue.o: ..\..\include\libc/libc_ioctl.h
 .\build\dataqueue.o: ..\..\include\libc/libc_dirent.h
 .\build\dataqueue.o: ..\..\include\libc/libc_signal.h
-.\build\dataqueue.o: D:\Keil\ARM\ARMCC\bin\..\include\signal.h
+.\build\dataqueue.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\signal.h
 .\build\dataqueue.o: ..\..\include\libc/libc_fdset.h
 .\build\dataqueue.o: ..\..\include\rtservice.h
 .\build\dataqueue.o: ..\..\include\rtm.h
@@ -28,7 +28,7 @@
 .\build\dataqueue.o: ..\..\components\drivers\include\rtdevice.h
 .\build\dataqueue.o: ..\..\components\drivers\include\ipc/poll.h
 .\build\dataqueue.o: ..\..\components\drivers\include\drivers/spi.h
-.\build\dataqueue.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\build\dataqueue.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\dataqueue.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\dataqueue.o: ..\..\components\drivers\include\drivers/pin.h
 .\build\dataqueue.o: ..\..\include\rthw.h

@@ -4,17 +4,17 @@
 .\build\adc.o: .\rtconfig.h
 .\build\adc.o: ..\..\include\rtdebug.h
 .\build\adc.o: ..\..\include\rtdef.h
-.\build\adc.o: D:\Keil\ARM\ARMCC\bin\..\include\stdarg.h
+.\build\adc.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdarg.h
 .\build\adc.o: ..\..\include\rtlibc.h
 .\build\adc.o: ..\..\include\libc/libc_stat.h
-.\build\adc.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\build\adc.o: D:\Keil\ARM\ARMCC\bin\..\include\time.h
+.\build\adc.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\build\adc.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\time.h
 .\build\adc.o: ..\..\include\libc/libc_errno.h
 .\build\adc.o: ..\..\include\libc/libc_fcntl.h
 .\build\adc.o: ..\..\include\libc/libc_ioctl.h
 .\build\adc.o: ..\..\include\libc/libc_dirent.h
 .\build\adc.o: ..\..\include\libc/libc_signal.h
-.\build\adc.o: D:\Keil\ARM\ARMCC\bin\..\include\signal.h
+.\build\adc.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\signal.h
 .\build\adc.o: ..\..\include\libc/libc_fdset.h
 .\build\adc.o: ..\..\include\rtservice.h
 .\build\adc.o: ..\..\include\rtm.h
@@ -50,4 +50,4 @@
 .\build\adc.o: Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\build\adc.o: Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\build\adc.o: Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
-.\build\adc.o: D:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\build\adc.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdio.h

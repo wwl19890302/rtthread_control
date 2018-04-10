@@ -4,17 +4,17 @@
 .\build\gpio.o: .\rtconfig.h
 .\build\gpio.o: ..\..\include\rtdebug.h
 .\build\gpio.o: ..\..\include\rtdef.h
-.\build\gpio.o: D:\Keil\ARM\ARMCC\bin\..\include\stdarg.h
+.\build\gpio.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdarg.h
 .\build\gpio.o: ..\..\include\rtlibc.h
 .\build\gpio.o: ..\..\include\libc/libc_stat.h
-.\build\gpio.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\build\gpio.o: D:\Keil\ARM\ARMCC\bin\..\include\time.h
+.\build\gpio.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\build\gpio.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\time.h
 .\build\gpio.o: ..\..\include\libc/libc_errno.h
 .\build\gpio.o: ..\..\include\libc/libc_fcntl.h
 .\build\gpio.o: ..\..\include\libc/libc_ioctl.h
 .\build\gpio.o: ..\..\include\libc/libc_dirent.h
 .\build\gpio.o: ..\..\include\libc/libc_signal.h
-.\build\gpio.o: D:\Keil\ARM\ARMCC\bin\..\include\signal.h
+.\build\gpio.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\signal.h
 .\build\gpio.o: ..\..\include\libc/libc_fdset.h
 .\build\gpio.o: ..\..\include\rtservice.h
 .\build\gpio.o: ..\..\include\rtm.h
@@ -29,7 +29,7 @@
 .\build\gpio.o: ..\..\components\drivers\include\rtdevice.h
 .\build\gpio.o: ..\..\components\drivers\include\ipc/poll.h
 .\build\gpio.o: ..\..\components\drivers\include\drivers/spi.h
-.\build\gpio.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\build\gpio.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\gpio.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\gpio.o: ..\..\components\drivers\include\drivers/pin.h
 .\build\gpio.o: drivers\board.h

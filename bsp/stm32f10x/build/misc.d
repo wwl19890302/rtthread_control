@@ -2,7 +2,7 @@
 .\build\misc.o: Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\build\misc.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\build\misc.o: ..\..\components\CMSIS\Include\core_cm3.h
-.\build\misc.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\build\misc.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdint.h
 .\build\misc.o: ..\..\components\CMSIS\Include\core_cmInstr.h
 .\build\misc.o: ..\..\components\CMSIS\Include\core_cmFunc.h
 .\build\misc.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h

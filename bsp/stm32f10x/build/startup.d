@@ -4,17 +4,17 @@
 .\build\startup.o: .\rtconfig.h
 .\build\startup.o: ..\..\include\rtdebug.h
 .\build\startup.o: ..\..\include\rtdef.h
-.\build\startup.o: D:\Keil\ARM\ARMCC\bin\..\include\stdarg.h
+.\build\startup.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdarg.h
 .\build\startup.o: ..\..\include\rtlibc.h
 .\build\startup.o: ..\..\include\libc/libc_stat.h
-.\build\startup.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\build\startup.o: D:\Keil\ARM\ARMCC\bin\..\include\time.h
+.\build\startup.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\build\startup.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\time.h
 .\build\startup.o: ..\..\include\libc/libc_errno.h
 .\build\startup.o: ..\..\include\libc/libc_fcntl.h
 .\build\startup.o: ..\..\include\libc/libc_ioctl.h
 .\build\startup.o: ..\..\include\libc/libc_dirent.h
 .\build\startup.o: ..\..\include\libc/libc_signal.h
-.\build\startup.o: D:\Keil\ARM\ARMCC\bin\..\include\signal.h
+.\build\startup.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\signal.h
 .\build\startup.o: ..\..\include\libc/libc_fdset.h
 .\build\startup.o: ..\..\include\rtservice.h
 .\build\startup.o: ..\..\include\rtm.h

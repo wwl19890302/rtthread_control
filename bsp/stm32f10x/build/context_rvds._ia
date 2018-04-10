@@ -1,0 +1,5 @@
+--cpu Cortex-M3 -g --apcs=interwork 
+-I "D:\Program Files\Keil\ARM\RV31\INC" 
+-I "D:\Program Files\Keil\ARM\CMSIS\Include" 
+-I "D:\Program Files\Keil\ARM\Inc\ST\STM32F10x" 
+--list ".\build\context_rvds.lst" --xref -o ".\build\context_rvds.o" --depend ".\build\context_rvds.d" "..\..\libcpu\arm\cortex-m3\context_rvds.S"

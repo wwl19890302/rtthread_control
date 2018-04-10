@@ -2,7 +2,7 @@
 .\build\ds18b20.o: drivers\ds18b20.h
 .\build\ds18b20.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\build\ds18b20.o: ..\..\components\CMSIS\Include\core_cm3.h
-.\build\ds18b20.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\build\ds18b20.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdint.h
 .\build\ds18b20.o: ..\..\components\CMSIS\Include\core_cmInstr.h
 .\build\ds18b20.o: ..\..\components\CMSIS\Include\core_cmFunc.h
 .\build\ds18b20.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
@@ -35,19 +35,19 @@
 .\build\ds18b20.o: .\rtconfig.h
 .\build\ds18b20.o: ..\..\include\rtdebug.h
 .\build\ds18b20.o: ..\..\include\rtdef.h
-.\build\ds18b20.o: D:\Keil\ARM\ARMCC\bin\..\include\stdarg.h
+.\build\ds18b20.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdarg.h
 .\build\ds18b20.o: ..\..\include\rtlibc.h
 .\build\ds18b20.o: ..\..\include\libc/libc_stat.h
-.\build\ds18b20.o: D:\Keil\ARM\ARMCC\bin\..\include\time.h
+.\build\ds18b20.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\time.h
 .\build\ds18b20.o: ..\..\include\libc/libc_errno.h
 .\build\ds18b20.o: ..\..\include\libc/libc_fcntl.h
 .\build\ds18b20.o: ..\..\include\libc/libc_ioctl.h
 .\build\ds18b20.o: ..\..\include\libc/libc_dirent.h
 .\build\ds18b20.o: ..\..\include\libc/libc_signal.h
-.\build\ds18b20.o: D:\Keil\ARM\ARMCC\bin\..\include\signal.h
+.\build\ds18b20.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\signal.h
 .\build\ds18b20.o: ..\..\include\libc/libc_fdset.h
 .\build\ds18b20.o: ..\..\include\rtservice.h
 .\build\ds18b20.o: ..\..\include\rtm.h
 .\build\ds18b20.o: ..\..\include\rtthread.h
 .\build\ds18b20.o: ..\..\include\rthw.h
-.\build\ds18b20.o: D:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\build\ds18b20.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdio.h

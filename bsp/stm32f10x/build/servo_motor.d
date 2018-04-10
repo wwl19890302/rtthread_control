@@ -4,17 +4,17 @@
 .\build\servo_motor.o: .\rtconfig.h
 .\build\servo_motor.o: ..\..\include\rtdebug.h
 .\build\servo_motor.o: ..\..\include\rtdef.h
-.\build\servo_motor.o: D:\Keil\ARM\ARMCC\bin\..\include\stdarg.h
+.\build\servo_motor.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdarg.h
 .\build\servo_motor.o: ..\..\include\rtlibc.h
 .\build\servo_motor.o: ..\..\include\libc/libc_stat.h
-.\build\servo_motor.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\build\servo_motor.o: D:\Keil\ARM\ARMCC\bin\..\include\time.h
+.\build\servo_motor.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\build\servo_motor.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\time.h
 .\build\servo_motor.o: ..\..\include\libc/libc_errno.h
 .\build\servo_motor.o: ..\..\include\libc/libc_fcntl.h
 .\build\servo_motor.o: ..\..\include\libc/libc_ioctl.h
 .\build\servo_motor.o: ..\..\include\libc/libc_dirent.h
 .\build\servo_motor.o: ..\..\include\libc/libc_signal.h
-.\build\servo_motor.o: D:\Keil\ARM\ARMCC\bin\..\include\signal.h
+.\build\servo_motor.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\signal.h
 .\build\servo_motor.o: ..\..\include\libc/libc_fdset.h
 .\build\servo_motor.o: ..\..\include\rtservice.h
 .\build\servo_motor.o: ..\..\include\rtm.h

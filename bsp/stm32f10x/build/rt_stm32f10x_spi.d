@@ -5,17 +5,17 @@
 .\build\rt_stm32f10x_spi.o: .\rtconfig.h
 .\build\rt_stm32f10x_spi.o: ..\..\include\rtdebug.h
 .\build\rt_stm32f10x_spi.o: ..\..\include\rtdef.h
-.\build\rt_stm32f10x_spi.o: D:\Keil\ARM\ARMCC\bin\..\include\stdarg.h
+.\build\rt_stm32f10x_spi.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdarg.h
 .\build\rt_stm32f10x_spi.o: ..\..\include\rtlibc.h
 .\build\rt_stm32f10x_spi.o: ..\..\include\libc/libc_stat.h
-.\build\rt_stm32f10x_spi.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\build\rt_stm32f10x_spi.o: D:\Keil\ARM\ARMCC\bin\..\include\time.h
+.\build\rt_stm32f10x_spi.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\build\rt_stm32f10x_spi.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\time.h
 .\build\rt_stm32f10x_spi.o: ..\..\include\libc/libc_errno.h
 .\build\rt_stm32f10x_spi.o: ..\..\include\libc/libc_fcntl.h
 .\build\rt_stm32f10x_spi.o: ..\..\include\libc/libc_ioctl.h
 .\build\rt_stm32f10x_spi.o: ..\..\include\libc/libc_dirent.h
 .\build\rt_stm32f10x_spi.o: ..\..\include\libc/libc_signal.h
-.\build\rt_stm32f10x_spi.o: D:\Keil\ARM\ARMCC\bin\..\include\signal.h
+.\build\rt_stm32f10x_spi.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\signal.h
 .\build\rt_stm32f10x_spi.o: ..\..\include\libc/libc_fdset.h
 .\build\rt_stm32f10x_spi.o: ..\..\include\rtservice.h
 .\build\rt_stm32f10x_spi.o: ..\..\include\rtm.h
@@ -29,7 +29,7 @@
 .\build\rt_stm32f10x_spi.o: ..\..\components\drivers\include\rtdevice.h
 .\build\rt_stm32f10x_spi.o: ..\..\components\drivers\include\ipc/poll.h
 .\build\rt_stm32f10x_spi.o: ..\..\components\drivers\include\drivers/spi.h
-.\build\rt_stm32f10x_spi.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\build\rt_stm32f10x_spi.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\rt_stm32f10x_spi.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\rt_stm32f10x_spi.o: ..\..\components\drivers\include\drivers/pin.h
 .\build\rt_stm32f10x_spi.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h

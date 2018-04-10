@@ -4,17 +4,17 @@
 .\build\ds1302.o: .\rtconfig.h
 .\build\ds1302.o: ..\..\include\rtdebug.h
 .\build\ds1302.o: ..\..\include\rtdef.h
-.\build\ds1302.o: D:\Keil\ARM\ARMCC\bin\..\include\stdarg.h
+.\build\ds1302.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdarg.h
 .\build\ds1302.o: ..\..\include\rtlibc.h
 .\build\ds1302.o: ..\..\include\libc/libc_stat.h
-.\build\ds1302.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\build\ds1302.o: D:\Keil\ARM\ARMCC\bin\..\include\time.h
+.\build\ds1302.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\build\ds1302.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\time.h
 .\build\ds1302.o: ..\..\include\libc/libc_errno.h
 .\build\ds1302.o: ..\..\include\libc/libc_fcntl.h
 .\build\ds1302.o: ..\..\include\libc/libc_ioctl.h
 .\build\ds1302.o: ..\..\include\libc/libc_dirent.h
 .\build\ds1302.o: ..\..\include\libc/libc_signal.h
-.\build\ds1302.o: D:\Keil\ARM\ARMCC\bin\..\include\signal.h
+.\build\ds1302.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\signal.h
 .\build\ds1302.o: ..\..\include\libc/libc_fdset.h
 .\build\ds1302.o: ..\..\include\rtservice.h
 .\build\ds1302.o: ..\..\include\rtm.h
@@ -49,4 +49,4 @@
 .\build\ds1302.o: Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\build\ds1302.o: Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\build\ds1302.o: Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
-.\build\ds1302.o: D:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\build\ds1302.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdio.h

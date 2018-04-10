@@ -2,7 +2,7 @@
 .\build\stm32f10x_dac.o: Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h
 .\build\stm32f10x_dac.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\build\stm32f10x_dac.o: ..\..\components\CMSIS\Include\core_cm3.h
-.\build\stm32f10x_dac.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\build\stm32f10x_dac.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdint.h
 .\build\stm32f10x_dac.o: ..\..\components\CMSIS\Include\core_cmInstr.h
 .\build\stm32f10x_dac.o: ..\..\components\CMSIS\Include\core_cmFunc.h
 .\build\stm32f10x_dac.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h

@@ -112,7 +112,7 @@ int dfs_file_open(struct dfs_fd *fd, const char *path, int flags)
 
         return -ENOSYS;
     }
-
+rt_kprintf("11111\r\n");
     if ((result = fd->fops->open(fd)) < 0)
     {
         /* clear fd */
@@ -123,14 +123,14 @@ int dfs_file_open(struct dfs_fd *fd, const char *path, int flags)
 
         return result;
     }
-
+rt_kprintf("11111\r\n");
     fd->flags |= DFS_F_OPEN;
     if (flags & O_DIRECTORY)
     {
         fd->type = FT_DIRECTORY;
         fd->flags |= DFS_F_DIRECTORY;
     }
-
+rt_kprintf("11111\r\n");
     dbg_log(DBG_INFO, "open successful\n");
     return 0;
 }

@@ -3,17 +3,17 @@
 .\build\led.o: .\rtconfig.h
 .\build\led.o: ..\..\include\rtdebug.h
 .\build\led.o: ..\..\include\rtdef.h
-.\build\led.o: D:\Keil\ARM\ARMCC\bin\..\include\stdarg.h
+.\build\led.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdarg.h
 .\build\led.o: ..\..\include\rtlibc.h
 .\build\led.o: ..\..\include\libc/libc_stat.h
-.\build\led.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\build\led.o: D:\Keil\ARM\ARMCC\bin\..\include\time.h
+.\build\led.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\build\led.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\time.h
 .\build\led.o: ..\..\include\libc/libc_errno.h
 .\build\led.o: ..\..\include\libc/libc_fcntl.h
 .\build\led.o: ..\..\include\libc/libc_ioctl.h
 .\build\led.o: ..\..\include\libc/libc_dirent.h
 .\build\led.o: ..\..\include\libc/libc_signal.h
-.\build\led.o: D:\Keil\ARM\ARMCC\bin\..\include\signal.h
+.\build\led.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\signal.h
 .\build\led.o: ..\..\include\libc/libc_fdset.h
 .\build\led.o: ..\..\include\rtservice.h
 .\build\led.o: ..\..\include\rtm.h
@@ -59,10 +59,10 @@
 .\build\led.o: ..\..\components\drivers\include\rtdevice.h
 .\build\led.o: ..\..\components\drivers\include\ipc/poll.h
 .\build\led.o: ..\..\components\drivers\include\drivers/spi.h
-.\build\led.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\build\led.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\led.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\led.o: ..\..\components\drivers\include\drivers/pin.h
 .\build\led.o: ..\..\components\finsh\finsh.h
-.\build\led.o: D:\Keil\ARM\ARMCC\bin\..\include\stdio.h
-.\build\led.o: D:\Keil\ARM\ARMCC\bin\..\include\ctype.h
-.\build\led.o: D:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\build\led.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\build\led.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\ctype.h
+.\build\led.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\string.h

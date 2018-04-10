@@ -3,17 +3,17 @@
 .\build\ringbuffer.o: .\rtconfig.h
 .\build\ringbuffer.o: ..\..\include\rtdebug.h
 .\build\ringbuffer.o: ..\..\include\rtdef.h
-.\build\ringbuffer.o: D:\Keil\ARM\ARMCC\bin\..\include\stdarg.h
+.\build\ringbuffer.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdarg.h
 .\build\ringbuffer.o: ..\..\include\rtlibc.h
 .\build\ringbuffer.o: ..\..\include\libc/libc_stat.h
-.\build\ringbuffer.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\build\ringbuffer.o: D:\Keil\ARM\ARMCC\bin\..\include\time.h
+.\build\ringbuffer.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\build\ringbuffer.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\time.h
 .\build\ringbuffer.o: ..\..\include\libc/libc_errno.h
 .\build\ringbuffer.o: ..\..\include\libc/libc_fcntl.h
 .\build\ringbuffer.o: ..\..\include\libc/libc_ioctl.h
 .\build\ringbuffer.o: ..\..\include\libc/libc_dirent.h
 .\build\ringbuffer.o: ..\..\include\libc/libc_signal.h
-.\build\ringbuffer.o: D:\Keil\ARM\ARMCC\bin\..\include\signal.h
+.\build\ringbuffer.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\signal.h
 .\build\ringbuffer.o: ..\..\include\libc/libc_fdset.h
 .\build\ringbuffer.o: ..\..\include\rtservice.h
 .\build\ringbuffer.o: ..\..\include\rtm.h
@@ -28,7 +28,7 @@
 .\build\ringbuffer.o: ..\..\components\drivers\include\rtdevice.h
 .\build\ringbuffer.o: ..\..\components\drivers\include\ipc/poll.h
 .\build\ringbuffer.o: ..\..\components\drivers\include\drivers/spi.h
-.\build\ringbuffer.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\build\ringbuffer.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\ringbuffer.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\ringbuffer.o: ..\..\components\drivers\include\drivers/pin.h
-.\build\ringbuffer.o: D:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\build\ringbuffer.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\string.h

@@ -76,13 +76,13 @@ void rt_init_thread_entry(void* parameter)
 
     /* Filesystem Initialization */
 #if defined(RT_USING_DFS) && defined(RT_USING_DFS_ELMFAT)
-//     /* mount sd card fat partition 1 as root directory */
-//     if (dfs_mount("sd0", "/", "elm", 0, 0) == 0)
-//     {
-//         rt_kprintf("File System initialized!\n");
-//     }
-//     else
-//         rt_kprintf("File System initialzation failed!\n");
+    /* mount sd card fat partition 1 as root directory */
+    if (dfs_mount("sd0", "/", "elm", 0, 0) == 0)
+    {
+        rt_kprintf("File System initialized!\n");
+    }
+    else
+        rt_kprintf("File System initialzation failed!\n");
 #endif  /* RT_USING_DFS */
 
 

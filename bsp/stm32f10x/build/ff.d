@@ -4,17 +4,17 @@
 .\build\ff.o: .\rtconfig.h
 .\build\ff.o: ..\..\include\rtdebug.h
 .\build\ff.o: ..\..\include\rtdef.h
-.\build\ff.o: D:\Keil\ARM\ARMCC\bin\..\include\stdarg.h
+.\build\ff.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdarg.h
 .\build\ff.o: ..\..\include\rtlibc.h
 .\build\ff.o: ..\..\include\libc/libc_stat.h
-.\build\ff.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\build\ff.o: D:\Keil\ARM\ARMCC\bin\..\include\time.h
+.\build\ff.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\build\ff.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\time.h
 .\build\ff.o: ..\..\include\libc/libc_errno.h
 .\build\ff.o: ..\..\include\libc/libc_fcntl.h
 .\build\ff.o: ..\..\include\libc/libc_ioctl.h
 .\build\ff.o: ..\..\include\libc/libc_dirent.h
 .\build\ff.o: ..\..\include\libc/libc_signal.h
-.\build\ff.o: D:\Keil\ARM\ARMCC\bin\..\include\signal.h
+.\build\ff.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\signal.h
 .\build\ff.o: ..\..\include\libc/libc_fdset.h
 .\build\ff.o: ..\..\include\rtservice.h
 .\build\ff.o: ..\..\include\rtm.h

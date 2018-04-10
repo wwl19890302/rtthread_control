@@ -3,17 +3,17 @@
 .\build\rt_spi_flash_device.o: .\rtconfig.h
 .\build\rt_spi_flash_device.o: ..\..\include\rtdebug.h
 .\build\rt_spi_flash_device.o: ..\..\include\rtdef.h
-.\build\rt_spi_flash_device.o: D:\Keil\ARM\ARMCC\bin\..\include\stdarg.h
+.\build\rt_spi_flash_device.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdarg.h
 .\build\rt_spi_flash_device.o: ..\..\include\rtlibc.h
 .\build\rt_spi_flash_device.o: ..\..\include\libc/libc_stat.h
-.\build\rt_spi_flash_device.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
-.\build\rt_spi_flash_device.o: D:\Keil\ARM\ARMCC\bin\..\include\time.h
+.\build\rt_spi_flash_device.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\build\rt_spi_flash_device.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\time.h
 .\build\rt_spi_flash_device.o: ..\..\include\libc/libc_errno.h
 .\build\rt_spi_flash_device.o: ..\..\include\libc/libc_fcntl.h
 .\build\rt_spi_flash_device.o: ..\..\include\libc/libc_ioctl.h
 .\build\rt_spi_flash_device.o: ..\..\include\libc/libc_dirent.h
 .\build\rt_spi_flash_device.o: ..\..\include\libc/libc_signal.h
-.\build\rt_spi_flash_device.o: D:\Keil\ARM\ARMCC\bin\..\include\signal.h
+.\build\rt_spi_flash_device.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\signal.h
 .\build\rt_spi_flash_device.o: ..\..\include\libc/libc_fdset.h
 .\build\rt_spi_flash_device.o: ..\..\include\rtservice.h
 .\build\rt_spi_flash_device.o: ..\..\include\rtm.h
@@ -60,8 +60,16 @@
 .\build\rt_spi_flash_device.o: ..\..\components\drivers\include\rtdevice.h
 .\build\rt_spi_flash_device.o: ..\..\components\drivers\include\ipc/poll.h
 .\build\rt_spi_flash_device.o: ..\..\components\drivers\include\drivers/spi.h
-.\build\rt_spi_flash_device.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\build\rt_spi_flash_device.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\rt_spi_flash_device.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\rt_spi_flash_device.o: ..\..\components\drivers\include\drivers/pin.h
 .\build\rt_spi_flash_device.o: ..\..\components\drivers\spi\spi_flash_w25qxx.h
 .\build\rt_spi_flash_device.o: drivers\msd.h
+.\build\rt_spi_flash_device.o: ..\..\components\dfs\include\dfs_posix.h
+.\build\rt_spi_flash_device.o: ..\..\components\dfs\include\dfs_file.h
+.\build\rt_spi_flash_device.o: ..\..\components\dfs\include\dfs.h
+.\build\rt_spi_flash_device.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\build\rt_spi_flash_device.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\string.h
+.\build\rt_spi_flash_device.o: ..\..\components\dfs\include\dfs_fs.h
+.\build\rt_spi_flash_device.o: ..\..\components\finsh\finsh.h
+.\build\rt_spi_flash_device.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\ctype.h

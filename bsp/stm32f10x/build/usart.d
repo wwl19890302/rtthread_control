@@ -1,7 +1,7 @@
 .\build\usart.o: drivers\usart.c
 .\build\usart.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\build\usart.o: ..\..\components\CMSIS\Include\core_cm3.h
-.\build\usart.o: D:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\build\usart.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdint.h
 .\build\usart.o: ..\..\components\CMSIS\Include\core_cmInstr.h
 .\build\usart.o: ..\..\components\CMSIS\Include\core_cmFunc.h
 .\build\usart.o: Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
@@ -36,16 +36,16 @@
 .\build\usart.o: .\rtconfig.h
 .\build\usart.o: ..\..\include\rtdebug.h
 .\build\usart.o: ..\..\include\rtdef.h
-.\build\usart.o: D:\Keil\ARM\ARMCC\bin\..\include\stdarg.h
+.\build\usart.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdarg.h
 .\build\usart.o: ..\..\include\rtlibc.h
 .\build\usart.o: ..\..\include\libc/libc_stat.h
-.\build\usart.o: D:\Keil\ARM\ARMCC\bin\..\include\time.h
+.\build\usart.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\time.h
 .\build\usart.o: ..\..\include\libc/libc_errno.h
 .\build\usart.o: ..\..\include\libc/libc_fcntl.h
 .\build\usart.o: ..\..\include\libc/libc_ioctl.h
 .\build\usart.o: ..\..\include\libc/libc_dirent.h
 .\build\usart.o: ..\..\include\libc/libc_signal.h
-.\build\usart.o: D:\Keil\ARM\ARMCC\bin\..\include\signal.h
+.\build\usart.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\signal.h
 .\build\usart.o: ..\..\include\libc/libc_fdset.h
 .\build\usart.o: ..\..\include\rtservice.h
 .\build\usart.o: ..\..\include\rtm.h
@@ -61,6 +61,6 @@
 .\build\usart.o: ..\..\components\drivers\include\rtdevice.h
 .\build\usart.o: ..\..\components\drivers\include\ipc/poll.h
 .\build\usart.o: ..\..\components\drivers\include\drivers/spi.h
-.\build\usart.o: D:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\build\usart.o: D:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\build\usart.o: ..\..\components\drivers\include\drivers/serial.h
 .\build\usart.o: ..\..\components\drivers\include\drivers/pin.h

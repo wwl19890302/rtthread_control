@@ -1,5 +1,5 @@
 -c --cpu Cortex-M3 -g -O0 --apcs=interwork -Iapplications -I. -Idrivers -ILibraries\STM32F10x_StdPeriph_Driver\inc -ILibraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I..\..\components\CMSIS\Include -I..\..\include -I..\..\libcpu\arm\cortex-m3 -I..\..\libcpu\arm\common -I..\..\components\dfs\include -I..\..\components\dfs\filesystems\elmfat -I..\..\components\drivers\include -I..\..\components\drivers\include -I..\..\components\drivers\spi -I..\..\components\drivers\include -I..\..\components\drivers\include -I..\..\components\finsh 
--I D:\Keil\ARM\RV31\INC 
--I D:\Keil\ARM\CMSIS\Include 
--I D:\Keil\ARM\Inc\ST\STM32F10x 
+-I "D:\Program Files\Keil\ARM\RV31\INC" 
+-I "D:\Program Files\Keil\ARM\CMSIS\Include" 
+-I "D:\Program Files\Keil\ARM\Inc\ST\STM32F10x" 
 -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -o ".\build\finsh_token.o" --omf_browse ".\build\finsh_token.crf" --depend ".\build\finsh_token.d" "..\..\components\finsh\finsh_token.c"
