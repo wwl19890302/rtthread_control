@@ -470,6 +470,7 @@ int dfs_elm_close(struct dfs_fd *file)
         RT_ASSERT(fd != RT_NULL);
 
         result = f_close(fd);
+
         if (result == FR_OK)
         {
             /* release memory */
@@ -918,33 +919,50 @@ DRESULT disk_ioctl(BYTE drv, BYTE ctrl, void *buff)
     return RES_OK;
 }
 
+/* DWORD time define
+		year		 month		  day		hour	  minute	second
+	  bit31:25		bit24:21	bit20:16  bit15:11	  bit10:5	bit4:0
+	1980+(0..127)	 (1..12)	 (1..31)   (0..23)	  (0..59)	(0..29)
+  */
 DWORD get_fattime(void)
 {
-    time_t now;
-    struct tm *p_tm;
-    struct tm tm_now;
-    DWORD fat_time;
-
-    /* get current time */
-    now = time(RT_NULL);
-
-    /* lock scheduler. */
-    rt_enter_critical();
-    /* converts calendar time time into local time. */
-    p_tm = localtime(&now);
-    /* copy the statically located variable */
-    memcpy(&tm_now, p_tm, sizeof(struct tm));
-    /* unlock scheduler. */
-    rt_exit_critical();
-
-    fat_time =  (DWORD)(tm_now.tm_year - 80) << 25 |
-                (DWORD)(tm_now.tm_mon + 1)   << 21 |
-                (DWORD)tm_now.tm_mday        << 16 |
-                (DWORD)tm_now.tm_hour        << 11 |
-                (DWORD)tm_now.tm_min         <<  5 |
-                (DWORD)tm_now.tm_sec / 2 ;
+	extern	uint8_t u8time[8];
+	DWORD fat_time;
+	
+	fat_time =  (DWORD)(u8time[6] + 20) << 25 |
+                (DWORD)u8time[4]     	<< 21 |
+                (DWORD)u8time[3]        << 16 |
+                (DWORD)u8time[2]        << 11 |
+                (DWORD)u8time[1]        <<  5 |
+                (DWORD)u8time[0] / 2 ;
 
     return fat_time;
+	
+//     time_t now;
+//     struct tm *p_tm;
+//     struct tm tm_now;
+//     DWORD fat_time;
+
+//     /* get current time */
+//     now = time(RT_NULL);
+
+//     /* lock scheduler. */
+//     rt_enter_critical();
+//     /* converts calendar time time into local time. */
+//     p_tm = localtime(&now);
+//     /* copy the statically located variable */
+//     memcpy(&tm_now, p_tm, sizeof(struct tm));
+//     /* unlock scheduler. */
+//     rt_exit_critical();
+
+//     fat_time =  (DWORD)(tm_now.tm_year - 80) << 25 |
+//                 (DWORD)(tm_now.tm_mon + 1)   << 21 |
+//                 (DWORD)tm_now.tm_mday        << 16 |
+//                 (DWORD)tm_now.tm_hour        << 11 |
+//                 (DWORD)tm_now.tm_min         <<  5 |
+//                 (DWORD)tm_now.tm_sec / 2 ;
+
+//     return fat_time;
 }
 
 #if _FS_REENTRANT

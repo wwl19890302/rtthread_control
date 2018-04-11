@@ -192,3 +192,4 @@ examples/test
 include
 include/libc
 src
+bsp/stm32f10x/applications

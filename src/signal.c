@@ -34,7 +34,7 @@
 #define RT_SIG_INFO_MAX	32
 #endif
 
-// #define DBG_ENABLE
+#define DBG_ENABLE
 #define DBG_SECTION_NAME    "[SIGN]"
 #define DBG_COLOR
 #define DBG_LEVEL           DBG_LOG

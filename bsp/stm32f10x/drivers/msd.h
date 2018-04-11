@@ -13,8 +13,8 @@
  * 2009-04-17     Bernard      first version.
  */
 
-#ifndef MSD_H_INCLUDED
-#define MSD_H_INCLUDED
+#ifndef SPI_MSD_H_INCLUDED
+#define SPI_MSD_H_INCLUDED
 
 #include <stdint.h>
 #include <drivers/spi.h>
@@ -98,12 +98,12 @@
  */
 typedef enum
 {
-	MSD_CARD_TYPE_UNKNOWN = 0,                      /**< unknown */
-	MSD_CARD_TYPE_MMC,                              /**< MultiMedia Card */
-	MSD_CARD_TYPE_SD_V1_X,                          /**< Ver 1.X  Standard Capacity SD Memory Card */
-	MSD_CARD_TYPE_SD_V2_X,                          /**< Ver 2.00 or later Standard Capacity SD Memory Card */
-	MSD_CARD_TYPE_SD_SDHC,                          /**< High Capacity SD Memory Card */
-	MSD_CARD_TYPE_SD_SDXC,                          /**< later Extended Capacity SD Memory Card */
+    MSD_CARD_TYPE_UNKNOWN = 0,                      /**< unknown */
+    MSD_CARD_TYPE_MMC,                              /**< MultiMedia Card */
+    MSD_CARD_TYPE_SD_V1_X,                          /**< Ver 1.X  Standard Capacity SD Memory Card */
+    MSD_CARD_TYPE_SD_V2_X,                          /**< Ver 2.00 or later Standard Capacity SD Memory Card */
+    MSD_CARD_TYPE_SD_SDHC,                          /**< High Capacity SD Memory Card */
+    MSD_CARD_TYPE_SD_SDXC,                          /**< later Extended Capacity SD Memory Card */
 }msd_card_type;
 
 typedef enum
@@ -129,4 +129,4 @@ struct msd_device
 
 extern rt_err_t msd_init(const char * sd_device_name, const char * spi_device_name);
 
-#endif // MSD_H_INCLUDED
+#endif // SPI_MSD_H_INCLUDED

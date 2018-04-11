@@ -3752,6 +3752,7 @@ FRESULT f_close (
 
 #if !_FS_READONLY
 	res = f_sync(fp);					/* Flush cached data */
+
 	if (res == FR_OK)
 #endif
 	{

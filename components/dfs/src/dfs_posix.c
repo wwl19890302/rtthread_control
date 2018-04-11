@@ -98,6 +98,7 @@ int close(int fd)
     }
 
     result = dfs_file_close(d);
+
     fd_put(d);
 
     if (result < 0)

@@ -311,6 +311,7 @@ static void ds18b20_thread_entry(void* parameter)
 {
     uint8_t i = 0;
 	uint8_t s1[5],s2[5];
+	static flag = 0;
     float temperature;
     while((DS18B20_Init()) && (i<5))
     {
@@ -326,9 +327,10 @@ static void ds18b20_thread_entry(void* parameter)
     {
         temperature = DS18B20_gettemp(0);
         sprintf(s1,"%.2f",temperature);
-        if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1))
-            {/*rt_kprintf("sd detect on \r\n");*/SPI_SD_to_PC();}
-        else    {/*rt_kprintf("sd detect off\r\n");*/SPI_PC_to_SD();}
+        if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1) && (flag==0))
+            {rt_kprintf("sd detect on \r\n");SPI_SD_to_PC();flag = 1;}
+        else if (!GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1) && (flag==1))
+			{rt_kprintf("sd detect off\r\n");SPI_PC_to_SD();flag = 0;}
 //         rt_kprintf("ID:%02x%02x%02x%02x%02x%02x%02x%02x temp:%s\r\n",DS18B20_ID[0][0],
 //                 DS18B20_ID[0][1],DS18B20_ID[0][2],DS18B20_ID[0][3],DS18B20_ID[0][4],
 //                 DS18B20_ID[0][5],DS18B20_ID[0][6],DS18B20_ID[0][7],s1);

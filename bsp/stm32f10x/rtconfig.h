@@ -104,8 +104,8 @@
 #define RT_DFS_ELM_REENTRANT
 /* Number of volumes (logical drives) to be used. */
 #define RT_DFS_ELM_DRIVES			2
-/* #define RT_DFS_ELM_USE_LFN			1 */
-/* #define RT_DFS_ELM_CODE_PAGE			936 */
+/*#define RT_DFS_ELM_USE_LFN			3*/
+/*#define RT_DFS_ELM_CODE_PAGE		437//	936 */
 #define RT_DFS_ELM_MAX_LFN			255
 /* Maximum sector size to be handled. */
 #define RT_DFS_ELM_MAX_SECTOR_SIZE  512
