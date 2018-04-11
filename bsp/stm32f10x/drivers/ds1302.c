@@ -111,7 +111,7 @@ uint8_t DS1302_readbyte(uint8_t addr)
 
 void DS1302_settime(uint8_t time[8])
 {
-    uint8_t i,j,temp;
+    uint8_t i,temp;
 	uint8_t write[7] = {DS1302_WRSEC,DS1302_WRMIN,DS1302_WRHOUR,DS1302_WRDAY,DS1302_WRMON,DS1302_WRWEEK,DS1302_WRYEAR};
 
     DS1302_write(DS1302_WRPROT, 0X00);  //close write protect
@@ -125,26 +125,55 @@ void DS1302_settime(uint8_t time[8])
        DS1302_write(write[i],rtc_init[i]);
 	}
 	DS1302_write(DS1302_WRPROT, 0X80);  //OPEN write protect
-	
-
 }
+
+#ifdef RT_USING_FINSH
+#include <finsh.h>
+void system_settime(uint8_t year, uint8_t mon, uint8_t day, uint8_t hour, uint8_t min,uint8_t sec, uint8_t week)
+{
+    uint8_t i,temp,t[7];
+	uint8_t write[7] = {DS1302_WRSEC,DS1302_WRMIN,DS1302_WRHOUR,DS1302_WRDAY,DS1302_WRMON,DS1302_WRWEEK,DS1302_WRYEAR};
+
+	t[0] = sec;t[1] = min;t[2] = hour;t[3] = day;t[4] = mon;t[5] = week;t[6] = year;
+	
+    DS1302_write(DS1302_WRPROT, 0X00);  //close write protect
+	for(i=0;i<8;i++)
+	{
+		temp = t[i] % 10;
+		t[i] = t[i]/10*16 + temp;
+	}
+ 	for(i=0;i<7;i++)
+	{
+       DS1302_write(write[i],t[i]);
+	}
+	DS1302_write(DS1302_WRPROT, 0X80);  //OPEN write protect
+}
+FINSH_FUNCTION_EXPORT(system_settime, set system time. eg:system_settime(18,4,11,17,55,59,3))
+
+void system_gettime(void)
+{
+	rt_kprintf("%d-%d-%d %d:%d:%dweek%d\r\n",u8time[6],u8time[4],u8time[3],u8time[2],u8time[1],u8time[0],u8time[5]);
+}
+FINSH_FUNCTION_EXPORT(system_gettime, get system time.)
+#endif
 
 void DS1302_readtime(void)
 {
     uint8_t i,temp;
+	uint8_t time[7];
 
-    u8time[0] = DS1302_readbyte(DS1302_RDSEC);
-    u8time[1] = DS1302_readbyte(DS1302_RDMIN);
-    u8time[2] = DS1302_readbyte(DS1302_RDHOUR);
-    u8time[3] = DS1302_readbyte(DS1302_RDDAY);
-    u8time[4] = DS1302_readbyte(DS1302_RDMON);
-    u8time[5] = DS1302_readbyte(DS1302_RDWEEK);
-    u8time[6] = DS1302_readbyte(DS1302_RDYEAR);
+    time[0] = DS1302_readbyte(DS1302_RDSEC);
+    time[1] = DS1302_readbyte(DS1302_RDMIN);
+    time[2] = DS1302_readbyte(DS1302_RDHOUR);
+    time[3] = DS1302_readbyte(DS1302_RDDAY);
+    time[4] = DS1302_readbyte(DS1302_RDMON);
+    time[5] = DS1302_readbyte(DS1302_RDWEEK);
+    time[6] = DS1302_readbyte(DS1302_RDYEAR);
 
 	for(i=0;i<7;i++)
 	{
-		temp = u8time[i] / 16;
-		u8time[i] = temp * 10 + u8time[i]%16;
+		temp = time[i] / 16;
+		u8time[i] = temp * 10 + time[i]%16;
 	}
 
 //    rt_kprintf("%d-%d-%d %d:%d:%dweek%d\r\n",u8time[6],u8time[4],u8time[3],u8time[2],u8time[1],u8time[0],u8time[5]);
