@@ -187,7 +187,9 @@ void rt_hw_board_init(void)
     stm32_hw_pin_init();
 
     rt_hw_usart_init();
+#ifdef  RT_USING_CONSOLE
     rt_console_set_device(RT_CONSOLE_DEVICE_NAME);
+#endif
 
 //     rt_spi_bus_device_init(spi1,"SPI1");
 //    w25qxx_init("w25q64", "SPI1");

@@ -43,6 +43,14 @@
 #define UART4_GPIO_RX        GPIO_Pin_11
 #define UART4_GPIO           GPIOC
 
+/* USART5 */
+#define UART5_TX_PIN    GPIO_Pin_12
+#define UART5_TX_PORT   GPIOC
+#define UART5_TX_RCC    RCC_APB2Periph_GPIOC
+
+#define UART5_RX_PIN    GPIO_Pin_2
+#define UART5_RX_PORT   GPIOD
+#define UART5_RX_RCC    RCC_APB2Periph_GPIOD
 
 /* STM32 uart driver */
 struct stm32_uart
@@ -430,6 +438,34 @@ void DMA2_Channel3_IRQHandler(void) {
 }
 #endif /* RT_USING_UART4 */
 
+#if defined(RT_USING_UART5)
+/* UART5 device driver structure */
+struct stm32_uart uart5 =
+{
+    UART5,
+    UART5_IRQn,
+    {
+        0,
+        0,
+        0,
+        0,
+    },
+};
+struct rt_serial_device serial5;
+
+void UART5_IRQHandler(void)
+{
+    /* enter interrupt */
+    rt_interrupt_enter();
+
+    uart_isr(&serial5);
+
+    /* leave interrupt */
+    rt_interrupt_leave();
+}
+
+#endif /* RT_USING_UART5 */
+
 static void RCC_Configuration(void)
 {
 #if defined(RT_USING_UART1)
@@ -458,6 +494,13 @@ static void RCC_Configuration(void)
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC | RCC_APB2Periph_AFIO, ENABLE);
     /* Enable UART clock */
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_UART4, ENABLE);
+#endif /* RT_USING_UART4 */
+
+#if defined(RT_USING_UART5)
+    /* Enable UART GPIO clocks */
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOD | RCC_APB2Periph_AFIO, ENABLE);
+    /* Enable UART clock */
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_UART5, ENABLE);
 #endif /* RT_USING_UART4 */
 }
 
@@ -510,6 +553,17 @@ static void GPIO_Configuration(void)
     GPIO_InitStructure.GPIO_Pin = UART4_GPIO_TX;
     GPIO_Init(UART4_GPIO, &GPIO_InitStructure);
 #endif /* RT_USING_UART4 */
+
+#if defined(RT_USING_UART5)
+    /* Configure USART Rx/tx PIN */
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    GPIO_InitStructure.GPIO_Pin = UART5_RX_PIN;
+    GPIO_Init(UART5_RX_PORT, &GPIO_InitStructure);
+
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    GPIO_InitStructure.GPIO_Pin = UART5_TX_PIN;
+    GPIO_Init(UART5_TX_PORT, &GPIO_InitStructure);
+#endif /* RT_USING_UART5 */
 }
 
 static void NVIC_Configuration(struct stm32_uart* uart)
@@ -639,4 +693,21 @@ void rt_hw_usart_init(void)
                           RT_DEVICE_FLAG_INT_TX |   RT_DEVICE_FLAG_DMA_RX,
                           uart);
 #endif /* RT_USING_UART4 */
+
+#if defined(RT_USING_UART5)
+    uart = &uart5;
+
+    config.baud_rate = BAUD_RATE_115200;
+
+    serial5.ops    = &stm32_uart_ops;
+    serial5.config = config;
+
+    NVIC_Configuration(uart);
+
+    /* register UART4 device */
+    rt_hw_serial_register(&serial5, "uart5",
+                          RT_DEVICE_FLAG_RDWR | RT_DEVICE_FLAG_INT_RX |
+                          RT_DEVICE_FLAG_INT_TX |   RT_DEVICE_FLAG_DMA_RX,
+                          uart);
+#endif /* RT_USING_UART5 */
 }

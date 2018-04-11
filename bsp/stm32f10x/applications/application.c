@@ -40,6 +40,7 @@
 #include "ds1302.h"
 #include "ds18b20.h"
 #include "adc.h"
+#include "uart5.h"
 #ifdef  RT_USING_SERVO_MOTOR
 #include "servo_motor.h"
 #endif
@@ -145,6 +146,8 @@ int rt_application_init(void)
 
     if (init_thread != RT_NULL)
         rt_thread_startup(init_thread);
+
+    usr_echo_init();
 
     return 0;
 }

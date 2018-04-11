@@ -13,6 +13,7 @@ ds1302.c
 ds18b20.c
 adc.c
 usart.c
+uart5.c
 """)
 
 if GetDepend(['RT_USING_PIN']):

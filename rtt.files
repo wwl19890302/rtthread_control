@@ -3541,3 +3541,5 @@ bsp/stm32f10x/drivers/servo_motor.h
 bsp/stm32f10x/drivers/msd.c
 bsp/stm32f10x/drivers/msd.h
 bsp/stm32f10x/applications/test.c
+bsp/stm32f10x/drivers/uart5.c
+bsp/stm32f10x/drivers/uart5.h
