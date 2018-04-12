@@ -707,7 +707,7 @@ void rt_hw_usart_init(void)
     /* register UART4 device */
     rt_hw_serial_register(&serial5, "uart5",
                           RT_DEVICE_FLAG_RDWR | RT_DEVICE_FLAG_INT_RX |
-                          RT_DEVICE_FLAG_INT_TX |   RT_DEVICE_FLAG_DMA_RX,
+                          RT_DEVICE_FLAG_INT_TX,
                           uart);
 #endif /* RT_USING_UART5 */
 }

@@ -1,69 +1,122 @@
 #include "uart5.h"
 #include "rtthread.h"
 
-struct rx_msg
+//#define USING_RX_CRC_SUM
+
+#define WL_433M_CMD_SIZE    10
+#define WL_433M_RX_BEGIN    ('$')
+#define WL_433M_RX_END      ('\r')
+
+enum rx_stat
 {
-    rt_device_t dev;
-    rt_size_t   size;
+    WAIT_BEGIN,
+    WAIT_END,
 };
 
-static struct rt_messagequeue rx_mq;
-static char uart_rx_buffer[64];
-static char msg_pool[2048];
-
-rt_err_t uart_input(rt_device_t dev, rt_size_t size)
+struct rt_uart_rx
 {
-    struct rx_msg msg;
-    msg.dev = dev;
-    msg.size = size;
+    struct rt_semaphore rx_sem;
+    enum rx_stat stat;
+    uint8_t index;
+    char rx_buffer[WL_433M_CMD_SIZE];
+};
 
-    rt_mq_send(&rx_mq, &msg, sizeof(struct rx_msg));
+struct rt_uart_rx WL_433M_rx;
 
+/* crc sum check */
+uint8_t crc_sum(uint8_t *data, uint8_t length)
+{
+    uint8_t sum = 0;
+    uint8_t i;
+
+    for(i=0;i<length;i++)
+    {
+        sum += *data;
+        data++;
+    }
+    return sum;
+}
+
+rt_err_t WL_433M_uart_input(rt_device_t dev, rt_size_t size)
+{
+    char ch;
+    ch = 0;
+
+    if(rt_device_read(dev, -1, &ch, 1) != 1)
+        return -1;
+
+    if(ch == WL_433M_RX_BEGIN)      //start one cmd
+    {
+        WL_433M_rx.stat = WAIT_END;
+//        index = 0;
+    }
+    else if(WL_433M_rx.stat == WAIT_END)
+    {
+        if(ch == WL_433M_RX_END)        //receive one cmd end
+        {
+            WL_433M_rx.stat = WAIT_BEGIN;
+            rt_sem_release(&WL_433M_rx.rx_sem);
+        }
+        else
+        {
+            WL_433M_rx.rx_buffer[WL_433M_rx.index] = ch;
+            WL_433M_rx.index ++;
+            if(WL_433M_rx.index >= (WL_433M_CMD_SIZE+2))
+            {
+                WL_433M_rx.stat = WAIT_BEGIN;
+                WL_433M_rx.index = 0;
+            }
+        }
+    }
     return RT_EOK;
 }
 
-void usr_echo_thread_entry(void * parameter)
+void WL_433M_thread_entry(void * parameter)
 {
-    struct rx_msg msg;
+
 
     rt_device_t device;
-    rt_err_t result = RT_EOK;
 
-    device = rt_device_find("uart1");
-    if(device != RT_NULL)
+    device = rt_device_find("uart5");
+    if(device == RT_NULL)
     {
-        rt_device_set_rx_indicate(device, uart_input);
-        rt_device_open(device, RT_DEVICE_OFLAG_RDWR);
+        rt_kprintf("WL_433M: can not find device: uart5\n");
+        return;
     }
-rt_kprintf("22\r\n");
+
+    if(rt_device_open(device, RT_DEVICE_OFLAG_RDWR | RT_DEVICE_FLAG_INT_RX) != RT_EOK)
+    {
+        rt_kprintf("uart5: can not open device: uart5\n");
+        return;
+    }
+
+    rt_device_set_rx_indicate(device, WL_433M_uart_input);
+
     while(1)
     {
-        result = rt_mq_recv(&rx_mq, &msg, sizeof(struct rx_msg),50);
-        if(result == -RT_ETIMEOUT)
+        rt_sem_take(&WL_433M_rx.rx_sem, RT_WAITING_FOREVER);
+
+#ifdef  USING_RX_CRC_SUM
+        if(WL_433M_rx.rx_buffer[WL_433M_rx.index-1] == crc_sum(WL_433M_rx.rx_buffer, WL_433M_rx.index-1))
+#endif
         {
-            //timeout ,do nothing
+            WL_433M_rx.rx_buffer[WL_433M_rx.index-1] = '\0';
+            rt_kprintf("%s\r\n",WL_433M_rx.rx_buffer);
+            rt_device_write(device, 0, WL_433M_rx.rx_buffer, WL_433M_rx.index-1);
+            WL_433M_rx.index = 0;
         }
 
-        if(result == RT_EOK)
-        {
-            rt_uint32_t rx_length;
-            rx_length = (sizeof(uart_rx_buffer)-1) > msg.size ? msg.size : sizeof(uart_rx_buffer)-1;
-
-            rx_length = rt_device_read(msg.dev, 0, &uart_rx_buffer[0], rx_length);
-            uart_rx_buffer[rx_length] = '\0';
-
-            rt_device_write(device, 0, &uart_rx_buffer[0],rx_length);
-        }
     }
 }
 
-void usr_echo_init(void)
+void rt_wl_433m_init(void)
 {
     rt_thread_t thread;
 
     rt_err_t result;
 
-    result = rt_mq_init(&rx_mq, "mqt", &msg_pool[0], 128-sizeof(void*), sizeof(msg_pool), RT_IPC_FLAG_FIFO);
+    rt_memset(&WL_433M_rx, 0, sizeof(struct rt_uart_rx));
+    result = rt_sem_init(&WL_433M_rx.rx_sem, "wl_433_rx_sem", 0, RT_IPC_FLAG_FIFO);
 
     if(result != RT_EOK)
     {
@@ -71,7 +124,7 @@ void usr_echo_init(void)
         return;
     }
 
-    thread = rt_thread_create("devt", usr_echo_thread_entry, RT_NULL, 1024, 25, 7);
+    thread = rt_thread_create("WL_433M", WL_433M_thread_entry, RT_NULL, 1024, 25, 7);
     if(thread != RT_NULL)
         rt_thread_startup(thread);
 }

@@ -447,6 +447,16 @@
               <FilePath>drivers\usart.c</FilePath>
             </File>
             <File>
+              <FileName>uart3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>drivers\uart3.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart5.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>drivers\uart5.c</FilePath>
+            </File>
+            <File>
               <FileName>gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>drivers\gpio.c</FilePath>
@@ -475,11 +485,6 @@
               <FileName>servo_motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>drivers\servo_motor.c</FilePath>
-            </File>
-            <File>
-              <FileName>uart5.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\drivers\uart5.c</FilePath>
             </File>
           </Files>
         </Group>

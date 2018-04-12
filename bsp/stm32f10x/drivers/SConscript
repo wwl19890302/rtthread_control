@@ -13,6 +13,7 @@ ds1302.c
 ds18b20.c
 adc.c
 usart.c
+uart3.c
 uart5.c
 """)
 

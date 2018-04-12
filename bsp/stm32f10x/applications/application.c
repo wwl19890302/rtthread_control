@@ -147,7 +147,8 @@ int rt_application_init(void)
     if (init_thread != RT_NULL)
         rt_thread_startup(init_thread);
 
-    usr_echo_init();
+    rt_wl_433m_init();
+    rt_uart_data_init();
 
     return 0;
 }
