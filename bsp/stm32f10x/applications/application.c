@@ -40,7 +40,9 @@
 #include "ds1302.h"
 #include "ds18b20.h"
 #include "adc.h"
+#include "uart3.h"
 #include "uart5.h"
+#include "spi_data.h"
 #ifdef  RT_USING_SERVO_MOTOR
 #include "servo_motor.h"
 #endif
@@ -147,6 +149,7 @@ int rt_application_init(void)
     if (init_thread != RT_NULL)
         rt_thread_startup(init_thread);
 
+    rt_spi_data_init();
     rt_wl_433m_init();
     rt_uart_data_init();
 

@@ -56,8 +56,6 @@ components/drivers/usb/usbdevice/class
 components/drivers/usb/usbhost/class
 components/drivers/wlan
 components/external/cairo
-components/external/jpeg
-components/external/libpng
 components/external/libz
 components/external/lua/exlibs
 components/external/lua/lua
@@ -192,4 +190,3 @@ examples/test
 include
 include/libc
 src
-bsp/stm32f10x/applications

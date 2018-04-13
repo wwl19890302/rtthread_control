@@ -15,6 +15,7 @@ adc.c
 usart.c
 uart3.c
 uart5.c
+spi_data.c
 """)
 
 if GetDepend(['RT_USING_PIN']):

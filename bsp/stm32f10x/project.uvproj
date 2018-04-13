@@ -457,6 +457,11 @@
               <FilePath>drivers\uart5.c</FilePath>
             </File>
             <File>
+              <FileName>spi_data.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>drivers\spi_data.c</FilePath>
+            </File>
+            <File>
               <FileName>gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>drivers\gpio.c</FilePath>
